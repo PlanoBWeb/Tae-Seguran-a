@@ -1,0 +1,26 @@
+<!-- Desktop -->
+<ul class="bloco-menu-lat hidden-xs">
+    <li class="linha-menu-lat-title">
+        <a class="link-menu-lat {if $url[1] == "institucional"} link-menu-lat-ativo{/if}" href="{$URL}quem-somos/institucional">Institucional</a>
+        {if $url[1] == "institucional"}
+            <img class="seta-menuLat-ativo" src="{$URL}commom/img/seta-menu-lat.png" alt="Institucional" title="Institucional">
+        {/if}
+        <a class="link-menu-lat {if $url[1] == "estrutura"} link-menu-lat-ativo{/if}" href="{$URL}quem-somos/estrutura">Estrutura</a>
+        {if $url[1] == "estrutura"}
+            <img class="seta-menuLat-ativo" src="{$URL}commom/img/seta-menu-lat.png" alt="Estrutura" title="Estrutura">
+        {/if}
+        <a class="link-menu-lat {if $url[1] == "responsabilidade-social"} link-menu-lat-ativo{/if}" href="{$URL}quem-somos/responsabilidade-social">Responsabilidade Social</a>
+        {if $url[1] == "responsabilidade-social"}
+            <img class="seta-menuLat-ativo" src="{$URL}commom/img/seta-menu-lat.png" alt="Responsabilidade Social" title="Responsabilidade Social">
+        {/if}
+    </li>
+</ul>
+<!-- Mobile -->
+<form class="visible-xs-block" action="{$URL}">
+    <select class="form-control select-menuLat-mob" name="menu-lateral">
+        <option>Escolha um servico</option>
+        <option value="{$URL}quem-somos/institucional">Institucional</option>
+        <option value="{$URL}quem-somos/estrutura">Estrutura</option>
+        <option value="{$URL}quem-somos/responsabilidade-social">Responsabilidade Social</option>
+    </select>
+</form>

@@ -1,0 +1,251 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="index, follow">
+        <meta name="description" content="" />
+        <link href="{$URL}commom/img/icon-tab.png" rel="icon">
+        {include file="../inc/cssUrlAmigavel.html"}
+        <link rel="stylesheet" type="text/css" href="{$URL}commom/css/estilo.css">
+        <title>Tae Segurança</title>
+        <!-- Bootstrap -->
+        <link href="{$URL}commom/css/bootstrap.min.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+         <!-- vitrine -->
+            <link rel="stylesheet" type="text/css" href="{$URL}commom/css/vitrine/owl.carousel.css">
+            <link rel="stylesheet" type="text/css" href="{$URL}commom/css/vitrine/owl.theme.css">
+            <link rel="stylesheet" type="text/css" href="{$URL}commom/css/vitrine/owl.transitions.css">
+        <!-- vitrine -->
+    </head>
+    <body itemscopeitemtype="http://schema.org/WebPage">
+    {include file="../inc/header.html"}
+    <!-- Inicio Banner -->
+    <article class="col-xs-12 col-sm-12 col-md-12">
+        
+    </article> 
+    <!-- Fim Banner -->
+    <div class="vitrine-index bg-servico-interna">
+        <div class="width-default">
+            <p class="titulo-banner-interna">
+                {if $dados[0].urlAmigavelCat == "servicos-de-limpeza"}
+                    Serviços de limpeza
+                {elseif $dados[0].urlAmigavelCat == "servicos-de-seguranca"}
+                    Serviços de segurança
+                {elseif $dados[0].urlAmigavelCat == "servicos-terceirizados"}
+                    Serviços terceirizados
+                {/if}
+            </p>
+            {include file="../inc/breadcrumb.html"}
+        </div>
+    </div>
+    <section class="container">
+        <div class="width-default">
+            <div class="col-xs-12 col-sm-3 col-md-3 pd-lf-none">
+                {include file="../inc/menu-lateral.html"}
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6 pd-lf-none">
+                        <h1 class="titulo-destaque">{$dados[0].nome}</h1>
+                        {if $dados[0].urlAmigavelCat == "servicos-de-limpeza"}
+                            <div class="max-width-title"><span class="linha-titulo-cinza"></span><span class="linha-titulo-laranja linha-titulo-cinza-escuro"></span></div>
+                        {elseif $dados[0].urlAmigavelCat == "servicos-terceirizados"}
+                            <div class="max-width-title"><span class="linha-titulo-cinza"></span><span class="linha-titulo-laranja linha-titulo-azul"></span></div>
+                        {else}
+                            <div class="max-width-title"><span class="linha-titulo-cinza"></span><span class="linha-titulo-laranja"></span></div>
+                        {/if}                        
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="atend-on bloco-atributos mg-none pull-right">
+                            <img class="pull-left" src="{$URL}commom/img/solicite-orcamento.png" alt="solicite orçamento">    
+                            <p class="txt-atend-on pull-left">Solicite um Orçamento Agora!</p>
+                        </div>
+                        <div class="content-form-fixed content-form-fixed-tae">
+                            <img class="img-bg-orcamento" src="{$URL}commom/img/background-orcamento.png" alt="orçamento">
+                            {include file=../inc/formFixed.html}
+                        </div>
+                    </div>
+                </div>
+                <div class="row bloco-atributos bloco-servico">
+                    <div class="row">
+                        <div class="block-center">
+                            {if $dados[0].urlAmigavelCat == "servicos-de-seguranca"}                                            
+                                <div class="pull-left bd-tp-laranja">
+                                    <img src="{$URL}commom/img/bg-laranja.png" alt="{$dados[0].nome}" title="{$dados[0].nome}" class="bg-servicos">
+                            {elseif $dados[0].urlAmigavelCat == "servicos-terceirizados"}
+                                <div class="pull-left bd-tp-azul">
+                                    <img src="{$URL}commom/img/bg-azul.png" alt="{$dados[0].nome}" title="{$dados[0].nome}" class="bg-servicos">
+                            {else}
+                                <div class="pull-left bd-tp-cinza">
+                                    <img src="{$URL}commom/img/bg-cinza.png" alt="{$dados[0].nome}" title="{$dados[0].nome}" class="bg-servicos">
+                            {/if}    
+                                {if $dados[0].caminhoImagem}
+                                    <img class="pd-bt-20" src="{$URL}{$dados[0].caminhoImagem}" alt="{$dados[0].nome}" title="{$dados[0].nome}">
+                                {/if}
+                            </div>
+                        </div>
+                    </div>
+                    <p class="txt-default">
+                        <!-- {$dados[0].texto} -->
+                        {include file=$dados[0].texto}
+                    </p>
+                </div>
+                <!-- {section name=i loop=$dadosVejaTbm}
+                    <div class="col-xs-12 col-sm-4 col-md-4 pd-none">
+                        <div class="row">
+                            <div class="img-veja-tbm pull-left">
+                                <a href="{$URL}servicos/{$dadosVejaTbm[i].urlAmigavelCat}/{$dadosVejaTbm[i].urlAmigavel}">
+                                    <img class="" src="{$URL}{$dadosVejaTbm[i].caminhoImagemThumbMini}" alt="{$dadosVejaTbm[i].nome}" title="{$dadosVejaTbm[i].nome}">
+                                </a>
+                            </div>
+                            <h2 class="titulo-veja-tbm pull-left"><a href="{$URL}servicos/{$dadosVejaTbm[i].urlAmigavelCat}/{$dadosVejaTbm[i].urlAmigavel}">{$dadosVejaTbm[i].nome}</a></h2>
+                        </div>
+                    </div>
+                {/section} -->
+
+
+                <!-- SERVIÇOS RELACIONADOS -->
+                {assign var="nmCategoria" value=""}
+                {assign var="cor" value=""}
+                {section name=i loop=$retornoRelacionados}
+
+                    {if $nmCategoria <> $retornoRelacionados[i].urlAmigavelCat}
+                        {assign var="nmCategoria" value=$retornoRelacionados[i].urlAmigavelCat}
+
+                        <!-- VERIFICA O O TIPO DE SERVIÇO -->
+                        {if $nmCategoria == "servicos-de-seguranca"}
+                            {assign var="cor" value="laranja"}
+                            <div class="bloco-atributos bloco-veja-tbm">
+                                <div class="row">
+                                    <p class="titulo-destaque">Serviços Relacionados - SEGURANÇA</p>
+                                    <div class="max-width-title"><span class="linha-titulo-cinza"></span><span class="linha-titulo-laranja"></span></div>
+                                </div>
+                                <div class="row pd-tp-10">
+                        {/if}
+                        {if $nmCategoria == "servicos-terceirizados"}
+                            {assign var="cor" value="azul"}
+                            <div class="bloco-atributos bloco-veja-tbm mg-tp-10">
+                                <div class="row">
+                                    <p class="titulo-destaque">Serviços Relacionados - TERCEIRIZADOS</p>
+                                    <div class="max-width-title"><span class="linha-titulo-cinza"></span><span class="linha-titulo-laranja linha-titulo-azul"></span></div>
+                                </div>
+                                <div class="row pd-tp-10">
+                        {/if}
+                        {if $nmCategoria == "servicos-de-limpeza"}
+                            {assign var="cor" value="cinza"}
+                            <div class="bloco-atributos bloco-veja-tbm mg-tp-10">
+                                <div class="row">
+                                    <p class="titulo-destaque">Serviços Relacionados - LIMPEZA</p>
+                                    <div class="max-width-title"><span class="linha-titulo-cinza"></span><span class="linha-titulo-laranja linha-titulo-cinza-escuro"></span></div>
+                                </div>
+                                <div class="row pd-tp-10">
+                        {/if}
+                        
+                    {/if}
+
+
+
+                                <div class="col-xs-12 col-sm-6 col-md-6 mg-bt-50 largura-default-bloco">
+                                    <div class="row">
+                                        <div class="pull-left bd-tp-{$cor}">
+                                            <a href="{$URL}servicos/{$retornoRelacionados[i].urlAmigavelCat}/{$retornoRelacionados[i].urlAmigavel}">
+                                                <img src="{$URL}commom/img/bg-{$cor}.png" alt="" title="" class="bg-servicos">
+                                                <img src="{$URL}{$retornoRelacionados[i].caminhoImagemThumb}" alt="{$retornoRelacionados[i].nome}" title="{$retornoRelacionados[i].nome}">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <h2 class="titulo-servicos-home"><a href="{$URL}servicos/{$retornoRelacionados[i].urlAmigavelCat}/{$retornoRelacionados[i].urlAmigavel}">{$retornoRelacionados[i].nome}</a></h2>
+                                </div>
+                    {assign var="nmCategoria" value=$retornoRelacionados[i].urlAmigavelCat}
+                {/section}
+
+                {if $nmCategoria <> ""}
+                        </div>
+                    </div>
+                {/if}
+                <!-- FIM - SERVIÇOS RELACIONADOS -->
+
+
+                <!-- Serviços Relacionados - SEGURANÇA -->
+                <!-- <div class="bloco-atributos bloco-veja-tbm">
+                    <div class="row">
+                        <p class="titulo-destaque">Serviços Relacionados - SEGURANÇA {$testeBR}</p>
+                        <div class="max-width-title"><span class="linha-titulo-cinza"></span><span class="linha-titulo-laranja"></span></div>
+                    </div>
+                    <div class="row pd-tp-10">
+                        <div class="col-xs-12 col-sm-6 col-md-6 mg-bt-50 largura-default-bloco">
+                            <div class="row">
+                                <div class="pull-left bd-tp-laranja">
+                                    <a href="{$URL}servicos">
+                                        <img src="{$URL}commom/img/bg-laranja.png" alt="" title="" class="bg-servicos">
+                                        <img src="{$URL}commom/img/servicos/servicos-terceirizados/jardinagem-pq.jpg" alt="" title="">
+                                    </a>
+                                </div>
+                            </div>
+                            <h2 class="titulo-servicos-home"><a href="{$URL}servicos/">Segurança patrimonial nono ononon ononon</a></h2>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- FIM - Serviços Relacionados - SEGURANÇA -->
+
+                <!-- Serviços Relacionados - TERCEIRIZAÇÃO -->
+                <!-- <div class="bloco-atributos bloco-veja-tbm mg-tp-10">
+                    <div class="row">
+                        <p class="titulo-destaque">veja também</p>
+                        <div class="max-width-title"><span class="linha-titulo-cinza"></span><span class="linha-titulo-laranja linha-titulo-azul"></span></div>
+                    </div>
+                    <div class="row pd-tp-10">
+                        <div class="col-xs-12 col-sm-6 col-md-6 mg-bt-50 largura-default-bloco">
+                            <div class="row">
+                                <div class="pull-left bd-tp-azul">
+                                    <a href="{$URL}servicos">
+                                        <img src="{$URL}commom/img/bg-azul.png" alt="" title="" class="bg-servicos">
+                                        <img src="{$URL}commom/img/servico1.jpg" alt="" title="">
+                                    </a>
+                                </div>
+                            </div>
+                            <h2 class="titulo-servicos-home titulo-servicos-home-azul"><a href="{$URL}servicos/">Segurança patrimonial</a></h2>
+                        </div> 
+                    </div>
+                </div> -->
+                <!-- FIM - Serviços Relacionados - TERCEIRIZAÇÃO -->
+
+                <!-- Serviços Relacionados - LIMPEZA -->
+                <!-- <div class="bloco-atributos bloco-veja-tbm mg-tp-10">
+                    <div class="row">
+                        <p class="titulo-destaque">veja também</p>
+                        <div class="max-width-title"><span class="linha-titulo-cinza"></span><span class="linha-titulo-laranja linha-titulo-cinza-escuro"></span></div>
+                    </div>
+                    <div class="row pd-tp-10">
+                        <div class="col-xs-12 col-sm-6 col-md-6 mg-bt-50 largura-default-bloco">
+                            <div class="row">
+                                <div class="pull-left bd-tp-cinza">
+                                    <a href="{$URL}servicos">
+                                        <img src="{$URL}commom/img/bg-cinza.png" alt="" title="" class="bg-servicos">
+                                        <img src="{$URL}commom/img/servico1.jpg" alt="" title="">
+                                    </a>
+                                </div>
+                            </div>
+                            <h2 class="titulo-servicos-home titulo-servicos-home-cinza"><a href="{$URL}servicos/">Segurança patrimonial</a></h2>
+                        </div> 
+                    </div>
+                </div> -->
+                <!-- FIM - Serviços Relacionados - LIMPEZA -->
+                    
+            </div>
+            <!-- Inicio  -->
+            <div class="row">
+               
+            </div>
+            <!-- Fim  -->
+        </div>
+    </section>
+    {include file="../inc/footer.html"}    
+</html>

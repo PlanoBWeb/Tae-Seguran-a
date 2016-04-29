@@ -1,0 +1,70 @@
+<div class="col-xs-12 col-sm-12 col-md-12 bloco-menu-lateral">
+   <div class="encapsula-menu-lat-blog">
+      <div class="bloco-links-blog">
+         <div class="bloco-titulo-menu-lat"><p class="titulo-menu-lat-blog">notícias recentes</p><br></div>
+         {if $dadosMenuBlog}
+            {section name=i loop=$dadosMenuBlog}   
+                  <div class="bloco-noticia-destaque">
+                     <a class="txt-desc-noticias " href="{$URL}noticia/{$dadosMenuBlog[i].urlAmigavel}">{$dadosMenuBlog[i].titulo}</a>
+                  </div>
+            {/section}
+         {else}
+            <p class="txt-desc-noticias ">Não existe destaques</p>
+         {/if}
+      </div>
+      <div class="bloco-links-blog">
+         <div class="bloco-titulo-menu-lat"><p class="titulo-menu-lat-blog">Arquivos</p></div>
+         <nav class="menu-lateral">
+            <ul>
+               {assign var="nmTipo" value=$nmTipo|default:""}
+               {section name=i loop=$dadosMenuBlogAnoMes}   
+                     {if $nmTipo <> $dadosMenuBlogAnoMes[i].dataMes[0]}
+                           </ul>
+                        </li>
+                        <li class="linha-menu-lateral"><a class="ano-menu-lateral link-menu-lateral " href="">{$dadosMenuBlogAnoMes[i].dataMes[0]}</a>
+                        <ul class="submenu-ano">                     
+                     {/if}
+                     {assign var="nmTipo" value=$dadosMenuBlogAnoMes[i].dataMes[0]}
+
+                     {assign var="nmTipoMes" value=$nmTipoMes|default:""}
+                     {assign var="nmTipoAno" value=$nmTipoAno|default:""}
+                        {if $nmTipoMes <> $dadosMenuBlogAnoMes[i].Mes || $nmTipoAno <> $dadosMenuBlogAnoMes[i].dataMes[0]}
+                           <li class="linha-menu-lateral">
+                              <a class="link-menu-lateral " href="{$URL}noticias/arquivos/{$dadosMenuBlogAnoMes[i].dataMes[0]}/{$dadosMenuBlogAnoMes[i].dataMes[1]}"> » {$dadosMenuBlogAnoMes[i].Mes}</a>
+                           </li>
+                        {/if}
+                     {assign var="nmTipoMes" value=$dadosMenuBlogAnoMes[i].Mes}
+                     {assign var="nmTipoAno" value=$dadosMenuBlogAnoMes[i].dataMes[0]}
+               {/section}  
+            </ul>
+         </nav>
+      </div>
+      <div class="bloco-links-blog">
+         <div class="bloco-titulo-menu-lat"><p class="titulo-menu-lat-blog">Categorias</p></div>
+         <nav class="menu-lateral">
+            <ul>
+               {section name=i loop=$dadosCategoria}   
+                  <li class="linha-menu-lateral"><a class="link-menu-lateral " href="{$URL}noticias/categoria/{$dadosCategoria[i].urlAmigavelCat}">{$dadosCategoria[i].nomeCategoria}</a></li>
+               {/section}  
+            </ul>
+         </nav>
+      </div>
+      <div class="bloco-links-blog bloco-tags">
+         <div class="bloco-titulo-menu-lat"><p class="titulo-menu-lat-blog">Tags</p></div>
+         <div class="bloco-noticia-destaque">
+            {section name=i loop=$dadosTags}  
+               <a class="tags-lateral " href="{$URL}noticias/tags/{$dadosTags[i]}">{$dadosTags[i]}</a>
+            {/section} 
+         </div>
+      </div>
+      <div class="bloco-links-blog bloco-tags">
+         <form action="{$URL}noticias" class="form-search form-busca-desk" method="post" name="form_search">
+            <input type="hidden" name="acao" value="busca">
+            <input type="hidden" class="urlAction" name="urlAction" value="{$URL}noticias">
+            <input class="input-busca" id="buscaValor" autocomplete="off" type="search" name="search" placeholder="PESQUISAR...">
+            <input class="btn-ok cinza input-submit-busca font-normal fl-left" type="submit" value="ok">
+            <div  id="carrega-busca" class="carrega-busca"></div>
+         </form>
+      </div> 
+   </div>
+</div>

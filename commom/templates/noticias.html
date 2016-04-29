@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="index, follow">
+        <meta name="description" content="" />
+        <link href="{$URL}commom/img/icon-tab.png" rel="icon">
+        {include file="../inc/cssUrlAmigavel.html"}
+        <link rel="stylesheet" type="text/css" href="{$URL}commom/css/estilo.css">
+        <title>Tae Segurança</title>
+        <!-- Bootstrap -->
+        <link href="{$URL}commom/css/bootstrap.min.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+         <!-- vitrine -->
+            <link rel="stylesheet" type="text/css" href="{$URL}commom/css/vitrine/owl.carousel.css">
+            <link rel="stylesheet" type="text/css" href="{$URL}commom/css/vitrine/owl.theme.css">
+            <link rel="stylesheet" type="text/css" href="{$URL}commom/css/vitrine/owl.transitions.css">
+        <!-- vitrine -->
+    </head>
+    <body itemscopeitemtype="http://schema.org/WebPage">
+    {include file="../inc/header.html"}
+    <!-- Inicio Banner -->
+    <div class="breadcrumb-faixa">
+         {include file="../inc/breadcrumb.html"}
+    </div>
+    <section class="container">
+        <div class="width-default">
+            <div class="col-xs-12 col-sm-8 col-md-8 pd-lf-none-desk">
+               <div class="row bloco-atributos bloco-servico">
+                  {if $dados}
+                     <div class="row">
+                        {section name=i loop=$dados}
+                           <div class="col-xs-12 col-sm-6 col-md-6 mg-bt-50 pd-lf-none espacamento-blocos">
+                              <div class="row">
+                                 {if $dados[i].caminhoImagemThumb}
+                                    <div class="pull-left">
+                                       <a href="{$URL}noticia/{$dados[i].urlAmigavel}">
+                                          <img src="{$URL}{$dados[i].caminhoImagemThumb}" alt="{$dados[0].titulo}" title="{$dados[0].titulo}">
+                                       </a>
+                                    </div>
+                                 {/if}
+                              </div>
+                              <h2 class="titulo-noticias"><a href="{$URL}noticia/{$dados[i].urlAmigavel}">{$dados[i].tituloAbrev}</a></h2>
+                              <a href="{$URL}noticia/{$dados[i].urlAmigavel}" class="txt-servicos-home txt-servicos-home-azul">{$dados[i].textoAbrev}</a>
+                              <a href="{$URL}noticia/{$dados[i].urlAmigavel}" class="txt-servicos-home txt-servicos-home-azul"><strong>Continue lendo  »</strong></a>
+                           </div>
+                        {/section}
+                     </div>
+                     <!-- <div class="col-xs-12 col-sm-6 col-md-6 mg-bt-50 pd-lf-none espacamento-blocos">
+                        <div class="row">
+                            <div class="pull-left">
+                                <a href="{$URL}">
+                                    <img src="{$URL}commom/img/servico1.jpg" alt="Congresso Internacional de Segurança">
+                                </a>
+                            </div>
+                        </div>
+                        <h2 class="titulo-noticias"><a href="{$URL}">Congresso Internacional de Segurança</a></h2>
+                        <a href="{$URL}" class="txt-servicos-home txt-servicos-home-azul">“This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet...</a>
+                        <a href="{$URL}" class="txt-servicos-home txt-servicos-home-azul"><strong>Continue lendo  »</strong></a>
+                     </div> -->
+                     {if $totalPaginas > 1}
+                        <div class="row">
+                           <div class="bloco-paginacao">
+                              {if $postBusca == ""}
+                                 {if $anoPaginacao}
+                                    <form method="post" action="" class="pull-left">
+                                       <input type="hidden" name="ano" value="{$anoPaginacao}">
+                                       <input type="hidden" name="mes" value="{$mesPaginacao}">
+                                       <input type="hidden" name="p" value="{$Numpaginas[1]}">
+                                       <input class="link-paginacao" type="submit" value="&lt;&lt;">
+                                    </form>
+                                 {elseif $idCatPaginacao}
+                                    <form method="post" action="" class="pull-left">
+                                       <input type="hidden" name="idCat" value="{$idCatPaginacao}">
+                                       <input type="hidden" name="p" value="{$Numpaginas[1]}">
+                                       <input class="link-paginacao" type="submit" value="&lt;&lt;">
+                                    </form>
+                                 {elseif $tagPaginacao}
+                                    <form method="post" action="" class="pull-left">
+                                       <input type="hidden" name="tag" value="{$tagPaginacao}">
+                                       <input type="hidden" name="p" value="{$Numpaginas[1]}">
+                                       <input class="link-paginacao" type="submit" value="&lt;&lt;">
+                                    </form>
+                                 {else}
+                                    <form method="post" action="" class="pull-left">
+                                       <input type="hidden" name="p" value="{$Numpaginas[1]}">
+                                       <input class="link-paginacao" type="submit" value="&lt;&lt;">
+                                    </form>
+                                 {/if}
+                              {/if}
+                              {section start=1 name=i loop=$Numpaginas}
+                                 {if $anoPaginacao}
+                                    <form method="post" action="" class="pull-left">
+                                       <input type="hidden" name="ano" value="{$anoPaginacao}">
+                                       <input type="hidden" name="mes" value="{$mesPaginacao}">
+                                       <input type="hidden" name="p" value="{$Numpaginas[i]}">
+                                       <input class="link-paginacao {if $Numpaginas[i] == $smarty.get.p} link-paginacao-ativo {/if}" type="submit" value="{$Numpaginas[i]}">
+                                    </form>
+                                 {elseif $idCatPaginacao}
+                                    <form method="post" action="" class="pull-left">
+                                       <input type="hidden" name="idCat" value="{$idCatPaginacao}">
+                                       <input type="hidden" name="p" value="{$Numpaginas[i]}">
+                                       <input class="link-paginacao {if $Numpaginas[i] == $smarty.get.p} link-paginacao-ativo {/if}" type="submit" value="{$Numpaginas[i]}">
+                                    </form>
+                                 {elseif $tagPaginacao}
+                                    <form method="post" action="" class="pull-left">
+                                       <input type="hidden" name="tag" value="{$tagPaginacao}">
+                                       <input type="hidden" name="p" value="{$Numpaginas[i]}">
+                                       <input class="link-paginacao {if $Numpaginas[i] == $smarty.get.p} link-paginacao-ativo {/if}" type="submit" value="{$Numpaginas[i]}">
+                                    </form>
+                                 {elseif $postBusca}
+                                    <form method="post" action="" class="pull-left">
+                                       <input type="hidden" name="search" value="{$postBusca}">
+                                       <input type="hidden" name="acao" value="busca">
+                                       <input type="hidden" name="p" value="{$Numpaginas[i]}">
+                                       <input class="link-paginacao {if $Numpaginas[i] == $smarty.get.p} link-paginacao-ativo {/if}" type="submit" value="{$Numpaginas[i]}">
+                                    </form>
+                                 {else}
+                                    <form method="post" action="" class="pull-left">
+                                       <input type="hidden" name="p" value="{$Numpaginas[i]}">
+                                       <input class="link-paginacao {if $Numpaginas[i] == $smarty.get.p} link-paginacao-ativo {/if}" type="submit" value="{$Numpaginas[i]}">
+                                    </form>
+                                 {/if}
+                              {/section}
+                              {if $postBusca == ""}
+                                 {if $anoPaginacao}
+                                    <form method="post" action="" class="pull-left">
+                                       <input type="hidden" name="ano" value="{$anoPaginacao}">
+                                       <input type="hidden" name="mes" value="{$mesPaginacao}">
+                                       <input type="hidden" name="p" value="{$ultimaPaginacao}">
+                                       <input class="link-paginacao" type="submit" value="&gt;&gt;">
+                                    </form>
+                                 {elseif $idCatPaginacao}
+                                    <form method="post" action="" class="pull-left">
+                                       <input type="hidden" name="idCat" value="{$idCatPaginacao}">
+                                       <input type="hidden" name="p" value="{$ultimaPaginacao}">
+                                       <input class="link-paginacao" type="submit" value="&gt;&gt;">
+                                    </form>
+                                 {elseif $tagPaginacao}
+                                    <form method="post" action="" class="pull-left">
+                                       <input type="hidden" name="tag" value="{$tagPaginacao}">
+                                       <input type="hidden" name="p" value="{$ultimaPaginacao}">
+                                       <input class="link-paginacao" type="submit" value="&gt;&gt;">
+                                    </form>
+                                 {else}
+                                    <form method="post" action="" class="pull-left">
+                                       <input type="hidden" name="p" value="{$ultimaPaginacao}">
+                                       <input class="link-paginacao" type="submit" value="&gt;&gt;">
+                                    </form>
+                                 {/if}
+                              {/if}   
+                           </div>
+                        </div>
+                     {/if}
+                  {else}
+                     <br><br>
+                     <p class="sem-resultado">Nenhum resultado encontrado!</p>
+                  {/if}
+               </div>
+            </div>
+            <!-- Inicio  -->
+            <div class="col-xs-12 col-sm-4 col-md-4 pd-lf-none">
+                {include file="../inc/menu-lateral-blog.html"}
+            </div>
+            <!-- Fim  -->
+        </div>
+    </section>
+    {include file="../inc/footer.html"}    
+</html>

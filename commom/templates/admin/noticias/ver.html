@@ -1,0 +1,58 @@
+﻿{include file="admin/topo.html"}
+	<!-- Conteúdo -->
+	<div class="container">
+		<form class="form-ver">
+
+			<h1 class="titulo-pag">Noticia</h1>
+
+			<label><strong>Titulo:</strong></label>
+			<input type="text" disabled value="{$dados[0].titulo}">	
+
+			<!-- <label><strong>*Titulo Inglês:</strong></label>
+			<input type="text" disabled value="{$dados[0].titulo_I}">	 -->
+
+			<label><strong>Por:</strong></label>
+			<input type="text" disabled value="{$dados[0].por}">	
+
+			<label><strong>Data:</strong></label>
+			<input type="text" disabled value="{$dados[0].data}">	
+
+			<label><strong>Texto:</strong></label>
+			<textarea disabled>{$dados[0].textoSemTag}</textarea>
+<!-- 
+			<label><strong>*Texto Inglês:</strong></label>
+			<textarea disabled>{$dados[0].textoSemTag_I}</textarea> -->
+
+			<label><strong>Tags:</strong></label>
+			<input type="text" disabled value="{$dados[0].tag}">	
+
+			<!-- <label><strong>*Tags Inglês:</strong></label>
+			<input type="text" disabled value="{$dados[0].tag_I}"> -->	
+
+			<label>Categoria:</label>
+			<input type="text" disabled value="{$dados[0].nomeCategoria}">
+
+			<label><strong>Imagem:</strong></label>
+			{if $dados[0].caminhoImagem}
+				<img src="{$dados[0].caminhoImagem}" width="250" border="0">
+			{else}
+				<label><strong>Não existe imagem cadastrada</strong></label>
+			{/if}
+			
+			<label><strong>Imagem Thumb:</strong></label>
+			{if $dados[0].caminhoImagemThumb}
+				<img src="{$dados[0].caminhoImagemThumb}" style="max-width: 200px;" border="0">
+			{else}
+				<label><strong>Não existe imagem cadastrada</strong></label>
+			{/if}
+
+			<label><strong>Noticia em destaque:</strong></label>
+			{if $dados[0].destaque} <label><strong>Sim</strong></label> {else} <label><strong>Não</strong></label> {/if}
+		
+			<br>
+			<br>
+			<a href="adm_noticias.php?acao=pesquisar" class="btn-form" ><< voltar</a>
+		</form>
+	</div>
+	<!-- FIM Conteúdo -->
+{include file="admin/rodape.html"}

@@ -1,0 +1,34 @@
+<?php /* Smarty version 2.6.12, created on 2016-04-28 20:08:09
+         compiled from conteudo/recepcao-e-atendimento.html */ ?>
+O primeiro contato de seu cliente ou visitante se faz através da recepcionista ou atendente, pois são responsáveis pelas solicitações e informações iniciais.<br/><br/>
+Por esse motivo, a TAE Segurança prima pelo cuidado com a imagem, que deve estar pautadas na cordialidade, prestatividade, educação, profissionalismo e competência, realizando rígidas seleções, treinamentos e qualificações constantes para garantir a satisfação de nossos clientes.
+<br/><br/>
+
+<h2 class="titulo-destaque 2">
+    Diferenciais dos nossos serviços
+</h2>
+<blockquote class="blockquote-conteudo">
+<li>Supervisão operacional: atuação 24 horas por dia.</li>
+<li>Cursos teóricos, práticos e comportamentais </li>
+<li>Simulações para melhor preparo dos profissionais</li>
+<li>Uniformes padronizados e identificação funcional</li>
+</blockquote>
+
+<h2 class="titulo-destaque 2">
+    Aplicações do serviços:
+</h2>
+<blockquote class="blockquote-conteudo">
+<li>Condomínios residenciais e comerciais</li>
+<li>Clubes </li>
+<li>Hotéis</li>
+<li>Hospitais</li>
+<li>Instituições educacionais</li>
+<li>Comercio</li>
+<li>Eventos</li>
+<li>Bancos e Instituições Financeiras</li>
+<li>Construtoras</li>
+<li>Clinicas e Consultórios</li>
+<li>Coletivas de Imprensa</li>
+<li>Festas</li>
+<li>Shows</li>
+</blockquote>

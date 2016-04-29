@@ -1,0 +1,35 @@
+<!-- Desktop -->
+<ul class="bloco-menu-lat hidden-xs">
+    <!-- <li class="linha-menu-lat-title">
+        <a class="link-menu-lat link-menu-lat-ativo" href="{$URL}escolta-armada">Escolta Armada</a>
+        <ul class="block-sub-lat">
+            <li class="linha-menu-lat">
+                <a href="{$URL}">servico1</a> 
+            </li>
+        </ul>
+    </li> -->
+    {section name=i loop=$dadosMenu}
+        <li class="linha-menu-lat-title">
+            <a class="link-menu-lat {if $url[2] == $dadosMenu[i].urlAmigavel} link-menu-lat-ativo{/if}" href="{$URL}servicos/{$dadosMenu[i].urlAmigavelCat}/{$dadosMenu[i].urlAmigavel}">{$dadosMenu[i].nome}</a>
+            
+            {if $url[2] == $dadosMenu[i].urlAmigavel}
+                <img class="seta-menuLat-ativo" src="{$URL}commom/img/seta-menu-lat.png" alt="{$dadosMenu[i].nome}">
+            {/if}
+        </li>
+    {/section}
+</ul>
+
+
+<!-- Mobile -->
+<form class="visible-xs-block" action="{$URL}">
+    <select class="form-control select-menuLat-mob" name="menu-lateral">
+        <option>Escolha um servico</option>
+        <option value="{$URL}escolta-armada">Escolta Armada</option>
+        <option value="{$URL}">Segurança Patrimonial</option>
+        <option value="{$URL}">Segurança Pessoal</option>
+        <option value="{$URL}">Segurança para Eventos</option>
+        <option value="{$URL}">Segurança Eletrônica / CFTV</option>
+        <option value="{$URL}">Monitoramento de Alarmes</option>
+        <option value="{$URL}">Portaria Digital</option>
+    </select>
+</form>

@@ -1,0 +1,273 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="index, follow">
+        <meta name="description" content="" />
+        <link href="{$URL}commom/img/icon-tab.png" rel="icon">
+        {include file="../inc/cssUrlAmigavel.html"}
+        <link rel="stylesheet" type="text/css" href="{$URL}commom/css/estilo.css">
+        <title>Tae Segurança</title>
+        <!-- Bootstrap -->
+        <link href="{$URL}commom/css/bootstrap.min.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+         <!-- vitrine -->
+            <link rel="stylesheet" type="text/css" href="{$URL}commom/css/vitrine/owl.carousel.css">
+            <link rel="stylesheet" type="text/css" href="{$URL}commom/css/vitrine/owl.theme.css">
+            <link rel="stylesheet" type="text/css" href="{$URL}commom/css/vitrine/owl.transitions.css">
+        <!-- vitrine -->
+    </head>
+    <body>
+    {include file="../inc/header.html"}
+    <!-- Inicio Banner -->
+    <article class="hidden-xs col-sm-12 col-md-12">
+        <div id="demo" class="vitrine-index">
+            <div class="row">
+                <div class="span12">
+                    <div id="owl-demo" class="owl-carousel">
+                        <div class="item">
+                            <div class="width-default">
+                                <div class="bloco-bg-banner"></div>
+                                <div class="bloco-desc-banner">
+                                    <p class="titulo-banner-home">Portaria Digital</p>
+                                    <p class="subtitulo-banner-home">A sua portaria informatizada<br>Segurança e agilidade no dia a dia</p>
+                                    <a class="saiba-mais-vitrine" href="{$URL}">Saiba mais</a>
+                                </div>
+                            </div>
+                            <img src="{$URL}commom/img/banner.jpg" alt="banner" title="banner">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </article> 
+    <!-- Fim Banner -->
+    <!-- Inicio Destaque Baixo banner -->
+    <div class="destaque-baixo-banner bloco-atributos">
+        <div class="width-default">
+            <h1 class="titulo-dest-home">TAE Segurança Privada e Pessoal • Escolta Armada •  Serviços Terceirizados</h1>
+            <a class="saiba-mais-vitrine" href="{$URL}">Saiba mais</a>
+        </div>
+    </div>
+    <!-- Fim Destaque Baixo banner -->
+    <section class="container">
+        <div class="width-default">
+            <!-- Inicio Servicos destaques -->
+            <div class="row">
+                <div class="row">
+                    {if $dadosDestFooter[0]}
+                        <div class="col-xs-12 col-sm-4 col-md-4 mg-bt-50">
+                            <div class="row">
+                                {if $dadosDestFooter[0].caminhoImagemThumb}
+                                    <div class="pull-left bd-tp-laranja">
+                                        <a href="{$URL}servicos/{$dadosDestFooter[0].urlAmigavelCat}/{$dadosDestFooter[0].urlAmigavel}">
+                                            <img src="{$URL}commom/img/bg-laranja.png" alt="{$dadosDestFooter[0].nome}" title="{$dadosDestFooter[0].nome}" class="bg-servicos">
+                                            <img src="{$URL}{$dadosDestFooter[0].caminhoImagemThumb}" alt="{$dadosDestFooter[0].nome}" title="{$dadosDestFooter[0].nome}">
+                                        </a>
+                                    </div>
+                                {/if}
+                            </div>
+                            <h2 class="titulo-servicos-home"><a href="{$URL}servicos/{$dadosDestFooter[0].urlAmigavelCat}/{$dadosDestFooter[0].urlAmigavel}">{$dadosDestFooter[0].nome}</a></h2>
+                            <a href="{$URL}servicos/{$dadosDestFooter[0].urlAmigavelCat}/{$dadosDestFooter[0].urlAmigavel}" class="txt-servicos-home">{$dadosDestFooter[0].textoAbrev}</a>
+                        </div>
+                    {/if}
+                    {if $dadosDestFooter2[0]}
+                        <div class="col-xs-12 col-sm-4 col-md-4 mg-bt-50">
+                            <div class="row">
+                                {if $dadosDestFooter2[0].caminhoImagemThumb}
+                                    <div class="pull-left bd-tp-azul">
+                                        <a href="{$URL}servicos/{$dadosDestFooter2[0].urlAmigavelCat}/{$dadosDestFooter2[0].urlAmigavel}">
+                                            <img src="{$URL}commom/img/bg-azul.png" alt="{$dadosDestFooter2[0].nome}" title="{$dadosDestFooter2[0].nome}" class="bg-servicos">    
+                                            <img src="{$URL}{$dadosDestFooter2[0].caminhoImagemThumb}" alt="{$dadosDestFooter2[0].nome}" title="{$dadosDestFooter2[0].nome}">
+                                        </a>
+                                    </div>
+                                {/if}
+                            </div>
+                            <h2 class="titulo-servicos-home"><a href="{$URL}servicos/{$dadosDestFooter2[0].urlAmigavelCat}/{$dadosDestFooter2[0].urlAmigavel}">{$dadosDestFooter2[0].nome}</a></h2>
+                            <a href="{$URL}servicos/{$dadosDestFooter2[0].urlAmigavelCat}/{$dados2[0].urlAmigavel}" class="txt-servicos-home">{$dadosDestFooter2[0].textoAbrev}</a>
+                        </div>
+                    {/if}
+                    {if $dadosDestFooter3[0]}
+                        <div class="col-xs-12 col-sm-4 col-md-4 mg-bt-50">
+                            <div class="row">
+                                {if $dadosDestFooter3[0].caminhoImagemThumb}
+                                    <div class="pull-left bd-tp-cinza">
+                                        <a href="{$URL}servicos/{$dadosDestFooter3[0].urlAmigavelCat}/{$dadosDestFooter3[0].urlAmigavel}">
+                                            <img src="{$URL}commom/img/bg-cinza.png" alt="{$dadosDestFooter3[0].nome}" title="{$dadosDestFooter3[0].nome}" class="bg-servicos">    
+                                            <img src="{$URL}{$dadosDestFooter3[0].caminhoImagemThumb}" alt="{$dadosDestFooter3[0].nome}" title="{$dadosDestFooter3[0].nome}">
+                                        </a>
+                                    </div>
+                                {/if}
+                            </div>
+                            <h2 class="titulo-servicos-home"><a href="{$URL}servicos/{$dadosDestFooter3[0].urlAmigavelCat}/{$dadosDestFooter3[0].urlAmigavel}">{$dadosDestFooter3[0].nome}</a></h2>
+                            <a href="{$URL}servicos/{$dadosDestFooter3[0].urlAmigavelCat}/{$dados2[0].urlAmigavel}" class="txt-servicos-home">{$dadosDestFooter3[0].textoAbrev}</a>
+                        </div>
+                    {/if}
+                    {if $dadosDestFooter[1]}
+                        <div class="col-xs-12 col-sm-4 col-md-4 mg-bt-50">
+                            <div class="row">
+                                {if $dadosDestFooter[1].caminhoImagemThumb}
+                                    <div class="pull-left bd-tp-laranja">
+                                        <a href="{$URL}servicos/{$dadosDestFooter[1].urlAmigavelCat}/{$dadosDestFooter[1].urlAmigavel}">
+                                            <img src="{$URL}commom/img/bg-laranja.png" alt="{$dadosDestFooter[1].nome}" title="{$dadosDestFooter[1].nome}" class="bg-servicos">
+                                            <img src="{$URL}{$dadosDestFooter[1].caminhoImagemThumb}" alt="{$dadosDestFooter[1].nome}" title="{$dadosDestFooter[1].nome}">
+                                        </a>
+                                    </div>
+                                {/if}
+                            </div>
+                            <h2 class="titulo-servicos-home"><a href="{$URL}servicos/{$dadosDestFooter[1].urlAmigavelCat}/{$dadosDestFooter[1].urlAmigavel}">{$dadosDestFooter[1].nome}</a></h2>
+                            <a href="{$URL}servicos/{$dadosDestFooter[1].urlAmigavelCat}/{$dadosDestFooter[1].urlAmigavel}" class="txt-servicos-home">{$dadosDestFooter[1].textoAbrev}</a>
+                        </div>
+                    {/if}
+                    {if $dadosDestFooter2[1]}
+                        <div class="col-xs-12 col-sm-4 col-md-4 mg-bt-50">
+                            <div class="row">
+                                {if $dadosDestFooter2[1].caminhoImagemThumb}
+                                    <div class="pull-left bd-tp-azul">
+                                        <a href="{$URL}servicos/{$dadosDestFooter2[1].urlAmigavelCat}/{$dadosDestFooter2[1].urlAmigavel}">
+                                            <img src="{$URL}commom/img/bg-azul.png" alt="{$dadosDestFooter2[1].nome}" title="{$dadosDestFooter2[1].nome}" class="bg-servicos">    
+                                            <img src="{$URL}{$dadosDestFooter2[1].caminhoImagemThumb}" alt="{$dadosDestFooter2[1].nome}" title="{$dadosDestFooter2[1].nome}">
+                                        </a>
+                                    </div>
+                                {/if}
+                            </div>
+                            <h2 class="titulo-servicos-home"><a href="{$URL}servicos/{$dadosDestFooter2[1].urlAmigavelCat}/{$dadosDestFooter2[1].urlAmigavel}">{$dadosDestFooter2[1].nome}</a></h2>
+                            <a href="{$URL}servicos/{$dadosDestFooter2[1].urlAmigavelCat}/{$dados2[0].urlAmigavel}" class="txt-servicos-home">{$dadosDestFooter2[1].textoAbrev}</a>
+                        </div>
+                    {/if}
+                    {if $dadosDestFooter3[1]}
+                        <div class="col-xs-12 col-sm-4 col-md-4 mg-bt-50">
+                            <div class="row">
+                                {if $dadosDestFooter3[1].caminhoImagemThumb}
+                                    <div class="pull-left bd-tp-cinza">
+                                        <a href="{$URL}servicos/{$dadosDestFooter3[1].urlAmigavelCat}/{$dadosDestFooter3[1].urlAmigavel}">
+                                            <img src="{$URL}commom/img/bg-cinza.png" alt="{$dadosDestFooter3[1].nome}" title="{$dadosDestFooter3[1].nome}" class="bg-servicos">    
+                                            <img src="{$URL}{$dadosDestFooter3[1].caminhoImagemThumb}" alt="{$dadosDestFooter3[1].nome}" title="{$dadosDestFooter3[1].nome}">
+                                        </a>
+                                    </div>
+                                {/if}
+                            </div>
+                            <h2 class="titulo-servicos-home"><a href="{$URL}servicos/{$dadosDestFooter3[1].urlAmigavelCat}/{$dadosDestFooter3[1].urlAmigavel}">{$dadosDestFooter3[1].nome}</a></h2>
+                            <a href="{$URL}servicos/{$dadosDestFooter3[1].urlAmigavelCat}/{$dados2[0].urlAmigavel}" class="txt-servicos-home">{$dadosDestFooter3[1].textoAbrev}</a>
+                        </div>
+                    {/if}
+                </div>
+            </div>
+            <!-- Fim Servicos destaques -->
+            <!-- Inicio Midias -->
+            <div class="row bloco-encapsula-midias">
+                <!-- Inicio Noticias -->
+                <div class="col-xs-12 col-sm-8 col-md-8 bloco-midias bloco-midias-amarelo">
+                    <div class="encapsula-titulo-midia">
+                        <img src="{$URL}commom/img/titulo-midias-noticias.png" alt="Notícias">
+                        <p class="titulo-midias titulo-midias-not">Notícias</p>
+                    </div>
+                    <div id="owl-demo-noticias" class="owl-carousel">
+                        {if $dadosMenuBlog}
+                            <div class="item">
+                            {section name=i loop=$dadosMenuBlog}  
+                                    <div class="col-xs-12 col-sm-6 col-md-6 bd-rg-noticias">
+                                        <div class="row noticia-img-destaque">
+                                            {if $dadosMenuBlog[i].caminhoImagemThumb}
+                                                <a href="{$URL}noticia/{$dadosMenuBlog[i].urlAmigavel}">
+                                                    <img src="{$URL}{$dadosMenuBlog[i].caminhoImagemThumb}" alt="{$dadosMenuBlog[i].tituloAbrev}">
+                                                </a>
+                                            {/if}
+                                        </div>
+                                        <a href="{$URL}noticia/{$dadosMenuBlog[i].urlAmigavel}" class="titulo-midia-destaque">{$dadosMenuBlog[i].tituloAbrev}</a>
+                                        <a href="{$URL}noticia/{$dadosMenuBlog[i].urlAmigavel}" class="titulo-midia-destaque txt-midia-destaque">{$dadosMenuBlog[i].textoAbrev}</a>
+                                        <a href="{$URL}noticia/{$dadosMenuBlog[i].urlAmigavel}" class="titulo-midia-destaque continue-lendo">Continue lendo  »</a>
+                                    </div> 
+                                
+                                {if $smarty.section.i.index == 1} 
+                                    </div>
+                                    <div class="item">
+                                {/if}     
+
+                                {if $smarty.section.i.index == 3} 
+                                    </div>
+                                    <div class="item">
+                                {/if}   
+                                {if $smarty.section.i.index == 5} 
+                                    </div>
+                                {/if}      
+                            {/section}
+                            </div>
+                        {else}
+                            <p class="txt-default">Não existe destaques</p>
+                        {/if}
+                    </div>
+                </div>
+                <!-- Fim Noticias -->                
+                <!-- Inicio depoimentos -->
+                <div class="col-xs-12 col-sm-4 col-md-4 bloco-midias bloco-midias-azul">
+                    <div class="encapsula-titulo-midia">
+                        <img src="{$URL}commom/img/titulo-midias.png" alt="depoimentos">
+                        <p class="titulo-midias">depoimentos</p>
+                    </div>
+                    <div id="owl-demo-depoimentos" class="owl-carousel">
+                        <div class="item">
+                            <p class="titulo-midia-destaque txt-midia-destaque">
+                                “This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh”.
+                            </p>
+                            <div class="row">
+                                <p class="titulo-midia-destaque pull-right mg-none">
+                                    João da Silva
+                                </p>
+                            </div>
+                            <div class="row">
+                                <p class="titulo-midia-destaque txt-midia-destaque pull-right pd-none">
+                                    Nome da empresa
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fim Noticias -->
+            </div>
+            <!-- Fim Midias -->            
+            <!-- Inicio Institucional -->
+            <div class="row institucional-home">
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="row">
+                        <p class="titulo-destaque">Institucional</p>
+                        <div class="max-width-title"><span class="linha-titulo-cinza"></span><span class="linha-titulo-laranja"></span></div>
+                    </div>
+                    <a target="_blank" href="https://www.youtube.com/watch?v=8AXshLasJB8"><img class="bg-notebook" src="{$URL}commom/img/notebook.png" alt="Assinata ao video"></a>
+                    <!-- <iframe class="video-home" src="https://www.youtube.com/embed/8AXshLasJB8" frameborder="0" allowfullscreen></iframe> -->
+                    <!-- <p class="txt-default">This is Photoshop’s version of Lorem Ipsum</p> -->
+                </div>
+                <div class="col-xs-12 bloco-responsa-social">
+                    <div class="row">
+                        <p class="titulo-destaque">responsabilidade social</p>
+                        <div class="max-width-title"><span class="linha-titulo-cinza"></span><span class="linha-titulo-laranja"></span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6 pd-none">
+                            <img class="img-resp-social" src="{$URL}commom/img/social1.jpg" alt="responsabilidade social">
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 pd-none">
+                            <img class="img-resp-social" src="{$URL}commom/img/social2.jpg" alt="responsabilidade social">
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 pd-none">
+                            <img class="img-resp-social" src="{$URL}commom/img/social3.jpg" alt="responsabilidade social">
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 pd-none">
+                            <img class="img-resp-social" src="{$URL}commom/img/social4.jpg" alt="responsabilidade social">
+                        </div>
+                    </div>
+                    <p class="txt-default pull-left">Projeto Social Arcanjos da Noite</p><a class="saiba-mais-vitrine pull-right" href="{$URL}">Saiba mais</a>
+                </div>
+            </div>
+            <!-- Fim Institucional -->
+        </div>
+    </section>
+    {include file="../inc/footer.html"}    
+</html>
