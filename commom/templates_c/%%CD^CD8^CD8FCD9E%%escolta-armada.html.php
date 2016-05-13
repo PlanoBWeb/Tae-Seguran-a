@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.12, created on 2016-04-28 21:14:39
+<?php /* Smarty version 2.6.12, created on 2016-05-10 10:17:49
          compiled from conteudo/escolta-armada.html */ ?>
 A TAE Segurança é uma empresa especializada em Escola Armada. <br/><br/>
 A Escolta Armada está no mercado da Segurança Privada, não para competir com a Segurança Pública, mas de forma a ser um braço complementar a ela, trazendo verdadeiramente a sensação de Segurança às Cargas Escoltadas e seus motoristas em todas as Vias e Rodovias que transitam.<br/><br/>

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.12, created on 2016-04-20 14:41:06
+<?php /* Smarty version 2.6.12, created on 2016-05-05 16:07:10
          compiled from ../inc/cssUrlAmigavel.html */ ?>
 <style type="text/css">
 	<?php echo '       
@@ -65,6 +65,29 @@
 				background: url(\'';  echo $this->_tpl_vars['URL'];  echo 'commom/img/solucoes-em-seguranca.jpg\') !important;	
 				background-repeat: no-repeat;
 				background-size: contain;
+			}
+			.bg-interna
+			{
+				width: 100%;
+				height: 208px;
+				background-repeat: no-repeat;
+				background-size: contain;
+			}
+			.bg-servico-institucional
+			{
+				background: url(\'';  echo $this->_tpl_vars['URL'];  echo 'commom/img/bg-institucional.jpg\') !important;	
+			}
+			.bg-servico-fale
+			{
+				background: url(\'';  echo $this->_tpl_vars['URL'];  echo 'commom/img/bg-fale-conosco.jpg\') !important;	
+			}
+			.bg-servico-orcamento
+			{
+				background: url(\'';  echo $this->_tpl_vars['URL'];  echo 'commom/img/bg-orcamento.jpg\') !important;	
+			}
+			.bg-servico-clientes
+			{
+				background: url(\'';  echo $this->_tpl_vars['URL'];  echo 'commom/img/bg-clientes.jpg\') !important;	
 			}
 			.nav-header
 			{

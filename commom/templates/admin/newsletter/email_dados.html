@@ -1,0 +1,98 @@
+﻿{include file="admin/topo.html"}
+
+{literal}
+<script>
+
+	function checa()
+	{
+		frm = document.frm_cadastro;
+		msg = "Preencha o campo ";
+		
+		if( frm.idGrupo.selectedIndex == 0 )
+		{
+			alert( "Selecione o Grupo!" );
+			frm.idGrupo.focus();
+			return false;
+		}
+		
+		if(trim(frm.nome.value) == "")
+		{
+			alert(msg + "Nome!");
+			frm.nome.focus();
+			return false;
+		}
+		
+		if(trim(frm.email.value) == "")
+		{
+			alert(msg + "E-mail!");
+			frm.email.focus();
+			return false;
+		}
+		
+		if(!email(frm.email, '[descricao_campo]'))
+		{ 
+			return false;
+		}
+		
+		return true;
+	}
+
+</script>
+{/literal}
+
+<!-- Conteúdo -->
+<table width="100%" height="350" border="0" cellpadding="10" cellspacing="0">
+  <tr>
+    <td width="5%">&nbsp;</td>
+    <td width="90%" style="background-color:#FFFFFF" valign="top">
+		<table width="100%" border="0">
+      		<tr>
+        	<td valign="top">{include file="admin/newsletter/menu.html"}</td>
+        	<td valign="top">
+				<table cellspacing="2" cellpadding="2" border="0" width="100%">
+            		<tr height="30">
+              			<td align="right" width="20%">&nbsp;</td>
+              			<td class="texto"><strong>E-MAIL - CADASTRO</strong></td>
+            		</tr>
+          			<form name="frm_cadastro" onSubmit="return checa()" method="POST">
+            		<input type="hidden" name="acao" value="gravar" />
+            		<input type="hidden" name="id" value="{$dados[0].id}" />
+                    <tr>
+              			<td align="right" width="20%" class="texto">*Grupo:</td>
+              			<td>
+                        <select name="idGrupo" class="formu">
+                            <option>Escolha</option>
+                            {section name=i loop=$dadosGrupo}
+                            	<option value="{$dadosGrupo[i].id}" {if $dadosGrupo[i].id == $dados[0].idGrupo} selected="selected" {/if} >{$dadosGrupo[i].titulo}</option>
+                            {/section}
+						</select>
+                        </td>
+            		</tr>
+            		<tr>
+              			<td align="right" width="20%" class="texto">*Nome:</td>
+              			<td><input type="text" name="nome" size="50" value="{$dados[0].nome}" class="formu" /></td>
+            		</tr>
+                    <tr>
+              			<td align="right" width="20%" class="texto">*E-mail:</td>
+              			<td><input type="text" name="email" size="50" value="{$dados[0].email}" class="formu" /></td>
+            		</tr>
+            		<tr>
+              			<td></td>
+              			<td class="texto">
+                        	<input name="submit" type="submit" class="botao" value="{$botao}" /><br>
+                            * Campos obrigatórios.
+                        </td>
+            		</tr>
+          			</form>
+        		</table>
+			</td>
+     	 </tr>
+    </table>
+	
+	</td>
+    <td width="5%">&nbsp;</td>
+  </tr>
+</table>
+<!-- FIM Conteúdo -->
+
+{include file="admin/rodape.html"}

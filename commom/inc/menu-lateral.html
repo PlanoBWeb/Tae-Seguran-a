@@ -22,14 +22,18 @@
 
 <!-- Mobile -->
 <form class="visible-xs-block" action="{$URL}">
-    <select class="form-control select-menuLat-mob" name="menu-lateral">
+    <select class="form-control select-menuLat-mob" name="menu-lateral" style="    margin-left: 7px;">
         <option>Escolha um servico</option>
-        <option value="{$URL}escolta-armada">Escolta Armada</option>
+        {section name=i loop=$dadosMenu}
+            <option  value="{$URL}servicos/{$dadosMenu[i].urlAmigavelCat}/{$dadosMenu[i].urlAmigavel}">{$dadosMenu[i].nome}</option>
+
+        {/section}
+        <!-- <option value="{$URL}escolta-armada">Escolta Armada</option>
         <option value="{$URL}">Segurança Patrimonial</option>
         <option value="{$URL}">Segurança Pessoal</option>
         <option value="{$URL}">Segurança para Eventos</option>
         <option value="{$URL}">Segurança Eletrônica / CFTV</option>
         <option value="{$URL}">Monitoramento de Alarmes</option>
-        <option value="{$URL}">Portaria Digital</option>
+        <option value="{$URL}">Portaria Digital</option> -->
     </select>
 </form>

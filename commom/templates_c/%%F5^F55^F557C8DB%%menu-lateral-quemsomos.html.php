@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.12, created on 2016-04-29 17:50:08
+<?php /* Smarty version 2.6.12, created on 2016-05-05 17:29:39
          compiled from ../inc/menu-lateral-quemsomos.html */ ?>
 <!-- Desktop -->
 <ul class="bloco-menu-lat hidden-xs">
@@ -24,7 +24,7 @@ commom/img/seta-menu-lat.png" alt="Responsabilidade Social" title="Responsabilid
     </li>
 </ul>
 <!-- Mobile -->
-<form class="visible-xs-block" action="<?php echo $this->_tpl_vars['URL']; ?>
+<form class="visible-xs-block hidden-xs" action="<?php echo $this->_tpl_vars['URL']; ?>
 ">
     <select class="form-control select-menuLat-mob" name="menu-lateral">
         <option>Escolha um servico</option>

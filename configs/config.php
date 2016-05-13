@@ -27,10 +27,15 @@ $smarty->debugging = false;
 /* MyADMIN - http://phpmyadmin.locaweb.com.br/ */
 if( $_SERVER['SERVER_NAME'] == 'planobweb' || $_SERVER['SERVER_NAME'] == '192.168.0.105')
 {
-	define("db_host", 'localhost');
-	define("db_user", 'root');
-	define("db_pass", '');
-	define("db_base", 'admin_tae');
+	// define("db_host", 'localhost');
+	// define("db_user", 'root');
+	// define("db_pass", '');
+	// define("db_base", 'taeseguranca');
+	define("db_host", 'mysql01.taeseguranca.com.br');
+	define("db_user", 'taeseguranca');
+	define("db_pass", 'novatseg0012');
+	define("db_base", 'taeseguranca');
+	
 	define("PATH_SERVIDOR","C:/wamp/www/clientes/TaeSeguranca/Web/");
 	define("PASTAPROJETO", strtolower("clientes/TaeSeguranca/Web/"));
 	if ($_SERVER['SERVER_NAME'] == '192.168.0.105') {
@@ -45,10 +50,10 @@ else
 	define("PATH_SERVIDOR","	E:/Home/planobweb2/Web/clientes/Bda");
 	define("PASTAPROJETO", strtolower("homologacao/"));
 
-	define("db_host", 'admin_tae.mysql.dbaas.com.br');
-	define("db_user", 'admin_tae');
-	define("db_pass", 'ta9023ca');
-	define("db_base", 'admin_tae');
+	define("db_host", 'mysql01.taeseguranca.com.br');
+	define("db_user", 'taeseguranca');
+	define("db_pass", 'novatseg0012');
+	define("db_base", 'taeseguranca');
 
 	$urlWWW = $_SERVER['SERVER_NAME'];
 	$urlWWWFinal = explode('.', $urlWWW);
@@ -76,6 +81,12 @@ if (!($resultado)) {
 }
 
 
-define("TITULO","Tae");
+define("TITULO","Tae Segurança Armada e Desarmada");
+define("NOME","Tae Segurança");
+
+define("EMAIL_TRABALHE","operacional@taeseguranca.com.br");
+define("EMAIL_FALE","financeiro@taeseguranca.com.br");
+define("EMAIL_ORCAMENTO","orcamento@taeseguranca.com.br");
+define("EMAIL_PLANOB","contato@taeseguranca.com.br");
 
 ?>

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.12, created on 2016-04-28 14:02:34
+<?php /* Smarty version 2.6.12, created on 2016-05-06 11:15:30
          compiled from ../inc/menu-lateral.html */ ?>
 <!-- Desktop -->
 <ul class="bloco-menu-lat hidden-xs">
@@ -56,9 +56,40 @@ commom/img/seta-menu-lat.png" alt="<?php echo $this->_tpl_vars['dadosMenu'][$thi
 <!-- Mobile -->
 <form class="visible-xs-block" action="<?php echo $this->_tpl_vars['URL']; ?>
 ">
-    <select class="form-control select-menuLat-mob" name="menu-lateral">
+    <select class="form-control select-menuLat-mob" name="menu-lateral" style="    margin-left: 7px;">
         <option>Escolha um servico</option>
-        <option value="<?php echo $this->_tpl_vars['URL']; ?>
+        <?php unset($this->_sections['i']);
+$this->_sections['i']['name'] = 'i';
+$this->_sections['i']['loop'] = is_array($_loop=$this->_tpl_vars['dadosMenu']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
+$this->_sections['i']['show'] = true;
+$this->_sections['i']['max'] = $this->_sections['i']['loop'];
+$this->_sections['i']['step'] = 1;
+$this->_sections['i']['start'] = $this->_sections['i']['step'] > 0 ? 0 : $this->_sections['i']['loop']-1;
+if ($this->_sections['i']['show']) {
+    $this->_sections['i']['total'] = $this->_sections['i']['loop'];
+    if ($this->_sections['i']['total'] == 0)
+        $this->_sections['i']['show'] = false;
+} else
+    $this->_sections['i']['total'] = 0;
+if ($this->_sections['i']['show']):
+
+            for ($this->_sections['i']['index'] = $this->_sections['i']['start'], $this->_sections['i']['iteration'] = 1;
+                 $this->_sections['i']['iteration'] <= $this->_sections['i']['total'];
+                 $this->_sections['i']['index'] += $this->_sections['i']['step'], $this->_sections['i']['iteration']++):
+$this->_sections['i']['rownum'] = $this->_sections['i']['iteration'];
+$this->_sections['i']['index_prev'] = $this->_sections['i']['index'] - $this->_sections['i']['step'];
+$this->_sections['i']['index_next'] = $this->_sections['i']['index'] + $this->_sections['i']['step'];
+$this->_sections['i']['first']      = ($this->_sections['i']['iteration'] == 1);
+$this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $this->_sections['i']['total']);
+?>
+            <option  value="<?php echo $this->_tpl_vars['URL']; ?>
+servicos/<?php echo $this->_tpl_vars['dadosMenu'][$this->_sections['i']['index']]['urlAmigavelCat']; ?>
+/<?php echo $this->_tpl_vars['dadosMenu'][$this->_sections['i']['index']]['urlAmigavel']; ?>
+"><?php echo $this->_tpl_vars['dadosMenu'][$this->_sections['i']['index']]['nome']; ?>
+</option>
+
+        <?php endfor; endif; ?>
+        <!-- <option value="<?php echo $this->_tpl_vars['URL']; ?>
 escolta-armada">Escolta Armada</option>
         <option value="<?php echo $this->_tpl_vars['URL']; ?>
 ">Segurança Patrimonial</option>
@@ -71,6 +102,6 @@ escolta-armada">Escolta Armada</option>
         <option value="<?php echo $this->_tpl_vars['URL']; ?>
 ">Monitoramento de Alarmes</option>
         <option value="<?php echo $this->_tpl_vars['URL']; ?>
-">Portaria Digital</option>
+">Portaria Digital</option> -->
     </select>
 </form>

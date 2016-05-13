@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.12, created on 2016-04-29 16:42:02
+<?php /* Smarty version 2.6.12, created on 2016-05-10 11:10:40
          compiled from index.html */ ?>
 <!DOCTYPE HTML>
 <html lang="pt-br">
@@ -7,7 +7,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="index, follow">
-        <meta name="description" content="" />
+        <meta name="description" content="<?php echo $this->_tpl_vars['urlFriendly']['description']; ?>
+" />
         <link href="<?php echo $this->_tpl_vars['URL']; ?>
 commom/img/icon-tab.png" rel="icon">
         <?php $_smarty_tpl_vars = $this->_tpl_vars;
@@ -17,7 +18,8 @@ unset($_smarty_tpl_vars);
  ?>
         <link rel="stylesheet" type="text/css" href="<?php echo $this->_tpl_vars['URL']; ?>
 commom/css/estilo.css">
-        <title>Tae Segurança</title>
+        <title><?php echo $this->_tpl_vars['urlFriendly']['title']; ?>
+</title>
         <!-- Bootstrap -->
         <link href="<?php echo $this->_tpl_vars['URL']; ?>
 commom/css/bootstrap.min.css" rel="stylesheet">
@@ -55,11 +57,11 @@ unset($_smarty_tpl_vars);
                                     <p class="titulo-banner-home">Portaria Digital</p>
                                     <p class="subtitulo-banner-home">A sua portaria informatizada<br>Segurança e agilidade no dia a dia</p>
                                     <a class="saiba-mais-vitrine" href="<?php echo $this->_tpl_vars['URL']; ?>
-">Saiba mais</a>
+servicos/servicos-terceirizados/porteiro">Saiba mais</a>
                                 </div>
                             </div>
                             <img src="<?php echo $this->_tpl_vars['URL']; ?>
-commom/img/banner.jpg" alt="banner" title="banner">
+commom/img/banner.jpg" alt="Portaria Digital - A sua portaria informatizada Segurança e agilidade no dia a dia" title="Portaria Digital - A sua portaria informatizada Segurança e agilidade no dia a dia">
                         </div>
                     </div>
                 </div>
@@ -72,17 +74,17 @@ commom/img/banner.jpg" alt="banner" title="banner">
         <div class="width-default">
             <h1 class="titulo-dest-home">TAE Segurança Privada e Pessoal • Escolta Armada •  Serviços Terceirizados</h1>
             <a class="saiba-mais-vitrine" href="<?php echo $this->_tpl_vars['URL']; ?>
-">Saiba mais</a>
+servicos/servicos-de-seguranca">Saiba mais</a>
         </div>
     </div>
     <!-- Fim Destaque Baixo banner -->
     <section class="container">
-        <div class="width-default">
+        <div class="width-default mg-bt-50">
             <!-- Inicio Servicos destaques -->
             <div class="row">
                 <div class="row">
                     <?php if ($this->_tpl_vars['dadosDestFooter'][0]): ?>
-                        <div class="col-xs-12 col-sm-4 col-md-4 mg-bt-50">
+                        <div class="width-mob-default col-xs-12 col-sm-4 col-md-4 mg-bt-50">
                             <div class="row">
                                 <?php if ($this->_tpl_vars['dadosDestFooter'][0]['caminhoImagemThumb']): ?>
                                     <div class="pull-left bd-tp-laranja">
@@ -107,15 +109,10 @@ servicos/<?php echo $this->_tpl_vars['dadosDestFooter'][0]['urlAmigavelCat']; ?>
 /<?php echo $this->_tpl_vars['dadosDestFooter'][0]['urlAmigavel']; ?>
 "><?php echo $this->_tpl_vars['dadosDestFooter'][0]['nome']; ?>
 </a></h2>
-                            <a href="<?php echo $this->_tpl_vars['URL']; ?>
-servicos/<?php echo $this->_tpl_vars['dadosDestFooter'][0]['urlAmigavelCat']; ?>
-/<?php echo $this->_tpl_vars['dadosDestFooter'][0]['urlAmigavel']; ?>
-" class="txt-servicos-home"><?php echo $this->_tpl_vars['dadosDestFooter'][0]['textoAbrev']; ?>
-</a>
                         </div>
                     <?php endif; ?>
                     <?php if ($this->_tpl_vars['dadosDestFooter2'][0]): ?>
-                        <div class="col-xs-12 col-sm-4 col-md-4 mg-bt-50">
+                        <div class="width-mob-default col-xs-12 col-sm-4 col-md-4 mg-bt-50">
                             <div class="row">
                                 <?php if ($this->_tpl_vars['dadosDestFooter2'][0]['caminhoImagemThumb']): ?>
                                     <div class="pull-left bd-tp-azul">
@@ -135,20 +132,15 @@ commom/img/bg-azul.png" alt="<?php echo $this->_tpl_vars['dadosDestFooter2'][0][
                                     </div>
                                 <?php endif; ?>
                             </div>
-                            <h2 class="titulo-servicos-home"><a href="<?php echo $this->_tpl_vars['URL']; ?>
+                            <h2 class="titulo-servicos-home titulo-servicos-home-azul"><a href="<?php echo $this->_tpl_vars['URL']; ?>
 servicos/<?php echo $this->_tpl_vars['dadosDestFooter2'][0]['urlAmigavelCat']; ?>
 /<?php echo $this->_tpl_vars['dadosDestFooter2'][0]['urlAmigavel']; ?>
 "><?php echo $this->_tpl_vars['dadosDestFooter2'][0]['nome']; ?>
 </a></h2>
-                            <a href="<?php echo $this->_tpl_vars['URL']; ?>
-servicos/<?php echo $this->_tpl_vars['dadosDestFooter2'][0]['urlAmigavelCat']; ?>
-/<?php echo $this->_tpl_vars['dados2'][0]['urlAmigavel']; ?>
-" class="txt-servicos-home"><?php echo $this->_tpl_vars['dadosDestFooter2'][0]['textoAbrev']; ?>
-</a>
                         </div>
                     <?php endif; ?>
                     <?php if ($this->_tpl_vars['dadosDestFooter3'][0]): ?>
-                        <div class="col-xs-12 col-sm-4 col-md-4 mg-bt-50">
+                        <div class="width-mob-default col-xs-12 col-sm-4 col-md-4 mg-bt-50">
                             <div class="row">
                                 <?php if ($this->_tpl_vars['dadosDestFooter3'][0]['caminhoImagemThumb']): ?>
                                     <div class="pull-left bd-tp-cinza">
@@ -168,20 +160,15 @@ commom/img/bg-cinza.png" alt="<?php echo $this->_tpl_vars['dadosDestFooter3'][0]
                                     </div>
                                 <?php endif; ?>
                             </div>
-                            <h2 class="titulo-servicos-home"><a href="<?php echo $this->_tpl_vars['URL']; ?>
+                            <h2 class="titulo-servicos-home titulo-servicos-home-cinza"><a href="<?php echo $this->_tpl_vars['URL']; ?>
 servicos/<?php echo $this->_tpl_vars['dadosDestFooter3'][0]['urlAmigavelCat']; ?>
 /<?php echo $this->_tpl_vars['dadosDestFooter3'][0]['urlAmigavel']; ?>
 "><?php echo $this->_tpl_vars['dadosDestFooter3'][0]['nome']; ?>
 </a></h2>
-                            <a href="<?php echo $this->_tpl_vars['URL']; ?>
-servicos/<?php echo $this->_tpl_vars['dadosDestFooter3'][0]['urlAmigavelCat']; ?>
-/<?php echo $this->_tpl_vars['dados2'][0]['urlAmigavel']; ?>
-" class="txt-servicos-home"><?php echo $this->_tpl_vars['dadosDestFooter3'][0]['textoAbrev']; ?>
-</a>
                         </div>
                     <?php endif; ?>
                     <?php if ($this->_tpl_vars['dadosDestFooter'][1]): ?>
-                        <div class="col-xs-12 col-sm-4 col-md-4 mg-bt-50">
+                        <div class="width-mob-default col-xs-12 col-sm-4 col-md-4 mg-bt-50">
                             <div class="row">
                                 <?php if ($this->_tpl_vars['dadosDestFooter'][1]['caminhoImagemThumb']): ?>
                                     <div class="pull-left bd-tp-laranja">
@@ -206,15 +193,10 @@ servicos/<?php echo $this->_tpl_vars['dadosDestFooter'][1]['urlAmigavelCat']; ?>
 /<?php echo $this->_tpl_vars['dadosDestFooter'][1]['urlAmigavel']; ?>
 "><?php echo $this->_tpl_vars['dadosDestFooter'][1]['nome']; ?>
 </a></h2>
-                            <a href="<?php echo $this->_tpl_vars['URL']; ?>
-servicos/<?php echo $this->_tpl_vars['dadosDestFooter'][1]['urlAmigavelCat']; ?>
-/<?php echo $this->_tpl_vars['dadosDestFooter'][1]['urlAmigavel']; ?>
-" class="txt-servicos-home"><?php echo $this->_tpl_vars['dadosDestFooter'][1]['textoAbrev']; ?>
-</a>
                         </div>
                     <?php endif; ?>
                     <?php if ($this->_tpl_vars['dadosDestFooter2'][1]): ?>
-                        <div class="col-xs-12 col-sm-4 col-md-4 mg-bt-50">
+                        <div class="width-mob-default col-xs-12 col-sm-4 col-md-4 mg-bt-50">
                             <div class="row">
                                 <?php if ($this->_tpl_vars['dadosDestFooter2'][1]['caminhoImagemThumb']): ?>
                                     <div class="pull-left bd-tp-azul">
@@ -234,20 +216,15 @@ commom/img/bg-azul.png" alt="<?php echo $this->_tpl_vars['dadosDestFooter2'][1][
                                     </div>
                                 <?php endif; ?>
                             </div>
-                            <h2 class="titulo-servicos-home"><a href="<?php echo $this->_tpl_vars['URL']; ?>
+                            <h2 class="titulo-servicos-home titulo-servicos-home-azul"><a href="<?php echo $this->_tpl_vars['URL']; ?>
 servicos/<?php echo $this->_tpl_vars['dadosDestFooter2'][1]['urlAmigavelCat']; ?>
 /<?php echo $this->_tpl_vars['dadosDestFooter2'][1]['urlAmigavel']; ?>
 "><?php echo $this->_tpl_vars['dadosDestFooter2'][1]['nome']; ?>
 </a></h2>
-                            <a href="<?php echo $this->_tpl_vars['URL']; ?>
-servicos/<?php echo $this->_tpl_vars['dadosDestFooter2'][1]['urlAmigavelCat']; ?>
-/<?php echo $this->_tpl_vars['dados2'][0]['urlAmigavel']; ?>
-" class="txt-servicos-home"><?php echo $this->_tpl_vars['dadosDestFooter2'][1]['textoAbrev']; ?>
-</a>
                         </div>
                     <?php endif; ?>
                     <?php if ($this->_tpl_vars['dadosDestFooter3'][1]): ?>
-                        <div class="col-xs-12 col-sm-4 col-md-4 mg-bt-50">
+                        <div class="width-mob-default col-xs-12 col-sm-4 col-md-4 mg-bt-50">
                             <div class="row">
                                 <?php if ($this->_tpl_vars['dadosDestFooter3'][1]['caminhoImagemThumb']): ?>
                                     <div class="pull-left bd-tp-cinza">
@@ -267,16 +244,16 @@ commom/img/bg-cinza.png" alt="<?php echo $this->_tpl_vars['dadosDestFooter3'][1]
                                     </div>
                                 <?php endif; ?>
                             </div>
-                            <h2 class="titulo-servicos-home"><a href="<?php echo $this->_tpl_vars['URL']; ?>
+                            <h2 class="titulo-servicos-home titulo-servicos-home-cinza"><a href="<?php echo $this->_tpl_vars['URL']; ?>
 servicos/<?php echo $this->_tpl_vars['dadosDestFooter3'][1]['urlAmigavelCat']; ?>
 /<?php echo $this->_tpl_vars['dadosDestFooter3'][1]['urlAmigavel']; ?>
 "><?php echo $this->_tpl_vars['dadosDestFooter3'][1]['nome']; ?>
 </a></h2>
-                            <a href="<?php echo $this->_tpl_vars['URL']; ?>
+                            <!-- <a href="<?php echo $this->_tpl_vars['URL']; ?>
 servicos/<?php echo $this->_tpl_vars['dadosDestFooter3'][1]['urlAmigavelCat']; ?>
 /<?php echo $this->_tpl_vars['dados2'][0]['urlAmigavel']; ?>
 " class="txt-servicos-home"><?php echo $this->_tpl_vars['dadosDestFooter3'][1]['textoAbrev']; ?>
-</a>
+</a> -->
                         </div>
                     <?php endif; ?>
                 </div>
@@ -332,7 +309,7 @@ noticia/<?php echo $this->_tpl_vars['dadosMenuBlog'][$this->_sections['i']['inde
                                         </div>
                                         <a href="<?php echo $this->_tpl_vars['URL']; ?>
 noticia/<?php echo $this->_tpl_vars['dadosMenuBlog'][$this->_sections['i']['index']]['urlAmigavel']; ?>
-" class="titulo-midia-destaque"><?php echo $this->_tpl_vars['dadosMenuBlog'][$this->_sections['i']['index']]['tituloAbrev']; ?>
+" class="titulo-midia-destaque titulo-midia-destaque-tam"><?php echo $this->_tpl_vars['dadosMenuBlog'][$this->_sections['i']['index']]['tituloAbrev']; ?>
 </a>
                                         <a href="<?php echo $this->_tpl_vars['URL']; ?>
 noticia/<?php echo $this->_tpl_vars['dadosMenuBlog'][$this->_sections['i']['index']]['urlAmigavel']; ?>
@@ -349,11 +326,20 @@ noticia/<?php echo $this->_tpl_vars['dadosMenuBlog'][$this->_sections['i']['inde
                                 <?php endif; ?>     
 
                                 <?php if ($this->_sections['i']['index'] == 3): ?> 
-                                    </div>
-                                    <div class="item">
+                                    <?php if ($this->_sections['i']['index'] == $this->_tpl_vars['totalNoticias']): ?>
+                                        
+                                    <?php else: ?>
+                                        </div>
+                                        <div class="item">
+                                    <?php endif; ?>
                                 <?php endif; ?>   
                                 <?php if ($this->_sections['i']['index'] == 5): ?> 
-                                    </div>
+                                    <?php if ($this->_sections['i']['index'] == $this->_tpl_vars['totalNoticias']): ?>
+                                        
+                                    <?php else: ?>
+                                        </div>
+                                        <div class="item">
+                                    <?php endif; ?>
                                 <?php endif; ?>      
                             <?php endfor; endif; ?>
                             </div>
@@ -373,16 +359,24 @@ commom/img/titulo-midias.png" alt="depoimentos">
                     <div id="owl-demo-depoimentos" class="owl-carousel">
                         <div class="item">
                             <p class="titulo-midia-destaque txt-midia-destaque">
-                                “This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh”.
+                                A equipe da TAE cuidou da segurança de nosso evento e foi um sucesso. Desde o planejamento até a execução tudo perfeito. Muito eficientes e discretos, tudo correu da melhor forma possível.
                             </p>
-                            <div class="row">
+                            <!-- <div class="row">
                                 <p class="titulo-midia-destaque pull-right mg-none">
-                                    João da Silva
+                                    Muhtar Kent
                                 </p>
                             </div>
                             <div class="row">
                                 <p class="titulo-midia-destaque txt-midia-destaque pull-right pd-none">
-                                    Nome da empresa
+                                    Coca Cola
+                                </p>
+                            </div> -->
+                            <div class="row">
+                                <img src="<?php echo $this->_tpl_vars['URL']; ?>
+commom/img/presidente-coca-cola.jpg" alt="presidente coca cola" title="presidente coca cola" class="img-depoimento pull-left">
+                                <p class="titulo-midia-destaque pull-left mg-none">
+                                    Muhtar Kent<br>
+                                    Coca Cola
                                 </p>
                             </div>
                         </div>
@@ -427,7 +421,7 @@ commom/img/social4.jpg" alt="responsabilidade social">
                         </div>
                     </div>
                     <p class="txt-default pull-left">Projeto Social Arcanjos da Noite</p><a class="saiba-mais-vitrine pull-right" href="<?php echo $this->_tpl_vars['URL']; ?>
-">Saiba mais</a>
+quem-somos/responsabilidade-social">Saiba mais</a>
                 </div>
             </div>
             <!-- Fim Institucional -->

@@ -1,0 +1,63 @@
+{include file="admin/topo.html"}
+
+{literal}
+<script>
+
+	function checa()
+	{
+		frm = document.frm_cadastro;
+		
+		if(trim(frm.titulo.value) == "")
+		{
+			alert("Preencha o Título do e-amil!");
+			frm.titulo.focus();
+			return false;
+		}
+		
+		return true;
+	}
+
+</script>
+{/literal}
+
+<!-- Conteúdo -->
+<table width="100%" height="350" border="0" cellpadding="10" cellspacing="0">
+  <tr>
+    <td width="5%">&nbsp;</td>
+    <td width="90%" style="background-color:#FFFFFF" valign="top">
+		<table width="100%" border="0">
+      		<tr>
+        	<td valign="top">{include file="admin/newsletter/menu.html"}</td>
+        	<td valign="top" width="90%">
+				<table cellspacing="2" cellpadding="2" border="0" width="100%">
+            		<tr height="30">
+              			<td class="texto" align="center"><strong>ENVIA NEWSLETTER</strong></td>
+            		</tr>
+          			<form name="frm_cadastro" onSubmit="return checa()" method="POST">
+            		<input type="hidden" name="acao" value="envia" />
+                    <input type="hidden" name="idNewsletter" value="{$idNewsletter}" />
+                    <input type="hidden" name="emails" value="{$emails}" />
+                    <input type="hidden" name="titulo" value="{$titulo}" />
+                    <input type="hidden" name="confirmado" value="sim" />
+            		<tr>
+              			<td class="texto" align="center"><br><br>Deseja realmente enviar esta newsletter para os {$qtd} e-mails selecionados?</td>
+            		</tr>
+                    <tr>
+              			<td class="texto" align="center">
+                        	<input type="submit" class="botao" value="Enviar" /> &nbsp;&nbsp;
+                            <input type="button" class="botao" value="Cancelar" onClick="location.href='adm_newsletter.php?acao=pesquisar';" />
+                        </td>
+            		</tr>
+          			</form>
+        		</table>
+			</td>
+     	 </tr>
+    </table>
+	
+	</td>
+    <td width="5%">&nbsp;</td>
+  </tr>
+</table>
+<!-- FIM Conteúdo -->
+
+{include file="admin/rodape.html"}

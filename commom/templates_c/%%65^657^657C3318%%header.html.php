@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.12, created on 2016-04-29 17:18:14
+<?php /* Smarty version 2.6.12, created on 2016-05-06 11:29:56
          compiled from ../inc/header.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', '../inc/header.html', 88, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', '../inc/header.html', 96, false),)), $this); ?>
 <div class="container-fluid pd-none">
     <div class="row mg-none hidden-xs">
         <div class="bloco-atributos bloco-sub-topo">
@@ -27,9 +27,8 @@ commom/img/icon-eua.png" alt="Estados Unidos"></a>
 commom/img/icon-brasil.png" alt="Brasil"></a>
                 </div> -->
                 <div class="pull-right bloco-icons-header">
-                    <a href="<?php echo $this->_tpl_vars['URL']; ?>
-" target="_blank"><img class="pull-right icon-redes-sociais" src="<?php echo $this->_tpl_vars['URL']; ?>
-commom/img/icon-waths.png" alt="WathsApp"></a>
+                    <a href="tel:11947513659"><img class="pull-right icon-redes-sociais" src="<?php echo $this->_tpl_vars['URL']; ?>
+commom/img/icon-waths.png" alt="11 94751-3659" title="11 94751-3659"></a>
                     <a href="https://www.youtube.com/channel/UCrOPx-OTQyPaMJThbp4J03g" target="_blank"><img class="pull-right icon-redes-sociais" src="<?php echo $this->_tpl_vars['URL']; ?>
 commom/img/icon-youtube.png" alt="Youtube"></a>
                     <a href="https://www.instagram.com/taeseguranca/" target="_blank"><img class="pull-right icon-redes-sociais" src="<?php echo $this->_tpl_vars['URL']; ?>
@@ -48,7 +47,8 @@ commom/img/icon-face.png" alt="Facebook"></a>
                 <div class="atend-on bloco-atributos">
                     <img class="pull-left" src="<?php echo $this->_tpl_vars['URL']; ?>
 commom/img/solicite-orcamento.png" alt="solicite orçamento">    
-                    <a href="" class="txt-atend-on pull-left">Solicite um Orçamento Agora!</a>
+                    <a href="<?php echo $this->_tpl_vars['URL']; ?>
+solicite-orcamento-agora" class="txt-atend-on pull-left">Solicite um Orçamento Agora!</a>
                 </div>
             </div>
             <div class="hidden-xs col-sm-4 col-md-4">
@@ -95,8 +95,20 @@ commom/img/logo.png" alt="Tae Segurança">
                             <li class="linha-menu-header"><a class="link-menu-header" href="<?php echo $this->_tpl_vars['URL']; ?>
 #">home</a></li>
                             <li class="linha-menu-header dropdown">
-                                <a class="link-menu-header dropdown-toggle" href="<?php echo $this->_tpl_vars['URL']; ?>
+                                <!-- <a class="link-menu-header dropdown-toggle" href="<?php echo $this->_tpl_vars['URL']; ?>
 quem-somos">Quem Somos<img src="<?php echo $this->_tpl_vars['URL']; ?>
+commom/img/icon-seta-header.png" alt="Quem Somos"></a>
+                                <ul class="dropdown-menu">
+                                    <div class="bloco-dropdown-menu">                      
+                                        <li class="sub-submenu"><a class="link-menu-header" href="<?php echo $this->_tpl_vars['URL']; ?>
+quem-somos/institucional">Institucional</a></li>
+                                        <li class="sub-submenu"><a class="link-menu-header" href="<?php echo $this->_tpl_vars['URL']; ?>
+quem-somos/estrutura">Estrutura</a></li>
+                                        <li class="sub-submenu"><a class="link-menu-header" href="<?php echo $this->_tpl_vars['URL']; ?>
+quem-somos/responsabilidade-social">Responsabilidade Social</a></li>
+                                    </div>
+                                </ul> -->
+                                <a class="link-menu-header dropdown-toggle">Quem Somos<img src="<?php echo $this->_tpl_vars['URL']; ?>
 commom/img/icon-seta-header.png" alt="Quem Somos"></a>
                                 <ul class="dropdown-menu">
                                     <div class="bloco-dropdown-menu">                      
@@ -110,9 +122,9 @@ quem-somos/responsabilidade-social">Responsabilidade Social</a></li>
                                 </ul>
                             </li>
                             <li class="linha-menu-header"><a class="link-menu-header" href="<?php echo $this->_tpl_vars['URL']; ?>
-Clientes">Clientes</a></li>
+clientes">Clientes</a></li>
                             <li class="linha-menu-header"><a class="link-menu-header" href="<?php echo $this->_tpl_vars['URL']; ?>
-noticias">Noticias</a></li>
+noticias">Notícias</a></li>
                             <li class="linha-menu-header dropdown">
                                 <a class="link-menu-header dropdown-toggle" href="<?php echo $this->_tpl_vars['URL']; ?>
 servicos">Serviços<img src="<?php echo $this->_tpl_vars['URL']; ?>
@@ -149,7 +161,7 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
                                                 </li>
                                                 </ul>
                                                 </div>
-                                                <li class="sub-submenu"><a class="link-menu-header" href="<?php echo $this->_tpl_vars['URL']; ?>
+                                                <li class="sub-submenu"><a class="link-menu-header sub-submenu-open" href="<?php echo $this->_tpl_vars['URL']; ?>
 servicos/<?php echo $this->_tpl_vars['dadosMenuHeader'][$this->_sections['i']['index']]['urlAmigavelCategoria']; ?>
 "><?php echo $this->_tpl_vars['dadosMenuHeader'][$this->_sections['i']['index']]['nomeCat']; ?>
 </a>
@@ -169,9 +181,9 @@ servicos/<?php echo $this->_tpl_vars['dadosMenuHeader'][$this->_sections['i']['i
                             <li class="linha-menu-header"><a class="link-menu-header" href="<?php echo $this->_tpl_vars['URL']; ?>
 trabalhe-conosco">trabalhe conosco</a></li>
                             <li class="linha-menu-header"><a class="link-menu-header" href="<?php echo $this->_tpl_vars['URL']; ?>
-#">Fale conosco</a></li>
+fale-conosco">Fale conosco</a></li>
                             <li class="linha-menu-header"><a class="link-menu-header" href="<?php echo $this->_tpl_vars['URL']; ?>
-#">Orçamentos</a></li>
+orcamentos">Orçamentos</a></li>
                             <!-- <li class="dropdown">
                                 <a href="<?php echo $this->_tpl_vars['URL']; ?>
 #" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>

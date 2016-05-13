@@ -1,0 +1,83 @@
+<html>
+<head>
+	<title>{$titulo} - ADMINISTRAÇÃO</title>
+
+<link rel="stylesheet" href="commom/css/base.css" type="text/css">
+
+<script src="commom/js/geral.js"></script>
+
+{literal}
+<script>
+
+	function checa(){
+		frm = document.formu_adm;
+		
+		if(frm.email.value==''){
+			alert('Preencha o campo senha!');
+			frm.email.focus();
+			return false;
+		}
+		
+		if(!email(frm.email, 'E-mail inválido!'))
+			return false;
+		
+		return true;
+		frm.submit();
+	}
+
+</script>
+{/literal}
+
+</head>
+
+<body topmargin="0" leftmargin="0" bgcolor="#FFFFFF">
+
+
+<table cellspacing="0" cellpadding="0" border="0" height="100%" width="100%">
+  <tr>
+  	<td>
+		
+		<table cellspacing="4" cellpadding="4" bgcolor="#FFFFFF" align="center" width="330">
+		  <tr>
+            <td height="40" colspan="2"><table width="100%">
+                <tr>
+                  <td></td>
+                  <td></td>
+                </tr>
+            </table>
+            <div align="center"><img src="commom/imagens/logo2.jpg" width="168" height="56"></div></td>
+	      </tr>
+		 <tr>
+		 	<td height="40" colspan="2">
+            
+            <table width="100%">
+             <tr>
+             	<td class="texto1">&nbsp;</td>
+                <td class="texto3" valign="bottom" align="right"></td>
+             </tr>
+            </table>            </td>
+		 </tr>
+		 <tr bgcolor="#CCCCCC">
+		 	<td>
+			<table cellspacing="4" cellpadding="4">
+			<form name="formu_adm" method="POST" OnSubmit="return checa()">
+			<input type="hidden" name="acao" value="enviar">
+			 <tr>
+			 	<td nowrap class="texto1"><b>Login</b></td>
+                <td colspan="2"><input type="text" name="email" size="50"></td>
+			 </tr>
+             <tr>
+			 	<td nowrap></td>
+			 	<td colspan="2"><input type="submit" value="Enviar" class="botao"></td>
+			 </tr>
+			 </form>
+			</table>			</td>
+		 </tr>
+		</table>
+		  
+	</td>
+  </tr>
+</table>
+
+</body>
+</html>

@@ -5,11 +5,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="index, follow">
-        <meta name="description" content="" />
+        <meta name="description" content="{$urlFriendly.description}" />
         <link href="{$URL}commom/img/icon-tab.png" rel="icon">
         {include file="../inc/cssUrlAmigavel.html"}
         <link rel="stylesheet" type="text/css" href="{$URL}commom/css/estilo.css">
-        <title>Tae Segurança</title>
+        <title>{$urlFriendly.title}</title>
         <!-- Bootstrap -->
         <link href="{$URL}commom/css/bootstrap.min.css" rel="stylesheet">
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -50,7 +50,7 @@
     <section class="container">
         <div class="width-default">
             <div class="row">
-                <h1 class="titulo-destaque">Serviços</h1>
+                <h1 class="titulo-destaque pd-mob">Serviços</h1>
                 <div class="max-width-title"><span class="linha-titulo-cinza"></span><span class="linha-titulo-laranja"></span></div>
             </div>
             <div class="row">
@@ -84,18 +84,18 @@
                                             {/if}
                                         </div>
                                         <h2 class="titulo-servicos-home {if $dados[i].urlAmigavelCat == "servicos-terceirizados"}titulo-servicos-home-azul{elseif $dados[i].urlAmigavelCat == "servicos-de-limpeza"}titulo-servicos-home-cinza{/if}"><a href="{$URL}servicos/{$dados[i].urlAmigavelCat}/{$dados[i].urlAmigavel}">{$dados[i].nome}</a></h2>
-                                        <a href="{$URL}servicos/{$dados[i].urlAmigavelCat}/{$dados[i].urlAmigavel}" class="txt-servicos-home {if $dados[i].urlAmigavelCat == "servicos-terceirizados"}txt-servicos-home-azul{elseif $dados[i].urlAmigavelCat == "servicos-de-limpeza"}txt-servicos-home-cinza{/if}">{$dados[i].textoAbrev}</a>
+                                        <!-- <a href="{$URL}servicos/{$dados[i].urlAmigavelCat}/{$dados[i].urlAmigavel}" class="txt-servicos-home {if $dados[i].urlAmigavelCat == "servicos-terceirizados"}txt-servicos-home-azul{elseif $dados[i].urlAmigavelCat == "servicos-de-limpeza"}txt-servicos-home-cinza{/if}">{$dados[i].textoAbrev}</a> -->
                                     </div>
                                 {/section}
                             {else}
-                                <div><div><ul>
+                                <div><div><div>
                                 {assign var="nmTipoServicos" value=$nmTipoServicos|default:""}
                                 {section name=i loop=$dadosCategoriaServico}
                                     {if $nmTipoServicos <> $dadosMenuHeader[i].urlAmigavelCat}
-                                                </ul>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-xs-12 col-sm-4 col-md-4 pd-none">
+                                        <div class="col-xs-12 col-sm-4 col-md-4 pd-none mg-bt-50">
                                             <div class="row config-bloco-servico">
                                                 <div class="img-veja-tbm pull-left">
                                                     <a href="{$URL}servicos/{$dadosCategoriaServico[i].urlAmigavelCategoria}">
@@ -103,20 +103,9 @@
                                                     </a>
                                                 </div>
                                                 <h2 class="titulo-veja-tbm pull-left"><a class="pd-tp-30" href="{$URL}servicos/{$dadosCategoriaServico[i].urlAmigavelCategoria}">{$dadosCategoriaServico[i].nomeCat}</a></h2>
-                                                <ul class="menu-servicos">
+                                                <div class="menu-servicos">
                                     {/if}
-                                                
-                                                    <li class="linha-menu-servicos"><a href="{$URL}servicos/{$dadosCategoriaServico[i].urlAmigavelCategoria}/{$dadosCategoriaServico[i].urlAmigavel}">  »  {$dadosCategoriaServico[i].nome}</a></li>
-                                    <!-- <div class="col-xs-12 col-sm-5 col-md-5 pd-none">
-                                        <div class="row config-bloco-servico">
-                                            <div class="img-veja-tbm pull-left">
-                                                <a href="{$URL}servicos-terceirizados">
-                                                    <img class="" src="{$URL}commom/img/veja-tambem.jpg" alt="Serviços terceirizados">
-                                                </a>
-                                            </div>
-                                            <h2 class="titulo-veja-tbm pull-left"><a class="pd-tp-30" href="{$URL}servicos-terceirizados">Serviços terceirizados</a></h2>
-                                        </div>
-                                    </div> -->
+                                                <h3 class="linha-menu-servicos"><a href="{$URL}servicos/{$dadosCategoriaServico[i].urlAmigavelCategoria}/{$dadosCategoriaServico[i].urlAmigavel}">  »  {$dadosCategoriaServico[i].nome}</a></h3>
                                     {assign var="nmTipoServicos" value=$dadosCategoriaServico[i].urlAmigavelCat}
                                 {/section}
                             {/if}

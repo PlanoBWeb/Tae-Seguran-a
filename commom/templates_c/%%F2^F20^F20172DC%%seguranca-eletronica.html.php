@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.12, created on 2016-04-28 20:59:08
+<?php /* Smarty version 2.6.12, created on 2016-05-05 16:53:25
          compiled from conteudo/seguranca-eletronica.html */ ?>
 O principal diferencial da TAE Segurança Eletrônica tem sido orientar de forma transparente e esclarecedora o cliente na decisão de escolha dos equipamentos e sistemas com melhor custo x benefício. A enorme variedade de soluções traz incertezas ao cliente e uma boa consultoria faz toda a diferença.<br/><br/> 
 Atuamos na segurança de residências, condomínios, galpões, comércios, indústrias, e qualquer tipo e porte de empresa desenvolvendo projetos, comercializando produtos e ainda integrando equipamentos essenciais para qualquer tipo de empreendimento, como: Câmeras, Alarmes, Sensores de Presença, Proteção Perimetral e Circuito Fechado de TV (CFTV), entre outros.<br/><br/>

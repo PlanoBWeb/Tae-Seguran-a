@@ -5,11 +5,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="index, follow">
-        <meta name="description" content="" />
+        <meta name="description" content="{$urlFriendly.description}" />
         <link href="{$URL}commom/img/icon-tab.png" rel="icon">
         {include file="../inc/cssUrlAmigavel.html"}
         <link rel="stylesheet" type="text/css" href="{$URL}commom/css/estilo.css">
-        <title>Tae Segurança</title>
+        <title>{$urlFriendly.title}</title>
         <!-- Bootstrap -->
         <link href="{$URL}commom/css/bootstrap.min.css" rel="stylesheet">
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -38,10 +38,10 @@
                                 <div class="bloco-desc-banner">
                                     <p class="titulo-banner-home">Portaria Digital</p>
                                     <p class="subtitulo-banner-home">A sua portaria informatizada<br>Segurança e agilidade no dia a dia</p>
-                                    <a class="saiba-mais-vitrine" href="{$URL}">Saiba mais</a>
+                                    <a class="saiba-mais-vitrine" href="{$URL}servicos/servicos-terceirizados/porteiro">Saiba mais</a>
                                 </div>
                             </div>
-                            <img src="{$URL}commom/img/banner.jpg" alt="banner" title="banner">
+                            <img src="{$URL}commom/img/banner.jpg" alt="Portaria Digital - A sua portaria informatizada Segurança e agilidade no dia a dia" title="Portaria Digital - A sua portaria informatizada Segurança e agilidade no dia a dia">
                         </div>
                     </div>
                 </div>
@@ -53,17 +53,17 @@
     <div class="destaque-baixo-banner bloco-atributos">
         <div class="width-default">
             <h1 class="titulo-dest-home">TAE Segurança Privada e Pessoal • Escolta Armada •  Serviços Terceirizados</h1>
-            <a class="saiba-mais-vitrine" href="{$URL}">Saiba mais</a>
+            <a class="saiba-mais-vitrine" href="{$URL}servicos/servicos-de-seguranca">Saiba mais</a>
         </div>
     </div>
     <!-- Fim Destaque Baixo banner -->
     <section class="container">
-        <div class="width-default">
+        <div class="width-default mg-bt-50">
             <!-- Inicio Servicos destaques -->
             <div class="row">
                 <div class="row">
                     {if $dadosDestFooter[0]}
-                        <div class="col-xs-12 col-sm-4 col-md-4 mg-bt-50">
+                        <div class="width-mob-default col-xs-12 col-sm-4 col-md-4 mg-bt-50">
                             <div class="row">
                                 {if $dadosDestFooter[0].caminhoImagemThumb}
                                     <div class="pull-left bd-tp-laranja">
@@ -75,11 +75,10 @@
                                 {/if}
                             </div>
                             <h2 class="titulo-servicos-home"><a href="{$URL}servicos/{$dadosDestFooter[0].urlAmigavelCat}/{$dadosDestFooter[0].urlAmigavel}">{$dadosDestFooter[0].nome}</a></h2>
-                            <a href="{$URL}servicos/{$dadosDestFooter[0].urlAmigavelCat}/{$dadosDestFooter[0].urlAmigavel}" class="txt-servicos-home">{$dadosDestFooter[0].textoAbrev}</a>
                         </div>
                     {/if}
                     {if $dadosDestFooter2[0]}
-                        <div class="col-xs-12 col-sm-4 col-md-4 mg-bt-50">
+                        <div class="width-mob-default col-xs-12 col-sm-4 col-md-4 mg-bt-50">
                             <div class="row">
                                 {if $dadosDestFooter2[0].caminhoImagemThumb}
                                     <div class="pull-left bd-tp-azul">
@@ -90,12 +89,11 @@
                                     </div>
                                 {/if}
                             </div>
-                            <h2 class="titulo-servicos-home"><a href="{$URL}servicos/{$dadosDestFooter2[0].urlAmigavelCat}/{$dadosDestFooter2[0].urlAmigavel}">{$dadosDestFooter2[0].nome}</a></h2>
-                            <a href="{$URL}servicos/{$dadosDestFooter2[0].urlAmigavelCat}/{$dados2[0].urlAmigavel}" class="txt-servicos-home">{$dadosDestFooter2[0].textoAbrev}</a>
+                            <h2 class="titulo-servicos-home titulo-servicos-home-azul"><a href="{$URL}servicos/{$dadosDestFooter2[0].urlAmigavelCat}/{$dadosDestFooter2[0].urlAmigavel}">{$dadosDestFooter2[0].nome}</a></h2>
                         </div>
                     {/if}
                     {if $dadosDestFooter3[0]}
-                        <div class="col-xs-12 col-sm-4 col-md-4 mg-bt-50">
+                        <div class="width-mob-default col-xs-12 col-sm-4 col-md-4 mg-bt-50">
                             <div class="row">
                                 {if $dadosDestFooter3[0].caminhoImagemThumb}
                                     <div class="pull-left bd-tp-cinza">
@@ -106,12 +104,11 @@
                                     </div>
                                 {/if}
                             </div>
-                            <h2 class="titulo-servicos-home"><a href="{$URL}servicos/{$dadosDestFooter3[0].urlAmigavelCat}/{$dadosDestFooter3[0].urlAmigavel}">{$dadosDestFooter3[0].nome}</a></h2>
-                            <a href="{$URL}servicos/{$dadosDestFooter3[0].urlAmigavelCat}/{$dados2[0].urlAmigavel}" class="txt-servicos-home">{$dadosDestFooter3[0].textoAbrev}</a>
+                            <h2 class="titulo-servicos-home titulo-servicos-home-cinza"><a href="{$URL}servicos/{$dadosDestFooter3[0].urlAmigavelCat}/{$dadosDestFooter3[0].urlAmigavel}">{$dadosDestFooter3[0].nome}</a></h2>
                         </div>
                     {/if}
                     {if $dadosDestFooter[1]}
-                        <div class="col-xs-12 col-sm-4 col-md-4 mg-bt-50">
+                        <div class="width-mob-default col-xs-12 col-sm-4 col-md-4 mg-bt-50">
                             <div class="row">
                                 {if $dadosDestFooter[1].caminhoImagemThumb}
                                     <div class="pull-left bd-tp-laranja">
@@ -123,11 +120,10 @@
                                 {/if}
                             </div>
                             <h2 class="titulo-servicos-home"><a href="{$URL}servicos/{$dadosDestFooter[1].urlAmigavelCat}/{$dadosDestFooter[1].urlAmigavel}">{$dadosDestFooter[1].nome}</a></h2>
-                            <a href="{$URL}servicos/{$dadosDestFooter[1].urlAmigavelCat}/{$dadosDestFooter[1].urlAmigavel}" class="txt-servicos-home">{$dadosDestFooter[1].textoAbrev}</a>
                         </div>
                     {/if}
                     {if $dadosDestFooter2[1]}
-                        <div class="col-xs-12 col-sm-4 col-md-4 mg-bt-50">
+                        <div class="width-mob-default col-xs-12 col-sm-4 col-md-4 mg-bt-50">
                             <div class="row">
                                 {if $dadosDestFooter2[1].caminhoImagemThumb}
                                     <div class="pull-left bd-tp-azul">
@@ -138,12 +134,11 @@
                                     </div>
                                 {/if}
                             </div>
-                            <h2 class="titulo-servicos-home"><a href="{$URL}servicos/{$dadosDestFooter2[1].urlAmigavelCat}/{$dadosDestFooter2[1].urlAmigavel}">{$dadosDestFooter2[1].nome}</a></h2>
-                            <a href="{$URL}servicos/{$dadosDestFooter2[1].urlAmigavelCat}/{$dados2[0].urlAmigavel}" class="txt-servicos-home">{$dadosDestFooter2[1].textoAbrev}</a>
+                            <h2 class="titulo-servicos-home titulo-servicos-home-azul"><a href="{$URL}servicos/{$dadosDestFooter2[1].urlAmigavelCat}/{$dadosDestFooter2[1].urlAmigavel}">{$dadosDestFooter2[1].nome}</a></h2>
                         </div>
                     {/if}
                     {if $dadosDestFooter3[1]}
-                        <div class="col-xs-12 col-sm-4 col-md-4 mg-bt-50">
+                        <div class="width-mob-default col-xs-12 col-sm-4 col-md-4 mg-bt-50">
                             <div class="row">
                                 {if $dadosDestFooter3[1].caminhoImagemThumb}
                                     <div class="pull-left bd-tp-cinza">
@@ -154,8 +149,8 @@
                                     </div>
                                 {/if}
                             </div>
-                            <h2 class="titulo-servicos-home"><a href="{$URL}servicos/{$dadosDestFooter3[1].urlAmigavelCat}/{$dadosDestFooter3[1].urlAmigavel}">{$dadosDestFooter3[1].nome}</a></h2>
-                            <a href="{$URL}servicos/{$dadosDestFooter3[1].urlAmigavelCat}/{$dados2[0].urlAmigavel}" class="txt-servicos-home">{$dadosDestFooter3[1].textoAbrev}</a>
+                            <h2 class="titulo-servicos-home titulo-servicos-home-cinza"><a href="{$URL}servicos/{$dadosDestFooter3[1].urlAmigavelCat}/{$dadosDestFooter3[1].urlAmigavel}">{$dadosDestFooter3[1].nome}</a></h2>
+                            <!-- <a href="{$URL}servicos/{$dadosDestFooter3[1].urlAmigavelCat}/{$dados2[0].urlAmigavel}" class="txt-servicos-home">{$dadosDestFooter3[1].textoAbrev}</a> -->
                         </div>
                     {/if}
                 </div>
@@ -181,7 +176,7 @@
                                                 </a>
                                             {/if}
                                         </div>
-                                        <a href="{$URL}noticia/{$dadosMenuBlog[i].urlAmigavel}" class="titulo-midia-destaque">{$dadosMenuBlog[i].tituloAbrev}</a>
+                                        <a href="{$URL}noticia/{$dadosMenuBlog[i].urlAmigavel}" class="titulo-midia-destaque titulo-midia-destaque-tam">{$dadosMenuBlog[i].tituloAbrev}</a>
                                         <a href="{$URL}noticia/{$dadosMenuBlog[i].urlAmigavel}" class="titulo-midia-destaque txt-midia-destaque">{$dadosMenuBlog[i].textoAbrev}</a>
                                         <a href="{$URL}noticia/{$dadosMenuBlog[i].urlAmigavel}" class="titulo-midia-destaque continue-lendo">Continue lendo  »</a>
                                     </div> 
@@ -192,11 +187,20 @@
                                 {/if}     
 
                                 {if $smarty.section.i.index == 3} 
-                                    </div>
-                                    <div class="item">
+                                    {if $smarty.section.i.index == $totalNoticias }
+                                        
+                                    {else}
+                                        </div>
+                                        <div class="item">
+                                    {/if}
                                 {/if}   
                                 {if $smarty.section.i.index == 5} 
-                                    </div>
+                                    {if $smarty.section.i.index == $totalNoticias }
+                                        
+                                    {else}
+                                        </div>
+                                        <div class="item">
+                                    {/if}
                                 {/if}      
                             {/section}
                             </div>
@@ -215,16 +219,23 @@
                     <div id="owl-demo-depoimentos" class="owl-carousel">
                         <div class="item">
                             <p class="titulo-midia-destaque txt-midia-destaque">
-                                “This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh”.
+                                A equipe da TAE cuidou da segurança de nosso evento e foi um sucesso. Desde o planejamento até a execução tudo perfeito. Muito eficientes e discretos, tudo correu da melhor forma possível.
                             </p>
-                            <div class="row">
+                            <!-- <div class="row">
                                 <p class="titulo-midia-destaque pull-right mg-none">
-                                    João da Silva
+                                    Muhtar Kent
                                 </p>
                             </div>
                             <div class="row">
                                 <p class="titulo-midia-destaque txt-midia-destaque pull-right pd-none">
-                                    Nome da empresa
+                                    Coca Cola
+                                </p>
+                            </div> -->
+                            <div class="row">
+                                <img src="{$URL}commom/img/presidente-coca-cola.jpg" alt="presidente coca cola" title="presidente coca cola" class="img-depoimento pull-left">
+                                <p class="titulo-midia-destaque pull-left mg-none">
+                                    Muhtar Kent<br>
+                                    Coca Cola
                                 </p>
                             </div>
                         </div>
@@ -263,7 +274,7 @@
                             <img class="img-resp-social" src="{$URL}commom/img/social4.jpg" alt="responsabilidade social">
                         </div>
                     </div>
-                    <p class="txt-default pull-left">Projeto Social Arcanjos da Noite</p><a class="saiba-mais-vitrine pull-right" href="{$URL}">Saiba mais</a>
+                    <p class="txt-default pull-left">Projeto Social Arcanjos da Noite</p><a class="saiba-mais-vitrine pull-right" href="{$URL}quem-somos/responsabilidade-social">Saiba mais</a>
                 </div>
             </div>
             <!-- Fim Institucional -->

@@ -2,14 +2,15 @@
 
 include_once "configs/config.php";
 include_once "classes/Usuario.class.php";
-$smarty->assign("pagina", $pagina);
 
 $smarty->assign("titulo", utf8_encode(TITULO));
 
 if ($_POST["acao"] == "logar")
 {
+
 	$classUsuario = new Usuario();
-	$arCheca = $classUsuario->checa($_POST['login'], md5($_POST['senha']));
+	
+	$arCheca = $classUsuario->checa($_POST['login'], $_POST['senha']);
 	if( $arCheca[0] )
 	{
 		$smarty->assign("mensagem", $arCheca[1]);
@@ -17,17 +18,25 @@ if ($_POST["acao"] == "logar")
 		$smarty->display("mensagem.html");
 		exit();
 	}
-
+	
+	if( $arCheca[1]['usu_status'] != 1 )
+	{
+		$smarty->assign("mensagem", "Cadastro inativo. Por favor entre em contato com o administrador do sistema.");
+		$smarty->assign("volta", true);
+		$smarty->display("mensagem.html");
+		exit();
+	}
 	session_start();
-	$_SESSION['id'] 	= $arCheca[1]['id'];
-	$_SESSION['login'] 	= $arCheca[1]['email'];
-	$_SESSION['senha'] 	= $arCheca[1]['senha'];
-	$_SESSION['nome'] 	= utf8_encode($arCheca[1]['nome']);
+	
+	$_SESSION['id'] 	= $arCheca[1]['usu_id'];
+	$_SESSION['login'] 	= $arCheca[1]['usu_email'];
+	$_SESSION['senha'] 	= $arCheca[1]['usu_senha'];
+	$_SESSION['nome'] 	= utf8_encode($arCheca[1]['usu_nome']);
+	$_SESSION['perfil'] = $arCheca[1]['usu_perfil'];
 	
 	echo "<script>location.href='adm_index.php';</script>";
 }
 
-session_start();
 if($_SESSION['login'] == "" OR $_SESSION['senha'] == "" OR $_SESSION['id'] == "")
 {
 	$smarty->display('admin/login.html');
@@ -37,9 +46,8 @@ if($_SESSION['login'] == "" OR $_SESSION['senha'] == "" OR $_SESSION['id'] == ""
 if ($_GET["acao"] == "logout")
 {
 	session_destroy();
-    header("Location: index.php");
+    header("Location: adm_index.php");
 }
 
-$smarty->assign("idUser", $_SESSION['id']);
 
 ?>

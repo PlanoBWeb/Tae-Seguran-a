@@ -5,11 +5,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="index, follow">
-        <meta name="description" content="" />
+        <meta name="description" content="{$urlFriendly.description}" />
         <link href="{$URL}commom/img/icon-tab.png" rel="icon">
         {include file="../inc/cssUrlAmigavel.html"}
         <link rel="stylesheet" type="text/css" href="{$URL}commom/css/estilo.css">
-        <title>Tae Segurança</title>
+        <title>{$urlFriendly.title}</title>
         <!-- Bootstrap -->
         <link href="{$URL}commom/css/bootstrap.min.css" rel="stylesheet">
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -28,10 +28,13 @@
     {include file="../inc/header.html"}
     <!-- Inicio Banner -->
     <div class="breadcrumb-faixa">
+          <h1 class="titulo-banner-interna visible-xs-block">
+              noticias
+          </h1>
          {include file="../inc/breadcrumb.html"}
     </div>
     <section class="container">
-        <div class="width-default">
+        <div class="width-default mg-bt-50">
             <div class="col-xs-12 col-sm-8 col-md-8 pd-lf-none-desk">
                <div class="row bloco-atributos bloco-servico">
                   {if $dados}

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.12, created on 2016-04-19 14:40:28
+<?php /* Smarty version 2.6.12, created on 2016-05-05 17:43:10
          compiled from noticias.html */ ?>
 <!DOCTYPE HTML>
 <html lang="pt-br">
@@ -7,7 +7,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="index, follow">
-        <meta name="description" content="" />
+        <meta name="description" content="<?php echo $this->_tpl_vars['urlFriendly']['description']; ?>
+" />
         <link href="<?php echo $this->_tpl_vars['URL']; ?>
 commom/img/icon-tab.png" rel="icon">
         <?php $_smarty_tpl_vars = $this->_tpl_vars;
@@ -17,7 +18,8 @@ unset($_smarty_tpl_vars);
  ?>
         <link rel="stylesheet" type="text/css" href="<?php echo $this->_tpl_vars['URL']; ?>
 commom/css/estilo.css">
-        <title>Tae Segurança</title>
+        <title><?php echo $this->_tpl_vars['urlFriendly']['title']; ?>
+</title>
         <!-- Bootstrap -->
         <link href="<?php echo $this->_tpl_vars['URL']; ?>
 commom/css/bootstrap.min.css" rel="stylesheet">
@@ -44,6 +46,9 @@ unset($_smarty_tpl_vars);
  ?>
     <!-- Inicio Banner -->
     <div class="breadcrumb-faixa">
+          <h1 class="titulo-banner-interna visible-xs-block">
+              noticias
+          </h1>
          <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "../inc/breadcrumb.html", 'smarty_include_vars' => array()));
 $this->_tpl_vars = $_smarty_tpl_vars;
@@ -51,7 +56,7 @@ unset($_smarty_tpl_vars);
  ?>
     </div>
     <section class="container">
-        <div class="width-default">
+        <div class="width-default mg-bt-50">
             <div class="col-xs-12 col-sm-8 col-md-8 pd-lf-none-desk">
                <div class="row bloco-atributos bloco-servico">
                   <?php if ($this->_tpl_vars['dados']): ?>

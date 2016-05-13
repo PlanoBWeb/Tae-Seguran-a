@@ -1,0 +1,212 @@
+﻿<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>{$titulo} - ADMINISTRAÇÃO</title>
+
+<link rel="stylesheet" href="commom/css/admin.css" type="text/css">
+
+<script src="commom/js/geral.js"></script>
+
+</head>
+
+<body topmargin="0" leftmargin="0" style="background-color:#D5DDE3" onLoad="window.print();">
+
+<!-- Conteúdo -->
+<table width="100%" height="350" border="0" cellpadding="10" cellspacing="0">
+  <tr>
+    <td width="5%">&nbsp;</td>
+    <td width="90%" style="background-color:#FFFFFF" valign="top">
+		<table width="100%" border="0">
+      		<tr>
+        		<td>
+            
+				<table cellspacing="3" cellpadding="3" border="0" width="515" align="center">
+                 <input type="hidden" name="id" id="id" value="{$dados[0].id}" />
+                	<tr>
+                    	<td colspan="2">
+                        
+                        <table cellpadding="0" cellspacing="0" width="100%">
+                         <tr>
+                         	<td class="texto"><strong>OR&Ccedil;AMENTOS - DETALHES</strong></td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+                    </tr>
+            		<tr>
+              			<td align="right" nowrap="nowrap" class="texto"><strong>PEDIDO:</strong></td>
+              			<td class="texto">{$dados[0].id}</td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto"><strong>Nome:</strong></td>
+              			<td class="texto">{$dados[0].nome}</td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto"></td>
+              			<td class="texto">
+                        	<input type="radio" name="tipo" value="f" {if $dados[0].tipo == "f"} checked {/if} /> F&iacute;sica &nbsp;&nbsp;&nbsp; 
+                       		<input type="radio" name="tipo" value="j" {if $dados[0].tipo == "j"} checked {/if} /> Jur&iacute;dica
+                        </td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto"><strong>CPF/CNPJ:</strong></td>
+              			<td class="texto">{$dados[0].cpf}</td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto"><strong>Nome / Razão Social:</strong></td>
+              			<td class="texto">{$dados[0].razao}</td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto"><strong>Endere&ccedil;o:</strong></td>
+              			<td>
+                        
+                        <table width="100%">
+                         <tr>
+                         	<td class="texto">
+                            	{$dados[0].endereco}
+                            </td>
+                            
+                            <td align="right" class="texto">
+								<strong>N&uacute;mero:</strong>
+                                {$dados[0].numero}
+                            </td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto"><strong>Complemento:</strong></td>
+              			<td class="texto">
+                        
+                        <table width="100%">
+                         <tr>
+                         	<td align="left" class="texto">
+								{$dados[0].complemento}
+                            </td>
+                            
+                         	<td align="right" class="texto">
+								<strong>CEP:</strong>
+                            	{$dados[0].cep}
+                            </td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto"><strong>Bairro:</strong></td>
+              			<td class="texto">{$dados[0].bairro}</td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto"><strong>Cidade:</strong></td>
+              			<td>
+                        
+                        <table width="100%">
+                         <tr>
+                         	<td class="texto">
+                            	{$dados[0].cidade}
+                            </td>
+                            
+                            <td align="right" class="texto">
+								<strong>Estado:</strong>
+                                {$dados[0].estado}
+                            </td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto"><strong>Telefone Fixo:</strong></td>
+              			<td>
+                        
+                        <table width="100%">
+                         <tr>
+                         	<td class="texto" nowrap="nowrap">
+                            	{$dados[0].telefoneDdd} - {$dados[0].telefone}
+                            </td>
+                            
+                            <td align="right" class="texto" nowrap="nowrap">
+								<strong>Celular:</strong>
+                                {$dados[0].celularDdd} - {$dados[0].celular}
+                            </td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto"><strong>E-mail:</strong></td>
+              			<td class="texto">{$dados[0].email}</td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto"><strong>Servi&ccedil;os Desejados:</strong></td>
+              			<td class="texto"></td>
+            		</tr>
+                    <tr>
+              			<td class="texto" colspan="2">
+                        
+                        <table cellspacing="3" cellpadding="3" border="0" width="490" align="center">
+                         <tr>
+                         	<td class="texto">
+                            {$dados[0].servicos}
+                            </td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+            		</tr>
+                    <tr>
+                    	<td colspan="2"><br/><br/></td>
+                    </tr>
+                    {if $dadosHistoricos}
+                    <tr>
+                    	<td colspan="2" class="texto">
+                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                         <tr>
+                         	<td class="texto"><strong>HIST&Oacute;RICO DE A&Ccedil;&Otilde;ES</strong></td>
+                         </tr>
+                        </table>
+                        </td>
+                    </tr>
+                    {/if}
+                    <tr>
+                    	<td colspan="2">
+                        
+                        <table cellspacing="2" cellpadding="5" border="0" width="100%">
+                            {section name=i loop=$dadosHistoricos}
+                            <tr>
+                                <td class="texto">
+                                	<strong>Data:</strong> {$dadosHistoricos[i].dtCadastroData} 
+                                    <strong>Hora:</strong> {$dadosHistoricos[i].dtCadastroHora}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="texto"><strong>Usuario:</strong> {$dadosHistoricos[i].usu_nome}</td>
+                            </tr>
+                            <tr>
+                                <td class="texto">{$dadosHistoricos[i].descricao}</td>
+                            </tr>
+                            <tr>
+                                <td class="texto"><hr color="#000000" size="1" /></td>
+                            </tr>
+                            {/section}
+                        </table>
+                        
+                        </td>
+                    </tr>
+          			</form>
+        		</table>
+			</td>
+     	 </tr>
+    </table>
+	
+	</td>
+    <td width="5%">&nbsp;</td>
+  </tr>
+</table>
+<!-- FIM Conteúdo -->
+
+</body>
+</html>

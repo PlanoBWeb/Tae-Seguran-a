@@ -115,6 +115,7 @@
 	$smarty->assign("dadosCategoriaServico", $retornoMenuHeader[1]);
     $smarty->assign("pagina", $pagina);
     $smarty->assign("URL", URL);
+    $smarty->assign("urlFriendly", $urlFriendly);
     $smarty->assign("breadcrumb", "Serviços");
     if (isset($url[2])) {
     	$smarty->display($pag.".html");	

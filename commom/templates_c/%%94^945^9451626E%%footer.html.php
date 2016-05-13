@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.12, created on 2016-04-29 18:08:46
+<?php /* Smarty version 2.6.12, created on 2016-05-11 14:37:19
          compiled from ../inc/footer.html */ ?>
     <article class="blog-destaques-home">
         <div class="width-default">
@@ -8,7 +8,7 @@ commom/img/icon-news.png" alt="">Assine nossa Newsletter</p>
             </div>
             <div class="col-xs-12 col-sm-8 col-md-9 pd-none pull-right">
                 <form class="form-newsletter" name="newsletter" action="<?php echo $this->_tpl_vars['URL']; ?>
-" method="post" role="search">
+envia" method="post" role="search">
                     <div>
                         <input type="hidden" name="acao" value="assine-news">
                         <div class="col-xs-12 col-sm-5 col-md-5">
@@ -43,11 +43,11 @@ commom/img/logo-footer.png" alt="Tae Segurança">
                             <ul class="bloco-ul-footer">
                                 <li class="linha-menu-footer linha-menu-footer-title">Quem somos</li>
                                 <li class="linha-menu-footer"><a href="<?php echo $this->_tpl_vars['URL']; ?>
-" class="link-menu-footer">- Institucional</a></li>
+quem-somos/institucional" class="link-menu-footer">- Institucional</a></li>
                                 <li class="linha-menu-footer"><a href="<?php echo $this->_tpl_vars['URL']; ?>
-" class="link-menu-footer">- Estrutura</a></li>
+quem-somos/estrutura" class="link-menu-footer">- Estrutura</a></li>
                                 <li class="linha-menu-footer"><a href="<?php echo $this->_tpl_vars['URL']; ?>
-" class="link-menu-footer">- Responsabilidade Social </a></li>
+quem-somos/responsabilidade-social" class="link-menu-footer">- Responsabilidade Social </a></li>
                             </ul>
                         </div>
                         <div class="row">
@@ -124,25 +124,24 @@ servicos/<?php echo $this->_tpl_vars['dadosDestFooter2'][$this->_sections['i']['
                         </div>  
                         <div class="col-xs-12 col-sm-4 col-md-4 pd-none">
                             <ul class="bloco-ul-footer">
-                                <li class="linha-menu-footer linha-menu-footer-title">Mídias</li>
+                                <!-- <li class="linha-menu-footer linha-menu-footer-title">Mídias</li>
 
                                 <li class="linha-menu-footer"><a href="<?php echo $this->_tpl_vars['URL']; ?>
 " class="link-menu-footer">- Notícias</a></li>
                                 <li class="linha-menu-footer"><a href="<?php echo $this->_tpl_vars['URL']; ?>
 " class="link-menu-footer">- Eventos</a></li>
                                 <li class="linha-menu-footer pd-bt-20"><a href="<?php echo $this->_tpl_vars['URL']; ?>
-" class="link-menu-footer">- Vídeos</a></li>
+" class="link-menu-footer">- Vídeos</a></li> -->
                                 <li class="linha-menu-footer pd-bt-20"><a href="<?php echo $this->_tpl_vars['URL']; ?>
-" class="link-menu-footer linha-menu-footer-title">Orçamentos</a></li>
-                                <li class="linha-menu-footer pd-bt-20"><a href="<?php echo $this->_tpl_vars['URL']; ?>
-" class="link-menu-footer linha-menu-footer-title">Chat on-line</a></li>
+orcamentos" class="link-menu-footer linha-menu-footer-title">Orçamentos</a></li>
+                                <li class="linha-menu-footer pd-bt-20"><span class="link-menu-footer linha-menu-footer-title">Chat on-line</span></li>
                                 <li class="linha-menu-footer linha-menu-footer-title">Contato</li>
                                 <li class="linha-menu-footer"><a href="<?php echo $this->_tpl_vars['URL']; ?>
-" class="link-menu-footer">- Fale Conosco</a></li>
+fale-conosco" class="link-menu-footer">- Fale Conosco</a></li>
                                 <li class="linha-menu-footer"><a href="<?php echo $this->_tpl_vars['URL']; ?>
-" class="link-menu-footer">- Trabalhe Conosco</a></li>
+trabalhe-conosco" class="link-menu-footer">- Trabalhe Conosco</a></li>
                                 <li class="linha-menu-footer"><a href="<?php echo $this->_tpl_vars['URL']; ?>
-" class="link-menu-footer">- Localização</a></li>
+localizacao" class="link-menu-footer">- Localização</a></li>
                             </ul>
                         </div>                
                         
@@ -166,7 +165,7 @@ servicos/<?php echo $this->_tpl_vars['dadosDestFooter2'][$this->_sections['i']['
         <div class="bloco-direitos">
             <div class="encapsula-bloco-direitos">
                 <div class="col-xs-12 col-sm-6 col-md-6 pd-none">
-                    <p class="txt-direitos">TAE Segurança - Todos os direitos reservados  - 2015</p>
+                    <p class="txt-direitos">TAE Segurança - Todos os direitos reservados  - 2016</p>
                 </div>  
                 <div class="col-xs-12 col-sm-6 col-md-6 pd-none">
                     <div class="bloco-dev">
@@ -200,11 +199,11 @@ unset($_smarty_tpl_vars);
         </div> -->
     </div>
 
-    <!-- BEGIN JIVOSITE CODE <?php echo ' -->
-    <script type=\'text/javascript\'>
-    (function(){ var widget_id = \'rGZT8Bzvo0\';var d=document;var w=window;function l(){
-    var s = document.createElement(\'script\'); s.type = \'text/javascript\'; s.async = true; s.src = \'//code.jivosite.com/script/widget/\'+widget_id; var ss = document.getElementsByTagName(\'script\')[0]; ss.parentNode.insertBefore(s, ss);}if(d.readyState==\'complete\'){l();}else{if(w.attachEvent){w.attachEvent(\'onload\',l);}else{w.addEventListener(\'load\',l,false);}}})();</script>
-    <!-- '; ?>
+<!-- BEGIN JIVOSITE CODE <?php echo ' -->
+<script type=\'text/javascript\'>
+(function(){ var widget_id = \'lEqRY2DBDy\';var d=document;var w=window;function l(){
+var s = document.createElement(\'script\'); s.type = \'text/javascript\'; s.async = true; s.src = \'//code.jivosite.com/script/widget/\'+widget_id; var ss = document.getElementsByTagName(\'script\')[0]; ss.parentNode.insertBefore(s, ss);}if(d.readyState==\'complete\'){l();}else{if(w.attachEvent){w.attachEvent(\'onload\',l);}else{w.addEventListener(\'load\',l,false);}}})();</script>
+<!-- '; ?>
  END JIVOSITE CODE -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -212,11 +211,12 @@ unset($_smarty_tpl_vars);
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<?php echo $this->_tpl_vars['URL']; ?>
 commom/js/bootstrap.min.js"></script>
-    <script src="<?php echo $this->_tpl_vars['URL']; ?>
-commom/js/geral.js"></script>
     <!-- vitrine -->
     <script src="<?php echo $this->_tpl_vars['URL']; ?>
 commom/js/vitrine/owl.carousel.js"></script>
     <!-- vitrine -->
     <script src="<?php echo $this->_tpl_vars['URL']; ?>
 commom/js/funcoes.js"></script>
+    <script src="<?php echo $this->_tpl_vars['URL']; ?>
+commom/js/geral.js"></script>
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"> </script>

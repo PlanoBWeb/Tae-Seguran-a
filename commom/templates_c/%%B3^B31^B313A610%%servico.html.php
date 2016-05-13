@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.12, created on 2016-04-29 17:43:11
+<?php /* Smarty version 2.6.12, created on 2016-05-05 16:07:20
          compiled from servico.html */ ?>
 <!DOCTYPE HTML>
 <html lang="pt-br">
@@ -7,7 +7,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="index, follow">
-        <meta name="description" content="" />
+        <meta name="description" content="<?php echo $this->_tpl_vars['urlFriendly']['description']; ?>
+" />
         <link href="<?php echo $this->_tpl_vars['URL']; ?>
 commom/img/icon-tab.png" rel="icon">
         <?php $_smarty_tpl_vars = $this->_tpl_vars;
@@ -17,7 +18,8 @@ unset($_smarty_tpl_vars);
  ?>
         <link rel="stylesheet" type="text/css" href="<?php echo $this->_tpl_vars['URL']; ?>
 commom/css/estilo.css">
-        <title>Tae Segurança</title>
+        <title><?php echo $this->_tpl_vars['urlFriendly']['title']; ?>
+</title>
         <!-- Bootstrap -->
         <link href="<?php echo $this->_tpl_vars['URL']; ?>
 commom/css/bootstrap.min.css" rel="stylesheet">
@@ -79,22 +81,19 @@ unset($_smarty_tpl_vars);
                     <div class="col-xs-12 col-sm-6 col-md-6 pd-lf-none">
                         <h1 class="titulo-destaque"><?php echo $this->_tpl_vars['dados'][0]['nome']; ?>
 </h1>
-
-                        
                         <?php if ($this->_tpl_vars['dados'][0]['urlAmigavelCat'] == "servicos-de-limpeza"): ?>
                             <div class="max-width-title"><span class="linha-titulo-cinza"></span><span class="linha-titulo-laranja linha-titulo-cinza-escuro"></span></div>
                         <?php elseif ($this->_tpl_vars['dados'][0]['urlAmigavelCat'] == "servicos-terceirizados"): ?>
                             <div class="max-width-title"><span class="linha-titulo-cinza"></span><span class="linha-titulo-laranja linha-titulo-azul"></span></div>
                         <?php else: ?>
                             <div class="max-width-title"><span class="linha-titulo-cinza"></span><span class="linha-titulo-laranja"></span></div>
-                        <?php endif; ?>
-                        
+                        <?php endif; ?>                        
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6">
-                        <div class="atend-on bloco-atributos mg-none pull-right">
+                        <div class="atend-on bloco-atributos mg-none pull-right" style="margin-top: -10px !Important;">
                             <img class="pull-left" src="<?php echo $this->_tpl_vars['URL']; ?>
 commom/img/solicite-orcamento.png" alt="solicite orçamento">    
-                            <p class="txt-atend-on pull-left">Solicite um Orçamento Agora!</p>
+                            <p class="txt-atend-on txt-atend-on-open pull-left">Solicite um Orçamento Agora!</p>
                         </div>
                         <div class="content-form-fixed content-form-fixed-tae">
                             <img class="img-bg-orcamento" src="<?php echo $this->_tpl_vars['URL']; ?>

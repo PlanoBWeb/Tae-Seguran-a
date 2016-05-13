@@ -1,5 +1,6 @@
-<form class="form-horizontal form-fale" name="contatoFixed" method="post" action="{$URL}envia">
-    <input type="hidden" name="acao" value="formcontato">
+<form class="form-horizontal form-fale" name="contato" method="post" action="{$URL}envia">
+    <input type="hidden" name="acao" value="fale-conosco">
+    <input type="hidden" name="pagina" value="{$breadcrumb}">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 pd-mobile-form-home">
             <input type="text" name="nome" class="form-home form-control" placeholder="Nome">
@@ -32,6 +33,6 @@
         </div>
     </div>
     <div class="col-xs-12 col-sm-2 col-md-2 pull-right pd-mobile-form-home">
-        <button type="submit" class="btn btn-default-site btn-formfixed pull-right" onclick="return enviardadosFixed();">enviar</button>
+        <button type="submit" class="btn btn-default-site btn-formfixed pull-right" onclick="return enviardados();">enviar</button>
     </div>  
 </form> 

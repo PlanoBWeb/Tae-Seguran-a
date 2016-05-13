@@ -32,8 +32,10 @@
 
 
     // Dados do blog menu lateral
-	$retornoMenuBlog['destaque']	= "1";
-	$retornoMenuBlog['limitVeja']	= "4";
+	$parametroBlog['destaque']	= "1";
+	$parametroBlog['limitVeja']	= "6";
+	// $retornoMenuBlog['destaque']	= "1";
+	// $retornoMenuBlog['limitVeja']	= "4";
 	$retornoMenuBlog = $class->Pesquisar($parametroBlog, null, null);
 	if( $retornoMenuBlog[0] )
 	{
@@ -72,7 +74,11 @@
 		$smarty->assign("redir", URL);
 		$smarty->display("mensagem.html");
 		exit();
-	}
+	}	
+
+	$totalNoticias = count($retornoMenuBlog[1]);
+	$totalNoticias = $totalNoticias - 1;
+
 
 	$smarty->assign("dadosMenuHeader", $retornoMenuHeader[1]);
 	$smarty->assign("dadosDestFooter2", $retornoDestFooter2[1]);
@@ -80,7 +86,9 @@
 	$smarty->assign("dadosDestFooter", $retornoDestFooter[1]);
 	$smarty->assign("dadosCategoriaServico", $retornoCategoServico[1]);
 	$smarty->assign("dadosMenuBlog", $retornoMenuBlog[1]);
+	$smarty->assign("totalNoticias", $totalNoticias);
     $smarty->assign("pagina", $pagina);
+    $smarty->assign("urlFriendly", $urlFriendly);
     $smarty->assign("URL", URL);
     $smarty->assign("breadcrumb", "Home");
     $smarty->display("index.html");

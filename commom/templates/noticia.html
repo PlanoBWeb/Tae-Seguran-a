@@ -5,13 +5,18 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="index, follow">
-        <meta name="description" content="" />
+        <meta name="description" content="{$urlFriendly.description}" />
         <link href="{$URL}commom/img/icon-tab.png" rel="icon">
         {include file="../inc/cssUrlAmigavel.html"}
         <link rel="stylesheet" type="text/css" href="{$URL}commom/css/estilo.css">
-        <title>Tae Segurança</title>
-        <!-- Bootstrap -->
+        <title>{$urlFriendly.title}</title>
         <link href="{$URL}commom/css/bootstrap.min.css" rel="stylesheet">
+        <meta property="og:url"           content="{$urlCompleta}" />
+        <meta property="og:type"          content="website" />
+        <meta property="og:title"         content="{$dados[0].titulo}" />
+        <meta property="og:description"   content="{$dados[0].not_texto}" />
+        <meta property="og:image"         content="{$URL}{$dados[0].caminhoImagem}" />
+        <!-- Bootstrap -->
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -23,15 +28,27 @@
             <link rel="stylesheet" type="text/css" href="{$URL}commom/css/vitrine/owl.theme.css">
             <link rel="stylesheet" type="text/css" href="{$URL}commom/css/vitrine/owl.transitions.css">
         <!-- vitrine -->
+        <link rel="canonical" href="{$URL}" />
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
     </head>
     <body itemscopeitemtype="http://schema.org/WebPage">
+        <div id="fb-root"></div>
+        {literal}
+            <script>(function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.6";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+        {/literal}
     {include file="../inc/header.html"}
     <!-- Inicio Banner -->
     <div class="breadcrumb-faixa">
          {include file="../inc/breadcrumb.html"}
     </div>
-    <section class="container">
-        <div class="width-default">
+    <section class="container pd-mob">
+        <div class="width-default mg-bt-50">
             <div class="col-xs-12 col-sm-8 col-md-8 pd-lf-none-desk">
                {if $dados}
                   <div class="row bloco-atributos bloco-servico">
@@ -41,8 +58,6 @@
                      <div class="row detalhes-not">
                         <img class="pull-left" src="{$URL}commom/img/icone-data.png" alt="{$dados[0].dataMes[2]} {$dados[0].Mes} {$dados[0].dataMes[0]}">
                         <p class="txt-por-not pull-left">{$dados[0].dataMes[2]} {$dados[0].Mes} {$dados[0].dataMes[0]}</p>
-                        <img class="pull-left" src="{$URL}commom/img/icone-treinamentos.png" alt="{$dados[0].nomeCategoria}">
-                        <p class="txt-por-not pull-left">{$dados[0].nomeCategoria}</p>
                         {if $dados[0].por}
                            <img class="pull-left" src="{$URL}commom/img/icone-treinamentos.png" alt="{$dados[0].por}">
                            <p class="txt-por-not pull-left">{$dados[0].por}</p>
@@ -51,12 +66,26 @@
                      <div class="row">
                         <h1 class="titulo-not">{$dados[0].titulo}</h1>
                         <p class="txt-default">{$dados[0].texto}</p>
+                        <br><br>
+                        <a class="saiba-mais-vitrine pull-right" href="javascript:history.back()">Voltar</a>
                      </div>
                   </div>
                   <div class="row">
                      <br><br>
                      <p class="txt-default"><strong>Compartilhe!</strong></p>
-                     <img src="{$URL}commom/img/compartilhe.png" alt="Compartilhe!" title="Compartilhe!">
+                     <!-- <img src="{$URL}commom/img/compartilhe.png" alt="Compartilhe!" title="Compartilhe!"> -->
+                     <div class="row">
+                        <div class="col-xs-12 col-sm-4 col-md-4" style="max-width: 120px !important; overflow:hidden !important; padding-left: 0px;">
+                            <!-- <div class="fb-like" style="width: 60px"></div>  -->
+                            <div class="fb-share-button" data-href="{$urlCompleta}" data-layout="button"></div>
+                        </div>
+                        <div class="col-xs-12 col-sm-2 col-md-2 btn-twitter" style="padding-left: 0px; padding-right: 0px;">
+                            <a href="http://twitter.com/share" class="twitter-share-button" data-url="{$urlCompleta}"  data-count="horizontal" data-lang="pt">Tweetar</a> 
+                        </div>
+                        <div class="col-xs-12 col-sm-2 col-md-2" style="padding-left: 0px;width: 60px;">
+                            <g:plusone href="{$urlCompleta}"></g:plusone>
+                        </div>
+                     </div>
                   </div>               
                {else}
                   <br><br>

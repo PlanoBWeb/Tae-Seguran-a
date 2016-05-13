@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.12, created on 2016-04-29 17:36:40
+<?php /* Smarty version 2.6.12, created on 2016-05-05 17:29:39
          compiled from institucional.html */ ?>
 <!DOCTYPE HTML>
 <html lang="pt-br">
@@ -7,7 +7,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="index, follow">
-        <meta name="description" content="" />
+        <meta name="description" content="<?php echo $this->_tpl_vars['urlFriendly']['description']; ?>
+" />
         <link href="<?php echo $this->_tpl_vars['URL']; ?>
 commom/img/icon-tab.png" rel="icon">
         <?php $_smarty_tpl_vars = $this->_tpl_vars;
@@ -17,7 +18,8 @@ unset($_smarty_tpl_vars);
  ?>
         <link rel="stylesheet" type="text/css" href="<?php echo $this->_tpl_vars['URL']; ?>
 commom/css/estilo.css">
-        <title>Tae Segurança</title>
+        <title><?php echo $this->_tpl_vars['urlFriendly']['title']; ?>
+</title>
         <!-- Bootstrap -->
         <link href="<?php echo $this->_tpl_vars['URL']; ?>
 commom/css/bootstrap.min.css" rel="stylesheet">
@@ -47,7 +49,7 @@ unset($_smarty_tpl_vars);
         
     </article> 
     <!-- Fim Banner -->
-    <div class="vitrine-index bg-servico-interna">
+    <div class="vitrine-index bg-servico-institucional bg-interna">
         <div class="width-default">
             <p class="titulo-banner-interna">
                 quem somos
@@ -60,7 +62,7 @@ unset($_smarty_tpl_vars);
         </div>
     </div>
     <section class="container">
-        <div class="width-default">
+        <div class="width-default mg-bt-50">
             <div class="col-xs-12 col-sm-3 col-md-3 pd-lf-none">
                 <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "../inc/menu-lateral-quemsomos.html", 'smarty_include_vars' => array()));
@@ -75,7 +77,7 @@ unset($_smarty_tpl_vars);
                         <div class="max-width-title"><span class="linha-titulo-cinza"></span><span class="linha-titulo-laranja"></span></div>
                     </div>
                 </div>
-                <div class="row bloco-atributos bloco-servico">
+                <div class="row bloco-atributos bloco-servico tp-none">
                     <div class="row">
                         <div class="block-center">
                             <img class="pd-bt-20" src="<?php echo $this->_tpl_vars['URL']; ?>

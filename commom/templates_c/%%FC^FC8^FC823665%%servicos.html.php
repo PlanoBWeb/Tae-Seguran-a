@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.12, created on 2016-04-29 16:50:46
+<?php /* Smarty version 2.6.12, created on 2016-05-06 11:16:25
          compiled from servicos.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'servicos.html', 92, false),)), $this); ?>
@@ -9,7 +9,8 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', '
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="index, follow">
-        <meta name="description" content="" />
+        <meta name="description" content="<?php echo $this->_tpl_vars['urlFriendly']['description']; ?>
+" />
         <link href="<?php echo $this->_tpl_vars['URL']; ?>
 commom/img/icon-tab.png" rel="icon">
         <?php $_smarty_tpl_vars = $this->_tpl_vars;
@@ -19,7 +20,8 @@ unset($_smarty_tpl_vars);
  ?>
         <link rel="stylesheet" type="text/css" href="<?php echo $this->_tpl_vars['URL']; ?>
 commom/css/estilo.css">
-        <title>Tae Segurança</title>
+        <title><?php echo $this->_tpl_vars['urlFriendly']['title']; ?>
+</title>
         <!-- Bootstrap -->
         <link href="<?php echo $this->_tpl_vars['URL']; ?>
 commom/css/bootstrap.min.css" rel="stylesheet">
@@ -72,7 +74,7 @@ unset($_smarty_tpl_vars);
     <section class="container">
         <div class="width-default">
             <div class="row">
-                <h1 class="titulo-destaque">Serviços</h1>
+                <h1 class="titulo-destaque pd-mob">Serviços</h1>
                 <div class="max-width-title"><span class="linha-titulo-cinza"></span><span class="linha-titulo-laranja"></span></div>
             </div>
             <div class="row">
@@ -148,15 +150,15 @@ servicos/<?php echo $this->_tpl_vars['dados'][$this->_sections['i']['index']]['u
 /<?php echo $this->_tpl_vars['dados'][$this->_sections['i']['index']]['urlAmigavel']; ?>
 "><?php echo $this->_tpl_vars['dados'][$this->_sections['i']['index']]['nome']; ?>
 </a></h2>
-                                        <a href="<?php echo $this->_tpl_vars['URL']; ?>
+                                        <!-- <a href="<?php echo $this->_tpl_vars['URL']; ?>
 servicos/<?php echo $this->_tpl_vars['dados'][$this->_sections['i']['index']]['urlAmigavelCat']; ?>
 /<?php echo $this->_tpl_vars['dados'][$this->_sections['i']['index']]['urlAmigavel']; ?>
 " class="txt-servicos-home <?php if ($this->_tpl_vars['dados'][$this->_sections['i']['index']]['urlAmigavelCat'] == "servicos-terceirizados"): ?>txt-servicos-home-azul<?php elseif ($this->_tpl_vars['dados'][$this->_sections['i']['index']]['urlAmigavelCat'] == "servicos-de-limpeza"): ?>txt-servicos-home-cinza<?php endif; ?>"><?php echo $this->_tpl_vars['dados'][$this->_sections['i']['index']]['textoAbrev']; ?>
-</a>
+</a> -->
                                     </div>
                                 <?php endfor; endif; ?>
                             <?php else: ?>
-                                <div><div><ul>
+                                <div><div><div>
                                 <?php $this->assign('nmTipoServicos', ((is_array($_tmp=@$this->_tpl_vars['nmTipoServicos'])) ? $this->_run_mod_handler('default', true, $_tmp, "") : smarty_modifier_default($_tmp, ""))); ?>
                                 <?php unset($this->_sections['i']);
 $this->_sections['i']['name'] = 'i';
@@ -183,10 +185,10 @@ $this->_sections['i']['first']      = ($this->_sections['i']['iteration'] == 1);
 $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $this->_sections['i']['total']);
 ?>
                                     <?php if ($this->_tpl_vars['nmTipoServicos'] <> $this->_tpl_vars['dadosMenuHeader'][$this->_sections['i']['index']]['urlAmigavelCat']): ?>
-                                                </ul>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-xs-12 col-sm-4 col-md-4 pd-none">
+                                        <div class="col-xs-12 col-sm-4 col-md-4 pd-none mg-bt-50">
                                             <div class="row config-bloco-servico">
                                                 <div class="img-veja-tbm pull-left">
                                                     <a href="<?php echo $this->_tpl_vars['URL']; ?>
@@ -201,27 +203,13 @@ servicos/<?php echo $this->_tpl_vars['dadosCategoriaServico'][$this->_sections['
 servicos/<?php echo $this->_tpl_vars['dadosCategoriaServico'][$this->_sections['i']['index']]['urlAmigavelCategoria']; ?>
 "><?php echo $this->_tpl_vars['dadosCategoriaServico'][$this->_sections['i']['index']]['nomeCat']; ?>
 </a></h2>
-                                                <ul class="menu-servicos">
+                                                <div class="menu-servicos">
                                     <?php endif; ?>
-                                                
-                                                    <li class="linha-menu-servicos"><a href="<?php echo $this->_tpl_vars['URL']; ?>
+                                                <h3 class="linha-menu-servicos"><a href="<?php echo $this->_tpl_vars['URL']; ?>
 servicos/<?php echo $this->_tpl_vars['dadosCategoriaServico'][$this->_sections['i']['index']]['urlAmigavelCategoria']; ?>
 /<?php echo $this->_tpl_vars['dadosCategoriaServico'][$this->_sections['i']['index']]['urlAmigavel']; ?>
 ">  »  <?php echo $this->_tpl_vars['dadosCategoriaServico'][$this->_sections['i']['index']]['nome']; ?>
-</a></li>
-                                    <!-- <div class="col-xs-12 col-sm-5 col-md-5 pd-none">
-                                        <div class="row config-bloco-servico">
-                                            <div class="img-veja-tbm pull-left">
-                                                <a href="<?php echo $this->_tpl_vars['URL']; ?>
-servicos-terceirizados">
-                                                    <img class="" src="<?php echo $this->_tpl_vars['URL']; ?>
-commom/img/veja-tambem.jpg" alt="Serviços terceirizados">
-                                                </a>
-                                            </div>
-                                            <h2 class="titulo-veja-tbm pull-left"><a class="pd-tp-30" href="<?php echo $this->_tpl_vars['URL']; ?>
-servicos-terceirizados">Serviços terceirizados</a></h2>
-                                        </div>
-                                    </div> -->
+</a></h3>
                                     <?php $this->assign('nmTipoServicos', $this->_tpl_vars['dadosCategoriaServico'][$this->_sections['i']['index']]['urlAmigavelCat']); ?>
                                 <?php endfor; endif; ?>
                             <?php endif; ?>

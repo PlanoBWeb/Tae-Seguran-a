@@ -1,0 +1,65 @@
+﻿{include file="admin_planobweb/topo.html"}
+<!-- Conteúdo -->
+    <form name="frm_cadastro" method="POST" enctype="multipart/form-data">
+	    <input type="hidden" name="acao" value="gravar" />
+	    <input type="hidden" name="id" value="{$dados[0].id}" />
+        <input type="hidden" name="caminhoImagem" value="{$dados[0].caminhoImagem}" />
+        <input type="hidden" name="caminhoImagemThumb" value="{$dados[0].caminhoImagemThumb}" />
+        <input type="hidden" name="extencoeValidas" value="jpg|jpeg|gif|png|pdf">
+
+	    <h1 class="titulo-pag">Noticia</h1>
+
+	    <label>*Titulo :</label>
+	    <input type="text" name="titulo" value="{$dados[0].titulo}" />
+
+	    <!-- <label>*Titulo Inglês:</label>
+	    <input type="text" name="titulo_I" value="{$dados[0].titulo_I}" /> -->
+	    
+	    <label>Por:</label>
+	    <input type="text" name="por" size="50" value="{$dados[0].por}" />
+
+	    <label>*Data:</label>
+	    <input type="date" name="data" value="{if $dados[0].data}{$dados[0].data_formatada}{else}{$dataAtual}{/if}" />
+
+	    <label>*Texto:</label>
+	    <textarea name="texto">{$dados[0].texto}</textarea>
+
+	    <!-- <label>*Texto Inglês:</label>
+	    <textarea name="texto_I">{$dados[0].texto_I}</textarea> -->
+	 	
+	 	<label>*Tags (Separar por virgula):</label>
+	    <input type="text" name="tag" value="{$dados[0].tag}" />
+
+	    <!-- <label>*Tags Inglês (Separar por virgula):</label>
+	    <input type="text" name="tag_I" value="{$dados[0].tag_I}" /> -->
+
+	    <label>Destaque:</label>
+	    <input type="checkbox" name="destaque" {if $dados[0].destaque == 1}checked{/if} value="1" />
+
+	    <label>*Imagem (tamanho recomendado 790px X 250px):</label>
+        <input type="file" name="arquivo" size="100"/>
+        {if $dados[0].caminhoImagem}
+            <img src="{$dados[0].caminhoImagem}" width="100" border="0"/>
+        {/if}
+
+		<label>*Imagem Thumb (tamanho recomendado 300px X 120px):</label>
+        <input type="file" name="arquivo2" size="50"/>
+        {if $dados[0].caminhoImagemThumb}
+            <img src="{$dados[0].caminhoImagemThumb}" width="100" border="0"/>
+        {/if}
+
+	 	<input name="submit" type="submit" class="btn-form top-btn" value="{$botao}" onclick="return checa();" /><br>
+	    <label class="no-top">* Campos obrigatórios.</label>
+    </form>
+<!-- FIM Conteúdo -->
+
+	{literal}	
+		<script>
+			tinymce.init({
+			    selector: "textarea",
+			    plugins: 'link'
+			 });
+		</script>
+	{/literal}
+
+{include file="admin_planobweb/rodape.html"}

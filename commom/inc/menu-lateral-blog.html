@@ -39,7 +39,7 @@
             </ul>
          </nav>
       </div>
-      <div class="bloco-links-blog">
+      <!-- <div class="bloco-links-blog">
          <div class="bloco-titulo-menu-lat"><p class="titulo-menu-lat-blog">Categorias</p></div>
          <nav class="menu-lateral">
             <ul>
@@ -48,13 +48,13 @@
                {/section}  
             </ul>
          </nav>
-      </div>
+      </div> -->
       <div class="bloco-links-blog bloco-tags">
          <div class="bloco-titulo-menu-lat"><p class="titulo-menu-lat-blog">Tags</p></div>
          <div class="bloco-noticia-destaque">
-            {section name=i loop=$dadosTags}  
-               <a class="tags-lateral " href="{$URL}noticias/tags/{$dadosTags[i]}">{$dadosTags[i]}</a>
-            {/section} 
+            {foreach key=key from=$dadosTags item=dadosLinha}
+               <a class="tags-lateral " href="{$URL}noticias/tags/{$key}">{$dadosLinha}</a>
+            {/foreach}
          </div>
       </div>
       <div class="bloco-links-blog bloco-tags">

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.12, created on 2016-04-28 20:52:31
+<?php /* Smarty version 2.6.12, created on 2016-05-10 10:23:58
          compiled from conteudo/seguranca-patrimonial.html */ ?>
 Com a evolução da sociedade, a segurança passou a tender para a prevenção, visando antecipar-se ao crime.<br/><br/>
 A segurança patrimonial tem como objetivo prevenir e reduzir perdas patrimoniais de uma determinada organização ou de pessoas. <br/><br/>

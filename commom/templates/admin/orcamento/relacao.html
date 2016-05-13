@@ -1,0 +1,76 @@
+{include file="admin/topo.html"}
+
+{literal}
+<script type="text/javascript">
+
+
+function paginacao(pag)
+{
+	frm = document.frmFiltro;
+	
+	frm.pagina.value = pag;
+	frm.submit();
+}
+
+</script>
+{/literal}
+
+<!-- Conteúdo -->
+<table width="100%" height="350" border="0" cellpadding="10" cellspacing="0">
+  <tr>
+    <td width="5%">&nbsp;</td>
+    <td width="90%" style="background-color:#FFFFFF" valign="top">
+		<table width="100%" border="0">
+      		<tr>
+        	<td valign="top" width="10%">{include file="admin/orcamento/menu.html"}</td>
+        	<td>
+				<table cellspacing="0" cellpadding="0" border="0" width="93%" align="right">
+                <form name="frmFiltro" id="idFiltro" action="adm_orcamento.php" method="post">
+                     <input type="hidden" name="acao" value="pesquisar" />
+                     <input type="hidden" name="pagina" />
+                </form>
+     				<tr>
+     					<td class="texto" height="30"><strong>OR&Ccedil;AMENTO - LISTAR</strong></td>
+     				</tr>
+                    
+                    <tr>
+     					<td>
+        					<table cellspacing="2" cellpadding="5" border="0" width="100%">
+         						<tr style="background-color:#D5DDE3" height="20">
+         							<td class="texto" width="10%" nowrap="nowrap" align="center"><strong>Data / Hora</strong></td>
+                                    <td class="texto"><strong>Inscrito</strong></td>
+            						<td class="texto" width="10%" align="center"><strong>Op&ccedil;&otilde;es</strong></td>
+        						</tr>
+         						{section name=i loop=$dados}
+         						<tr>
+         							<td class="texto" nowrap="nowrap">{$dados[i].dtCadastroFormat}</td>
+            						<td class="texto" nowrap="nowrap">{$dados[i].nome}</td>
+            						<td class="texto" nowrap="nowrap">< <a href="?acao=detalhe&id={$dados[i].id}">detalhe</a> > <!--| < <a href="?acao=historico&id={$dados[i].id}">histórico</a> >--></td>
+				         		</tr>
+         						{/section}
+                                
+                                {if $paginacaoTotal > 1}
+                                <tr>
+                                	<td colspan="4" bgcolor="#EAEAEA" align="center" class="texto" style="font-size: 7pt;">
+                                    {section name=i loop=$paginacao}
+                                    	{if $smarty.section.i.index != 0} | {/if}
+                                        {if $paginacao[i].atual == 1}<span style="font-size: 9pt; font-weight: bold">{else}<a href="#" onclick="paginacao({$paginacao[i].pagina});">{/if} {$paginacao[i].pagina} {if $paginacao[i].atual == 1}</span>{else}</a>{/if}
+                                    {/section}
+                                    </td>
+                                </tr>
+                                {/if}
+        					</table>
+        				</td>
+     				</tr>
+    			</table>
+			</td>
+ 		</tr>
+  </table>
+	
+	</td>
+    <td width="5%">&nbsp;</td>
+  </tr>
+</table>
+<!-- FIM Conteúdo -->
+
+{include file="admin/rodape.html"}

@@ -1,0 +1,58 @@
+{include file="admin/topo.html"}
+
+{literal}
+<script>
+
+	function checa()
+	{
+		frm = document.frm_cadastro;
+		msg = "Preencha o campo ";
+
+		if(trim(frm.email.value))
+		{
+			if(!email(frm.email, 'E-mail inválido!'))
+				return false;
+		}
+		
+		return true;
+	}
+
+</script>
+{/literal}
+
+<!-- Conteúdo -->
+<br><table cellspacing="0" cellpadding="0" border="0" width="98%" align="center">
+ <tr>
+ 	{include file="admin/usuario/menu.html"}
+    <td align="center">
+    
+    <table cellspacing="2" cellpadding="2" border="0" width="98%" align="center">
+     <tr>
+     	<td colspan="2" class="titulo">Consultar Usuário</td>
+     </tr>
+     <tr>
+     	<td><br></td>
+     </tr>
+     <form name="frm_cadastro" onSubmit="return checa()" method="POST">
+     <input type="hidden" name="acao" value="pesquisar">
+     <tr>
+     	<td align="right" width="20%">Nome:</td>
+        <td><input type="text" name="nome" size="50"></td>
+     </tr>
+     <tr>
+     	<td align="right">E-mail:</td>
+        <td><input type="text" name="email" size="50"></td>
+     </tr>
+     <tr>
+     	<td></td>
+        <td><input type="submit" value="Buscar" class="botao"></td>
+     </tr>
+     </form>
+    </table>
+    
+    </td>
+ </tr>
+</table>
+<!-- FIM Conteúdo -->
+
+{include file="admin/rodape.html"}

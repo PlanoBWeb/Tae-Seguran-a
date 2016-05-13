@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.12, created on 2016-04-29 18:05:24
+<?php /* Smarty version 2.6.12, created on 2016-05-06 11:29:56
          compiled from ../inc/breadcrumb.html */ ?>
 <div class="width-default">
     <div class="bloco-breadcrumb">
@@ -13,21 +13,20 @@
 servicos" class="link-breadcrumb">• Serviços</a></li>
                 <?php if ($this->_tpl_vars['url'][1] == "servicos-de-seguranca"): ?>
                     <li class="linha-breadcrumb"><a href="<?php echo $this->_tpl_vars['URL']; ?>
-servicos-de-seguranca" class="link-breadcrumb">• Serviços de Segurança</a></li>
+servicos/servicos-de-seguranca" class="link-breadcrumb">• Serviços de Segurança</a></li>
                 <?php elseif ($this->_tpl_vars['url'][1] == "servicos-de-limpeza"): ?>
                     <li class="linha-breadcrumb"><a href="<?php echo $this->_tpl_vars['URL']; ?>
-servicos-de-limpeza" class="link-breadcrumb">• Serviços de Limpeza</a></li>
+servicos/servicos-de-limpeza" class="link-breadcrumb">• Serviços de Limpeza</a></li>
                 <?php elseif ($this->_tpl_vars['url'][1] == "servicos-terceirizados"): ?>
                     <li class="linha-breadcrumb"><a href="<?php echo $this->_tpl_vars['URL']; ?>
-servicos-terceirizados" class="link-breadcrumb">• Serviços de Terceirizados</a></li>
+servicos/servicos-terceirizados" class="link-breadcrumb">• Serviços de Terceirizados</a></li>
                 <?php endif; ?>
                 <?php if ($this->_tpl_vars['url'][2] <> ""): ?>
                     <li class="linha-breadcrumb linha-breadcrumb-ativo">• <?php echo $this->_tpl_vars['dados'][0]['nome']; ?>
 </li>
                 <?php endif; ?>
             <?php elseif ($this->_tpl_vars['url'][0] == "quem-somos"): ?>
-                <li class="linha-breadcrumb"><a href="<?php echo $this->_tpl_vars['URL']; ?>
-quem-somos" class="link-breadcrumb">• Quem Somos</a></li>
+                <li class="linha-breadcrumb">• Quem Somos</li>
                 <?php if ($this->_tpl_vars['url'][1] == 'institucional'): ?>
                     <li class="linha-breadcrumb linha-breadcrumb-ativo">• Institucional</li>
                 <?php elseif ($this->_tpl_vars['url'][1] == 'estrutura'): ?>
@@ -41,6 +40,9 @@ quem-somos" class="link-breadcrumb">• Quem Somos</a></li>
                 <li class="linha-breadcrumb"><a href="<?php echo $this->_tpl_vars['URL']; ?>
 noticias" class="link-breadcrumb">• Noticias</a></li>
                 <li class="linha-breadcrumb linha-breadcrumb-ativo">• <?php echo $this->_tpl_vars['dados'][0]['titulo']; ?>
+</li>
+            <?php else: ?>
+                <li class="linha-breadcrumb linha-breadcrumb-ativo">• <?php echo $this->_tpl_vars['urlFriendly']['breadcrumb']; ?>
 </li>
             <?php endif; ?>            
             <!-- 

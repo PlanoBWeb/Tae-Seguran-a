@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.12, created on 2016-04-28 20:25:30
+<?php /* Smarty version 2.6.12, created on 2016-05-10 10:24:49
          compiled from conteudo/limpeza-de-condominios.html */ ?>
 <h2 class="titulo-destaque 2">
     Locais onde os serviços são executados

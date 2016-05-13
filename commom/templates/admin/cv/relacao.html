@@ -1,0 +1,193 @@
+{include file="admin/topo.html"}
+
+{literal}
+<script type="text/javascript">
+
+
+function paginacao(pag)
+{
+	frm = document.frmFiltro;
+	
+	frm.pagina.value = pag;
+	frm.submit();
+}
+
+</script>
+{/literal}
+
+<!-- Conteúdo -->
+<table width="100%" height="350" border="0" cellpadding="10" cellspacing="0">
+  <tr>
+    <td width="5%">&nbsp;</td>
+    <td width="90%" style="background-color:#FFFFFF" valign="top">
+		<table width="100%" border="0">
+      		<tr>
+        	<td valign="top" width="10%">{include file="admin/cv/menu.html"}</td>
+        	<td>
+				<table cellspacing="0" cellpadding="0" border="0" width="93%" align="right">
+     				<tr>
+     					<td class="texto" height="30"><strong>CURR&Iacute;CULO - LISTAR</strong></td>
+     				</tr>
+                    <tr>
+     					<td>
+                        
+                        <table cellspacing="2" cellpadding="5" border="0" width="100%">
+                         <form name="frmFiltro" id="idFiltro" action="adm_cv.php" method="post">
+                         <input type="hidden" name="acao" value="pesquisar" />
+                         <input type="hidden" name="pagina" />
+                            <tr style="background-color:#D5DDE3" height="20">
+                                <td class="texto" colspan="7"><strong>Filtro de pesquisa</strong></td>
+                            </tr>
+                            <tr>
+                            	<td class="texto"><strong>Idade</strong></td>
+                                <td class="texto"><strong>Peso</strong></td>
+                                <td class="texto"><strong>Altura</strong></td>
+                                <td class="texto"><strong>Curso</strong></td>
+                                <td class="texto"><strong>Status</strong></td>
+                                <td class="texto"><strong>Cargo ou Função</strong></td>
+                                <td class="texto"><strong>Data do Cadastro</strong></td>
+                            </tr>
+                            <tr>
+                            	<td class="texto" nowrap="nowrap" valign="top">
+                                De <input name="idadeInicio" type="text" class="formu" size="2" maxlength="2" value="{$idadeInicio}" />
+                                Até <input name="idadeFim" type="text" class="formu" size="2" maxlength="2" value="{$idadeFim}" />
+                                </td>
+                                
+                                <td class="texto" nowrap="nowrap" valign="top">
+                                De <input name="pesoInicio" type="text" class="formu" size="2" maxlength="3" value="{$pesoInicio}" />
+                                Até <input name="pesoFim" type="text" class="formu" size="2" maxlength="3" value="{$pesoFim}" />
+                                </td>
+                                
+                                <td class="texto" nowrap="nowrap" valign="top">
+                                De <input name="alturaInicio" type="text" class="formu" size="2" maxlength="4" value="{$alturaInicio}" />
+                                Até <input name="alturaFim" type="text" class="formu" size="2" maxlength="4" value="{$alturaFim}" />
+                                </td>
+                                
+                                <td class="texto" valign="top">
+                                <select name="curso" class="formu">
+                                  <option value="">Selecione</option>
+                                  <option value="s" {if $curso == "s"} selected="selected" {/if}>Sim</option>
+                                  <option value="n" {if $curso == "n"} selected="selected" {/if}>Não</option>
+                                </select>
+                                </td>
+                                
+                                <td class="texto" valign="top">
+                                <select name="status" class="formu">
+                                  <option value="">Selecione</option>
+                                  <option value="0" {if $status == "0"} selected="selected" {/if}>Não apto</option>
+                                  <option value="1" {if $status == "1"} selected="selected" {/if}>Apto</option>
+                                </select>
+                                </td>
+                                
+                                <td class="texto" nowrap="nowrap" valign="top">
+                                <select name="cargo" class="formu">
+                                  <option value="">Selecione</option>
+                                  	{section name=i loop=$dadosCargo}
+                                        <option value="{$dadosCargo[i].id}" {if $dadosCargo[i].id == $cargo} selected="selected" {/if}>{$dadosCargo[i].cargo}</option>
+                                    {/section}
+                                </select>
+                                </td>
+                                
+                                <td class="texto" nowrap="nowrap" valign="top" align="center">
+                                <select name="diaInicio" class="formu">
+                                    <option value="">-</option>
+                                    {section name=i loop=$arDia}
+                                        <option value="{$arDia[i].dia}" {if $arDia[i].dia == $diaInicio} selected="selected" {/if}>{$arDia[i].dia}</option>
+                                    {/section}
+                                </select>
+                                / 
+                                <select name="mesInicio" class="formu">
+                                    <option value="">-</option>
+                                    {section name=i loop=$arMes}
+                                        <option value="{$arMes[i].mes}" {if $arMes[i].mes == $mesInicio} selected="selected" {/if}>{$arMes[i].mes}</option>
+                                    {/section}
+                                </select>
+                                /
+                                <select name="anoInicio" class="formu">
+                                    <option value="">-</option>
+                                    {section name=i loop=$arAnoPesquisa}
+                                        <option value="{$arAnoPesquisa[i].ano}" {if $arAnoPesquisa[i].ano == $anoInicio} selected="selected" {/if}>{$arAnoPesquisa[i].ano}</option>
+                                    {/section}
+                                </select>
+                                <br/>
+                                até
+                                <br/>
+                                <select name="diaFim" class="formu">
+                                    <option value="">-</option>
+                                    {section name=i loop=$arDia}
+                                        <option value="{$arDia[i].dia}" {if $arDia[i].dia == $diaFim} selected="selected" {/if}>{$arDia[i].dia}</option>
+                                    {/section}
+                                </select>
+                                / 
+                                <select name="mesFim" class="formu">
+                                    <option value="">-</option>
+                                    {section name=i loop=$arMes}
+                                        <option value="{$arMes[i].mes}" {if $arMes[i].mes == $mesFim} selected="selected" {/if}>{$arMes[i].mes}</option>
+                                    {/section}
+                                </select>
+                                /
+                                <select name="anoFim" class="formu">
+                                    <option value="">-</option>
+                                    {section name=i loop=$arAnoPesquisa}
+                                        <option value="{$arAnoPesquisa[i].ano}" {if $arAnoPesquisa[i].ano == $anoFim} selected="selected" {/if}>{$arAnoPesquisa[i].ano}</option>
+                                    {/section}
+                                </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="7" align="center"><input type="submit" class="botao" value="Filtrar" /></td>
+                            </tr>
+                            </form>
+                        </table>
+                        
+                        </td>
+     				</tr>
+                    
+                    <tr>
+     					<td class="texto"><br/><br/></td>
+     				</tr>
+                    <tr>
+     					<td>
+        					<table cellspacing="2" cellpadding="5" border="0" width="100%">
+         						<tr style="background-color:#D5DDE3" height="20">
+         							<td class="texto"><strong>Nome</strong></td>
+       					     		<td class="texto" width="10%" nowrap="nowrap" align="center"><strong>Idade</strong></td>
+                                    <td class="texto" width="10%" nowrap="nowrap" align="center"><strong>Cadastro</strong></td>
+                                    <td class="texto" width="10%" nowrap="nowrap" align="center"><strong>Curso</strong></td>
+            						<td class="texto" width="10%" align="center"><strong>Op&ccedil;&otilde;es</strong></td>
+        						</tr>
+         						{section name=i loop=$dados}
+         						<tr>
+         							<td class="texto">{$dados[i].pessoaisNome}</td>
+            						<td class="texto" nowrap="nowrap" align="center">{$dados[i].idade}</td>
+                                    <td class="texto" nowrap="nowrap" align="center">{$dados[i].dtCadastroFormat}</td>
+                                    <td class="texto" nowrap="nowrap" align="center">{if $dados[i].curso == "s"} Sim {else} Não {/if}</td>
+            						<td class="texto" nowrap="nowrap">< <a href="?acao=editar&id={$dados[i].id}">editar</a> > | < <a href="#" onclick="exclui({$dados[i].id})">excluir</a> ></td>
+				         		</tr>
+         						{/section}
+                                
+                                {if $paginacaoTotal > 1}
+                                <tr>
+                                	<td colspan="5" bgcolor="#EAEAEA" align="center" class="texto" style="font-size: 7pt;">
+                                    {section name=i loop=$paginacao}
+                                    	{if $smarty.section.i.index != 0} | {/if}
+                                        {if $paginacao[i].atual == 1}<span style="font-size: 9pt; font-weight: bold">{else}<a href="#" onclick="paginacao({$paginacao[i].pagina});">{/if} {$paginacao[i].pagina} {if $paginacao[i].atual == 1}</span>{else}</a>{/if}
+                                    {/section}
+                                    </td>
+                                </tr>
+                                {/if}
+        					</table>
+        				</td>
+     				</tr>
+    			</table>
+			</td>
+ 		</tr>
+  </table>
+	
+	</td>
+    <td width="5%">&nbsp;</td>
+  </tr>
+</table>
+<!-- FIM Conteúdo -->
+
+{include file="admin/rodape.html"}

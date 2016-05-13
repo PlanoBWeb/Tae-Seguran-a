@@ -1,0 +1,51 @@
+{include file="admin_planobweb/topo.html"}
+    <!-- Conteúdo -->
+    <div class="container">
+        {if $dados}
+            <div class="bloco-paginacao">
+                {section start=1 name=j loop=$Numpaginas}
+                    <a class="{if $Numpaginas[j] == $smarty.get.p} link-pag-ativo {/if}" href="novo_adm_usuario.php?acao=pesquisar&p={$Numpaginas[j]}">{$Numpaginas[j]}</a>
+                {/section}
+            </div> 
+            <br>
+            <table class="table">
+                <h1 class="titulo-pag">Notícias</h1>
+                <thead>
+                    <tr class="cor-tr-btn">
+                        <th>Titulo</th>
+                        <th class="hidden-xs-down">Data</th>
+                        <th>Opções</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {section name=i loop=$dados}
+                        <tr class="hover-tr">
+                            <td>{$dados[i].titulo}</td>
+                            <td class="hidden-xs-down">{$dados[i].data}</td>
+                            <td>
+                                <a class="ativa-select-acoes cor-tr-btn btn-acoes" href="#">Ações</a> 
+                                <div class="select-acoes mg-lf-90">
+                                    <!-- <a class="cor-tr-btn btn-acoes" href="?acao=visualizar&id={$dados[i].id}">visualizar</a>  -->
+                                    <a class="cor-tr-btn btn-acoes" target="_blank" href="noticia/{$dados[i].urlAmigavel}">visualizar</a> 
+                                    <a class="cor-tr-btn btn-acoes" href="?acao=editar&id={$dados[i].id}">editar</a> 
+                                    <a class="cor-tr-btn btn-acoes" href="#" onclick="exclui({$dados[i].id}, 'usuario')">excluir</a>
+                                </div>
+                            </td>
+                        </tr>
+                    {/section}
+                </tbody>
+            </table>
+
+            <div class="bloco-paginacao">
+                {if $totalPaginas > 1}
+                    {section start=1 name=j loop=$Numpaginas}
+                        <a class="{if $Numpaginas[j] == $smarty.get.p} link-pag-ativo {/if}" href="novo_adm_noticias.php?acao=pesquisar&p={$Numpaginas[j]}">{$Numpaginas[j]}</a>
+                    {/section}
+                {/if}
+            </div> 
+        {else}
+            <p class="sem-resultado">Não existe resultados</p>
+        {/if}       
+    </div>
+    <!-- FIM Conteúdo -->
+{include file="admin_planobweb/rodape.html"}

@@ -1,93 +1,64 @@
-<!DOCTYPE html>
-<html lang="pt">
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="favicon.ico">
-    <meta name="robots" content="noindex,follow"/>
-    <link href="commom/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="commom/css/template.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="commom/css/estilo_admin.css">
-    <script src="commom/assets/js/ie10-viewport-bug-workaround.js"></script>
-    <script src="commom/js/funcoes.js"></script>
-    <script type="text/javascript" src="commom/js/tinymce/tinymce.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <title>{$titulo} - ADM</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>{$titulo} - ADMINISTRA��O</title>
+
+<link rel="stylesheet" href="commom/css/admin.css" type="text/css">
+
+<script src="commom/js/geral.js"></script>
+
+{literal}
+<script>
+	function gerar()
+	{
+		document.getElementById("idIframeDownload").src='?acao=gerarExcel'
+	} 
+</script>
+{/literal}
+
 </head>
-<body>
-    <header>
-        <div class="container-fluid bloco-topo-fixo">
-            <div class="encapsula-topo-logo">
-                <div class="topo-logo col-sm-12 col-md-6 col-lg-6">
-                    <a class="navbar-brand" href="adm_index.php"><img src="commom/img/logo.png" alt="logo PlanoBWeb" title="logo PlanoBWeb"></a>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-6 hidden-xs">
-                    <p class="hello-user">Olá {$nome}</p>
-                </div>
-            </div>
-            <nav class="navbar navbar-light bg-faded navbar-fixed-top">
-                <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">&#9776;</button>
-                <div class="encapsula-navbar">
-                    <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
-                        <ul class="nav navbar-nav">
-                        
-                            <li class="nav-item active dropdown">
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Usuários</a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="adm_usuario.php?acao=pesquisar">Consultar</a>
-                                    <a class="dropdown-item" href="adm_usuario.php">Cadastrar</a>
-                                </div>
-                            </li>
 
-                            <!-- <li class="nav-item">
-                                <a class="nav-link" href="adm_usuario.php?acao=senha">Alterar Senha</a>
-                            </li> -->
+<body topmargin="0" leftmargin="0" style="background-color:#D5DDE3">
 
-                            <li class="nav-item active dropdown">
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Minha Conta</a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="adm_usuario.php?acao=editar">Editar</a>    
-                                    <a class="dropdown-item" href="adm_usuario.php?acao=senha">Alterar Senha</a>
-                                </div>
-                            </li>
-
-                            <li class="nav-item active dropdown">
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Notícias</a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="adm_noticias.php?acao=pesquisar">Consultar</a>
-                                    <a class="dropdown-item" href="adm_noticias.php">Cadastrar</a>
-                                </div>
-                            </li>
-
-                            <li class="nav-item active dropdown">
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Publicações</a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="adm_publicacoes.php?acao=pesquisar">Consultar</a>
-                                    <a class="dropdown-item" href="adm_publicacoes.php">Cadastrar</a>
-                                </div>
-                            </li>
-
-
-                            <!-- <li class="nav-item active dropdown">
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Destaques</a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="adm_destaque.php?acao=pesquisar">Consultar</a>
-                                    <a class="dropdown-item" href="adm_destaque.php">Cadastrar</a>
-                                </div>
-                            </li> -->
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="adm_login.php?acao=logout">Sair</a>
-                            </li>
-                    
-                          <!-- 
-                          <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
-                          </li> -->
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </header>
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td width="5%">&nbsp;</td>
+    <td width="90%" style="background-color:#FFFFFF">
+		<table width="100%" cellpadding="0" cellspacing="0" border="0">
+      		<tr>
+        	<td width="168" ><img src="commom/imgAdmin/logo.jpg"></td>
+        	<td width="100%" align="right" valign="bottom" class="titulo_p">Ol&aacute; {$nome} &nbsp;&nbsp;&nbsp; </td>
+      		</tr>
+    	</table>
+	</td>
+    <td width="5%">&nbsp;</td>
+  </tr>
+  
+  <tr height="20">
+    <td width="5%">&nbsp;</td>
+    <td width="90%" style="background-color:#696d70">
+    
+    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+     <tr>
+     	<td align="left" class="menu">
+            {if $perfil == 'M'}&nbsp;&nbsp;
+            <a href="adm_usuario.php" style="text-decoration:none">&nbsp;&nbsp;USU&Aacute;RIOS</a> &nbsp;&nbsp; | &nbsp;&nbsp;
+            {/if}
+            <!-- <a href="adm_noticia.php?acao=pesquisar" style="text-decoration:none">&nbsp;&nbsp;NOT&Iacute;CIAS</a> &nbsp;&nbsp; | &nbsp;&nbsp;  -->
+            <a href="adm_orcamento.php?acao=pesquisar" style="text-decoration:none">&nbsp;&nbsp;OR&Ccedil;AMENTOS</a> &nbsp;&nbsp; | &nbsp;&nbsp; 
+            <a href="adm_cv.php?acao=pesquisar" style="text-decoration:none">&nbsp;&nbsp;CURR&Iacute;CULOS</a> &nbsp;&nbsp; | &nbsp;&nbsp; 
+            <!-- <a href="adm_newsletter.php?acao=pesquisar" style="text-decoration:none">&nbsp;&nbsp;NEWSLETTER</a> &nbsp;&nbsp; | &nbsp;&nbsp;  -->
+        </td>
+        
+        <td align="right" class="menu">
+        	<a href="adm_usuario.php?acao=alterar_senha" style="text-decoration:none">&nbsp;&nbsp;ALTERAR SENHA</a> &nbsp;&nbsp; | &nbsp;&nbsp; 
+        	<a href="adm_login.php?acao=logout" style="text-decoration:none">&nbsp;&nbsp;SAIR</a> &nbsp;&nbsp; 
+        </td>
+     </tr>
+    </table>
+    
+    
+    </td>
+    <td width="5%">&nbsp;</td>
+  </tr>
+</table>

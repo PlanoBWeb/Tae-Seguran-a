@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.12, created on 2016-04-28 21:10:25
+<?php /* Smarty version 2.6.12, created on 2016-05-05 16:50:57
          compiled from conteudo/seguranca-para-eventos.html */ ?>
 Com uma grande equipe que recebe treinamento constante para manter o padrão de qualidade, o Grupo Tae Segurança faz a segurança de seu evento de pequeno, médio ou grande porte. Seja ele uma atração nacional ou internacional. <br/><br/>
 Todos os profissionais possuem qualificação e atuam em eventos de grande porte e periculosidade. <br/><br/>

@@ -3,9 +3,9 @@
 	include_once "configs/config.php";
 	include_once "url.php";
 	include_once "classes/Noticias.class.php";
-	include_once "classes/Categoria.class.php";
+	//include_once "classes/Categoria.class.php";
 	$class 		= new Noticias();
-	$classCatego= new Categoria();
+	//$classCatego= new Categoria();
 	$urlCompleta = UrlAtual(); 
 
 	include_once "classes/CategoriaServicos.class.php";
@@ -108,16 +108,16 @@
 		}
 
 		// Dados do blog menu lateral categoria
-		$parametro['id']					= $url[1];
-		$parametro['tipoNoticia']			= "1";
-		$retornoCatego = $classCatego->Pesquisar($parametro, null, null);
-		if( $retornoCatego[0] )
-		{
-			$smarty->assign("mensagem", $retornoCatego[1]);
-			$smarty->assign("redir", "noticias.php");
-			$smarty->display("mensagem.html");
-			exit();
-		}
+		// $parametro['id']					= $url[1];
+		// $parametro['tipoNoticia']			= "1";
+		// $retornoCatego = $classCatego->Pesquisar($parametro, null, null);
+		// if( $retornoCatego[0] )
+		// {
+		// 	$smarty->assign("mensagem", $retornoCatego[1]);
+		// 	$smarty->assign("redir", "noticias.php");
+		// 	$smarty->display("mensagem.html");
+		// 	exit();
+		// }
 
 		// Tags
 		$retornoTags = $class->PesquisarTags(null, null, null);
@@ -160,6 +160,7 @@
 		$smarty->assign("pagina", $pagina);
 		$smarty->assign("titulo", utf8_encode(TITULO));
 		$smarty->assign("nome", $_SESSION['nome']);
+		$smarty->assign("urlFriendly", $urlFriendly);
 		$smarty->assign("dadosTagsPg", $retornoTagsPg[1]);
 		$smarty->display("noticia.html");
 	}else{

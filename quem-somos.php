@@ -62,11 +62,12 @@
 	$smarty->assign("dadosCategoriaServico", $retornoMenuHeader[1]);
     $smarty->assign("pagina", $pagina);
     $smarty->assign("URL", URL);
-    $smarty->assign("breadcrumb", "Serviços");
+    $smarty->assign("urlFriendly", $urlFriendly);
+    $smarty->assign("breadcrumb", "Institucional");
     if (isset($url[1])) {
     	$smarty->display($url['paginaHtml'].".html");	
     }else{
-    	$smarty->display("quem-somos.html");
+    	$smarty->display("Institucional.html");
     }
     
 

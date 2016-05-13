@@ -1,0 +1,43 @@
+{include file="admin/topo.html"}
+
+<!-- Conteúdo -->
+<table width="100%" height="350" border="0" cellpadding="10" cellspacing="0">
+  <tr>
+    <td width="5%">&nbsp;</td>
+    <td width="90%" style="background-color:#FFFFFF" valign="top">
+		<table width="100%" border="0">
+      		<tr>
+        	<td valign="top" width="10%">{include file="admin/noticia/menu.html"}</td>
+        	<td>
+				<table cellspacing="0" cellpadding="0" border="0" width="93%" align="right">
+     				<tr>
+     					<td class="texto" height="30"><strong>NOT&Iacute;CIAS - LISTAR</strong></td>
+     				</tr>
+					<tr>
+     					<td>
+        					<table cellspacing="2" cellpadding="5" border="0" width="100%">
+         						<tr style="background-color:#D5DDE3" height="20">
+         							<td class="texto"><strong>Not&iacute;cias</strong></td>
+            						<td class="texto" width="10%" align="center"><strong>Op&ccedil;&otilde;es</strong></td>
+        						</tr>
+         						{section name=i loop=$dados}
+         						<tr>
+         							<td class="texto">{$dados[i].dtCadastroFormat} - {$dados[i].titulo}</td>
+            						<td class="texto" nowrap="nowrap">< <a href="?acao=editar&id={$dados[i].id}">editar</a> > | < <a href="#" onclick="exclui({$dados[i].id})">excluir</a> ></td>
+				         		</tr>
+         						{/section}
+        					</table>
+        				</td>
+     				</tr>
+    			</table>
+			</td>
+ 		</tr>
+  </table>
+	
+	</td>
+    <td width="5%">&nbsp;</td>
+  </tr>
+</table>
+<!-- FIM Conteúdo -->
+
+{include file="admin/rodape.html"}

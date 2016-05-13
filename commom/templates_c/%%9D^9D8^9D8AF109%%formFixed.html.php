@@ -1,8 +1,10 @@
-<?php /* Smarty version 2.6.12, created on 2016-04-20 15:09:39
+<?php /* Smarty version 2.6.12, created on 2016-05-05 16:07:10
          compiled from ../inc/formFixed.html */ ?>
-<form class="form-horizontal form-fale" name="contatoFixed" method="post" action="<?php echo $this->_tpl_vars['URL']; ?>
+<form class="form-horizontal form-fale" name="contato" method="post" action="<?php echo $this->_tpl_vars['URL']; ?>
 envia">
-    <input type="hidden" name="acao" value="formcontato">
+    <input type="hidden" name="acao" value="fale-conosco">
+    <input type="hidden" name="pagina" value="<?php echo $this->_tpl_vars['breadcrumb']; ?>
+">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 pd-mobile-form-home">
             <input type="text" name="nome" class="form-home form-control" placeholder="Nome">
@@ -35,6 +37,6 @@ envia">
         </div>
     </div>
     <div class="col-xs-12 col-sm-2 col-md-2 pull-right pd-mobile-form-home">
-        <button type="submit" class="btn btn-default-site btn-formfixed pull-right" onclick="return enviardadosFixed();">enviar</button>
+        <button type="submit" class="btn btn-default-site btn-formfixed pull-right" onclick="return enviardados();">enviar</button>
     </div>  
 </form> 

@@ -3,9 +3,9 @@
 	include_once "configs/config.php";
 	include_once "url.php";
 	include_once "classes/Noticias.class.php";
-	include_once "classes/Categoria.class.php";
+	//include_once "classes/Categoria.class.php";
 	$class 		= new Noticias();
-	$classCatego= new Categoria();
+	//$classCatego= new Categoria();
 
 	include_once "classes/CategoriaServicos.class.php";
 	$classCategoServico 		= new CategoriaServicos();
@@ -82,14 +82,14 @@
 	// $parametroDestaque['id']			= $_GET['id'];
 	$parametroDestaque['limitVeja']		= "4";
 	$parametroDestaque['tipoNoticia']	= "1";
-	$retornoCatego 		= $classCatego->Pesquisar($parametroDestaque, null, null);
-	if( $retornoCatego[0] )
-	{
-		$smarty->assign("mensagem", $retornoCatego[1]);
-		$smarty->assign("redir", "noticias.php");
-		$smarty->display("mensagem.html");
-		exit();
-	}
+	// $retornoCatego 		= $classCatego->Pesquisar($parametroDestaque, null, null);
+	// if( $retornoCatego[0] )
+	// {
+	// 	$smarty->assign("mensagem", $retornoCatego[1]);
+	// 	$smarty->assign("redir", "noticias.php");
+	// 	$smarty->display("mensagem.html");
+	// 	exit();
+	// }
 
 	$totalPorPagina = 10;
 	if ($_POST['p']) {
@@ -101,9 +101,16 @@
 	//  Fim Paginação
 	// $parametro['tag'] = $_GET['tag'];
 	if ($_POST['acao'] == "busca") {
+		// echo "<pre>";
+		// print_r($_POST['search']);
+		// die();
 		$parametro['busca'] = $_POST['search'];
-		$retornoPag = $class->Pesquisar($parametro, null, null);
+		// $retornoPag = $class->Pesquisar($parametro, null, null);
 		$retorno = $class->Pesquisar($parametro, $totalPorPagina, $_POST['p']);
+
+		// echo "<pre>";
+		// print_r($retorno);
+		// die();
 
 		if( $retorno[0] )
 		{
@@ -183,7 +190,7 @@
 		$smarty->assign("mensagem", $retornoTags[1]);
 		$smarty->assign("redir", "noticias.php");
 		$smarty->display("mensagem.html");
-	exit();
+		exit();
 	}
 
 	// definindo parametros atras da url
@@ -222,6 +229,7 @@
 	$smarty->assign("dados", $retorno[1]);
 	$smarty->assign("arrayIdioma", $arrayIdioma);
 	$smarty->assign("pagina", $pagina);
+	$smarty->assign("urlFriendly", $urlFriendly);
 	$smarty->assign("titulo", utf8_encode(TITULO));
 	$smarty->assign("nome", $_SESSION['nome']);
 	if (!$_POST['buscaAjax']) {

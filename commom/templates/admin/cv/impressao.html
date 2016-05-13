@@ -1,0 +1,453 @@
+﻿<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>{$titulo} - ADMINISTRAÇÃO</title>
+
+<link rel="stylesheet" href="commom/css/admin.css" type="text/css">
+
+<script src="commom/js/geral.js"></script>
+
+</head>
+
+<body topmargin="0" leftmargin="0" style="background-color:#D5DDE3" onLoad="window.print();">
+
+<!-- Conteúdo -->
+<table width="100%" height="350" border="0" cellpadding="5" cellspacing="0">
+  <tr>
+    <td width="5%">&nbsp;</td>
+    <td width="90%" style="background-color:#FFFFFF" valign="top">
+		<table width="100%" border="0">
+      		<tr>
+        	<td>
+            
+				<table cellspacing="2" cellpadding="2" border="0" width="100%" align="center">
+                <input type="hidden" name="id" id="id" value="{$dados[0].id}" />
+                	<tr>
+                    	<td colspan="2" class="texto">
+                            
+                            <table cellpadding="0" cellspacing="0" width="100%">
+                             <tr>
+                                <td class="texto"><strong>CADASTRO DE CURRÍCULO</strong></td>
+                             </tr>
+                            </table>
+                            
+                        </td>
+                    </tr>
+            		<tr>
+              			<td align="right" width="10%">&nbsp;</td>
+              			<td class="texto"><strong>Dados Pessoais</strong></td>
+            		</tr>
+            		<tr>
+              			<td align="right" nowrap="nowrap" class="texto"><strong>Nome completo:</strong></td>
+              			<td class="texto">
+                        	{$dados[0].pessoaisNome} &nbsp;&nbsp;&nbsp;
+                            <span class="texto"><strong>Sexo:</strong></span>
+                            {if $dados[0].pessoaisSexo == "m"}
+                            	masculino
+                            {else}
+                            	feminino
+                            {/if}
+                        </td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto"><strong>Nacionalidade:</strong></td>
+              			<td class="texto">
+                        	{$dados[0].pessoaisNacionalidade} &nbsp;&nbsp;&nbsp; 
+                            
+                            <span class="texto"><strong>Natural de:</strong></span>
+                            {$dados[0].pessoaisNatural} &nbsp;&nbsp;&nbsp; 
+                            
+                            <span class="texto"><strong>UF:</strong></span>
+                            {$dados[0].pessoaisEstado}
+                         </td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto"><strong>Estado Civil:</strong></td>
+              			<td class="texto">
+                        	{$dados[0].pessoaisEstadoCivil} &nbsp;&nbsp;&nbsp; 
+                            
+                            <span class="texto"><strong>Data de Nasc.:</strong></span>
+                            {$dados[0].pesNascimentoDia} / {$dados[0].pesNascimentoMes} / {$dados[0].pesNascimentoAno}
+                        </td>
+            		</tr>
+                    <tr>
+              			<td colspan="2">
+                        
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                         <tr>
+                         	<td class="texto">
+								<strong>Possui filhos/ dependentes:</strong>
+                                {if $dados[0].pesFilhos == "s"}
+                                	sim - <strong>Quantos:</strong> {$dados[0].pessoaisFilhos}
+                                {else}
+                                	n&atilde;o
+                                {/if}
+                            </td>
+                            
+                            <td align="right" class="texto">
+                            
+                            </td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+            		</tr>
+
+                    <tr>
+                    	<td><img src="commom/imgAdmin/0.gif" width="1" height="7"></td>
+                    </tr>
+            		<tr>
+              			<td align="right" width="10%">&nbsp;</td>
+              			<td class="texto"><strong>Filia&ccedil;&atilde;o</strong></td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto"><strong>Nome do pai:</strong></td>
+              			<td class="texto">{$dados[0].filiacaoPai}</td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto"><strong>Nome da m&atilde;e:</strong></td>
+              			<td class="texto">{$dados[0].filiacaoMae}</td>
+            		</tr>
+                    <tr>
+                    	<td><img src="commom/imgAdmin/0.gif" width="1" height="7"></td>
+                    </tr>
+                    
+                    
+            		<tr>
+              			<td align="right" width="10%">&nbsp;</td>
+              			<td class="texto"><strong>Dados F&iacute;sicos</strong></td>
+            		</tr>
+                    <tr>
+                    	<td class="texto" align="right"><strong>Peso:</strong></td>
+              			<td>
+                        
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                         <tr>
+                         	<td class="texto">
+                                {$dados[0].fisicosPeso} &nbsp;&nbsp; 
+                            </td>
+                            
+                            <td class="texto">
+								<strong>Altura:</strong>
+                                {$dados[0].fisicosAltura}
+                            </td>
+                            
+                            <td class="texto">
+                            	<strong>Sapatos:</strong>
+                                {$dados[0].fisicosSapatos}
+                            </td>
+                            
+                            <td class="texto">
+                            	<strong>Camisa:</strong>
+                                 {$dados[0].fisicosCamisa}
+                            </td>
+                            
+                            <td class="texto">
+                            	<strong>Calça:</strong>
+                                 {$dados[0].fisicosCalca}
+                            </td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+            		</tr>
+                    
+                    <tr>
+                    	<td><img src="commom/imgAdmin/0.gif" width="1" height="7"></td>
+                    </tr>
+            		<!--
+                    <tr>
+              			<td align="right" width="10%">&nbsp;</td>
+              			<td class="texto"><strong>Escolaridade</strong></td>
+            		</tr>
+                    -->
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto"><strong>Escolaridade:</strong></td>
+              			<td>
+                        
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                         <tr>
+                         	<td class="texto">
+                            	{$dados[0].escolaridadeEnsino}
+                            </td>
+                            
+                            <td align="right" class="texto">
+
+                            </td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+            		</tr>
+                    
+                    
+                    <tr>
+                    	<td><img src="commom/imgAdmin/0.gif" width="1" height="7"></td>
+                    </tr>
+            		<tr>
+              			<td align="right" width="10%">&nbsp;</td>
+              			<td class="texto"><strong>Documentos</strong></td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto"><strong>RG:</strong></td>
+              			<td>
+                        
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                         <tr>
+                         	<td class="texto">
+                            	{$dados[0].documentosRg}
+                            </td>
+                            
+                            <td align="right" class="texto">
+								<strong>Dt. Expedi&ccedil;&atilde;o:</strong>
+								{$dados[0].docExpedicaoDia} / {$dados[0].docExpedicaoMes} / {$dados[0].docExpedicaoAno}
+                            </td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto"><strong>CPF:</strong></td>
+              			<td>
+                        
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                         <tr>
+                         	<td class="texto">
+                            	{$dados[0].documentosCpf}
+                            </td>
+                            
+                            <td align="right" class="texto">
+								<strong>Tit. Eleitor:</strong>
+                                {$dados[0].documentosTitulo}
+                            </td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto"><strong>PIS:</strong></td>
+              			<td>
+                        
+                        <table width="100%">
+                         <tr>
+                         	<td class="texto">
+                            	{$dados[0].documentosPis}
+                            </td>
+                            
+                            <td align="right" class="texto">
+								<strong>Tipo Sanguineo:</strong>
+                                {$dados[0].documentosTipoSanguineo}
+                            </td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto"><strong>CTPS:</strong></td>
+              			<td>
+                        
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                         <tr>
+                         	<td class="texto">
+                            	{$dados[0].documentosCtps}
+                            </td>
+                            
+                            <td align="right" class="texto">
+								<strong>S&eacute;rie:</strong>
+                                {$dados[0].documentosSerie}
+                            </td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+            		</tr>
+                    <tr>
+              			<td colspan="2">
+                        
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                         <tr>
+                         	<td class="texto">
+                            	<strong>Carteira de Motorista:</strong>
+                                {if $dados[0].docCnh == "s"}
+                                	sim
+                                {else}
+                                	n&atilde;o
+                                {/if}
+                            </td>
+                            
+                            <td align="right" class="texto">
+								<strong>Categoria:</strong>
+                                {$dados[0].documentosChn}
+                            </td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+            		</tr>
+                    
+                    
+                    
+                    <tr>
+                    	<td><img src="commom/imgAdmin/0.gif" width="1" height="7"></td>
+                    </tr>
+            		<tr>
+              			<td align="right" width="10%">&nbsp;</td>
+              			<td class="texto"><strong>Localiza&ccedil;&atilde;o</strong></td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto"><strong>Endere&ccedil;o:</strong></td>
+              			<td>
+                        
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                         <tr>
+                         	<td class="texto">
+                            	{$dados[0].localizacaoEndereco}
+                            </td>
+                            
+                            <td align="right" class="texto">
+								<strong>N&uacute;mero:</strong>
+								{$dados[0].localizacaoNumero}
+                            </td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto"><strong>Bairro:</strong></td>
+              			<td>
+                        
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                         <tr>
+                         	<td class="texto">
+                            	{$dados[0].localizacaoBairro}
+                            </td>
+                            
+                            <td align="right" class="texto">
+								<strong>Complemento:</strong>
+								{$dados[0].localizacaoComplemento}
+                            </td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto"><strong>CEP:</strong></td>
+              			<td>
+                        
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                         <tr>
+                         	<td class="texto">
+                            	{$dados[0].locCep1} - {$dados[0].locCep2}
+                            </td>
+                            
+                            <td align="right" class="texto">
+                            	<strong>Cidade:</strong>
+                                {$dados[0].localizacaoCidade}
+                                
+								<strong>Estado:</strong>
+								{$dados[0].localizacaoEstado}
+                            </td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+            		</tr>
+                   </table>
+                   
+                   <table cellspacing="2" cellpadding="2" border="0" width="100%" align="center">
+                    <tr>
+                    	<td><img src="commom/imgAdmin/0.gif" width="1" height="7"></td>
+                    </tr>
+            		<tr>
+              			<td align="right">&nbsp;</td>
+              			<td class="texto"><strong>Contatos</strong></td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto"><strong>Telefone Fixo:</strong></td>
+              			<td>
+                        
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                         <tr>
+                         	<td class="texto">
+                            	{$dados[0].contatosTelefoneDdd} - {$dados[0].contatosTelefone}
+                            </td>
+                            
+                            <td align="right" class="texto">
+								<strong>Celular:</strong>
+								{$dados[0].contatosCelularDdd} - {$dados[0].contatosCelular}
+                            </td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto"><strong>E-mail:</strong></td>
+              			<td class="texto">{$dados[0].contatosEmail}</td>
+            		</tr>
+
+
+
+					<tr>
+                    	<td><img src="commom/imgAdmin/0.gif" width="1" height="7"></td>
+                    </tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto" valign="top"><strong>Curso</strong></td>
+              			<td class="texto">* Possui algum curso na &aacute;rea de seguran&ccedil;a armada ou desarmada?</td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto"></td>
+              			<td class="texto">
+                        	{if $dados[0].curso == "s"}
+                            	sim &nbsp;&nbsp;
+                            {else}
+                            	n&atilde;o
+                            {/if}
+                        </td>
+            		</tr>
+                    
+                    
+                    <tr>
+                    	<td><img src="commom/imgAdmin/0.gif" width="1" height="7"></td>
+                    </tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto" valign="top"><strong>Experi&ecirc;ncia Profissional</strong></td>
+              			<td class="texto">{$dados[0].experiencia}</td>
+            		</tr>
+                    
+                    <tr>
+                    	<td><img src="commom/imgAdmin/0.gif" width="1" height="7"></td>
+                    </tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto" valign="top"><strong>Anota&ccedil;&otilde;es:</strong></td>
+              			<td class="texto">{$dados[0].anotacoes}</td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto" valign="top"><strong>Status:</strong></td>
+              			<td class="texto">
+                            {if $dados[0].status == "1"}
+                            	Apto &nbsp;&nbsp;
+                            {else}
+                            	N&atilde;o apto
+                            {/if}
+                        </td>
+            		</tr>
+					</form>
+        		</table>
+			</td>
+     	 </tr>
+    </table>
+	
+	</td>
+    <td width="5%">&nbsp;</td>
+  </tr>
+</table>
+<!-- FIM Conteúdo -->
+
+</body>
+</html>

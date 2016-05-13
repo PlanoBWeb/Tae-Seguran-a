@@ -1,0 +1,130 @@
+﻿{include file="admin/topo.html"}
+
+{literal}
+<script>
+
+	function checa()
+	{
+		frm = document.frm_cadastro;
+		msg = "Preencha o campo ";
+		
+		if(trim(frm.titulo.value) == "")
+		{
+			alert(msg + "Título!");
+			frm.titulo.focus();
+			return false;
+		}
+		
+		if(trim(frm.resumo.value) == "")
+		{
+			alert(msg + "Chamada!");
+			frm.resumo.focus();
+			return false;
+		}
+		
+		//frm.texto.value = document.msg.html;
+		//frm.texto.value = document.getElementById("FCKeditor1___Frame").html;
+		//frm.texto.value = document.getElementById("not_texto").value;
+		
+		return true;
+	}
+
+</script>
+{/literal}
+
+
+<!-- Conteúdo -->
+<table width="100%" height="350" border="0" cellpadding="10" cellspacing="0">
+  <tr>
+    <td width="5%">&nbsp;</td>
+    <td width="90%" style="background-color:#FFFFFF" valign="top">
+		<table width="100%" border="0">
+      		<tr>
+        	<td valign="top">{include file="admin/noticia/menu.html"}</td>
+        	<td>
+				<table cellspacing="2" cellpadding="2" border="0" width="100%">
+            		<tr height="30">
+              			<td align="right" width="20%">&nbsp;</td>
+              			<td class="texto"><strong>NOT&Iacute;CIAS - LISTAR</strong></td>
+            		</tr>
+          			<form name="frm_cadastro" onSubmit="return checa()" method="POST" enctype="multipart/form-data">
+            		<input type="hidden" name="acao" value="gravar" />
+            		<input type="hidden" name="id" value="{$dados[0].id}" />
+                    <input type="hidden" name="caminhoImagem" value="{$dados[0].caminhoImagem}" />
+                    <input type="hidden" name="extencoeValidas" value="jpg|jpeg|gif">
+                    <input type="hidden" name="texto">
+            		<tr>
+              			<td align="right" width="20%" class="texto">*Titulo:</td>
+              			<td><input name="titulo" type="text" class="formu" value="{$dados[0].titulo}" size="60" maxlength="45" /></td>
+            		</tr>
+            		<tr>
+              			<td align="right" class="texto" valign="top">*Chamada:</td>
+              			<td><input name="resumo" type="text" class="formu" value="{$dados[0].resumo}" size="80" maxlength="110" /></td>
+            		</tr>
+                    
+                    <tr>
+              			<td align="right" class="texto"></td>
+              			<td class="texto">Texto da not&iacute;cia:</td>
+            		</tr>
+                    <tr>
+              			<td align="right" class="texto"></td>
+              			<td>
+                        	<!-- <textarea name="texto" cols="60" rows="5" class="formu">{$dados[0].texto}</textarea> -->
+                            <!-- <object id="msg" width="420" height="350" data="dhtml/deditor.html?3" type="text/x-scriptlet"></object>-->
+                            <!--
+                            <input type="hidden" id="not_texto" name="not_texto" />
+                            <input type="hidden" id="FCKeditor1___Config" value="" style="display:none" />
+                            <iframe id="FCKeditor1___Frame" src="fckeditor/editor/fckeditor.html?InstanceName=not_texto&amp;" width="600" height="400" frameborder="no" scrolling="no"></iframe>
+                            -->
+                            {$FCKEditor->Create()}
+                        </td>
+            		</tr>
+                    <!--
+                    <tr>
+              			<td align="right" class="texto"></td>
+              			<td class="texto">Imagem ilustrativa:</td>
+            		</tr>
+                    
+                    <tr>
+              			<td align="right" class="texto"></td>
+              			<td><input type="file" name="arquivo" size="50"/></td>
+            		</tr>
+                    {if $dados[0].caminhoImagem}
+                    <tr>
+              			<td align="right" class="texto"></td>
+              			<td><img src="{$dados[0].caminhoImagem}" border="0"/></td>
+            		</tr>
+                    {/if}
+                    -->
+                    <tr>
+              			<td align="right" class="texto"></td>
+              			<td class="texto">Status:</td>
+            		</tr>
+            		<tr>
+              			<td align="right" class="texto"></td>
+              			<td><select name="status">
+                  			<option value="1" {if $dados[0].status == '1'}selected="selected"{/if}>Ativo</option>
+                  			<option value="0" {if $dados[0].status == '0'}selected="selected"{/if}>Inativo</option>
+                			</select>
+						</td>
+            		</tr>
+            		<tr>
+              			<td></td>
+              			<td class="texto">
+                        	<input name="submit" type="submit" class="botao" value="{$botao}" /><br>
+                            * Campos obrigatórios.
+                        </td>
+            		</tr>
+          			</form>
+        		</table>
+			</td>
+     	 </tr>
+    </table>
+	
+	</td>
+    <td width="5%">&nbsp;</td>
+  </tr>
+</table>
+<!-- FIM Conteúdo -->
+
+{include file="admin/rodape.html"}

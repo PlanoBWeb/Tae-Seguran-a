@@ -1,80 +1,143 @@
 ﻿{include file="admin/topo.html"}
+
+{literal}
+<script>
+
+	function checa()
+	{
+		frm = document.frm_cadastro;
+		msg = "Preencha o campo ";
+		
+		if(trim(frm.nome.value) == "")
+		{
+			alert(msg + "Nome!");
+			frm.nome.focus();
+			return false;
+		}
+		
+		if(trim(frm.email.value) == "")
+		{
+			alert(msg + "E-mail!");
+			frm.email.focus();
+			return false;
+		}
+		
+		if(!email(frm.email, 'E-mail inválido!'))
+			return false;
+		
+		if(trim(frm.senha.value) == "")
+		{
+			alert(msg + "Senha!");
+			frm.senha.focus();
+			return false;
+		}
+		
+		if(trim(frm.senha2.value) == "")
+		{
+			alert(msg + "Repetir Senha!");
+			frm.senha2.focus();
+			return false;
+		}
+		
+		if(trim(frm.senha.value) != trim(frm.senha2.value))
+		{
+			alert("As senhas estão diferentes!");
+			return false;
+		}
+		
+		/*
+		if( frm.perfil.selectedIndex == 0 )
+		{
+			alert("Selecione o perfil!");
+			frm.perfil.focus();
+			return false;
+		}
+		
+		if( frm.status.selectedIndex == 0 )
+		{
+			alert("Selecione o status!");
+			frm.status.focus();
+			return false;
+		}
+		*/
+		
+		return true;
+	}
+
+</script>
+{/literal}
+
 <!-- Conteúdo -->
-    <form name="frm_cadastro" method="POST">
-	    <input type="hidden" name="acao" value="gravar" />
-	    <input type="hidden" name="id" value="{$dados[0].id}" />
-
-	    <h1 class="titulo-pag">Usuarios</h1>
-
-	    <label>*Nome do usuário:</label>
-	    <input type="text" name="nome" size="50" value="{$dados[0].nome}" />
-	    
-	    <label>*E-mail do usuário:</label>
-	    <input type="text" name="email" size="50" value="{$dados[0].email}" />
-	    
-	    {if $smarty.get.acao != editar}
-		    <label>*Senha:</label>
-		    <input type="password" name="senha" size="30" value="{$dados[0].senha}" />
-		    
-		    <label>*Repetir Senha:</label>
-		    <input type="password" name="senha2" size="30" value="{$dados[0].senha}" />
-	    {/if}
-	    
-		<input name="submit" type="submit" class="btn-form top-btn" value="{$botao}" onclick="return checa();" /><br>
-	    <label class="no-top">* Campos obrigatórios.</label>
-    </form>
-<!-- FIM Conteúdo -->
+<table width="100%" height="350" border="0" cellpadding="10" cellspacing="0">
+  <tr>
+    <td width="5%">&nbsp;</td>
+    <td width="90%" style="background-color:#FFFFFF" valign="top">
+		<table width="100%" border="0">
+      		<tr>
+        	<td valign="top">{include file="admin/usuario/menu.html"}</td>
+        	<td>
+				<table cellspacing="2" cellpadding="2" border="0" width="100%">
+            		<tr height="30">
+              			<td align="right" width="20%">&nbsp;</td>
+              			<td class="texto"><strong>CADASTRO DE USUÁRIOS DO SISTEMA</strong></td>
+            		</tr>
+          			<form name="frm_cadastro" onsubmit="return checa()" method="POST">
+            		<input type="hidden" name="acao" value="gravar" />
+                    <input type="hidden" name="status_anterior" value="{$dados[0].usu_status}" />
+            		<input type="hidden" name="id" value="{$dados[0].usu_id}" />
+            		<tr>
+              			<td align="right" width="20%" class="texto">*Nome:</td>
+              			<td><input type="text" name="nome" size="50" value="{$dados[0].usu_nome}" /></td>
+            		</tr>
+            		<tr>
+              			<td align="right" class="texto">*E-mail:</td>
+              			<td><input type="text" name="email" size="50" value="{$dados[0].usu_email}" /></td>
+            		</tr>
+            		<tr>
+              			<td align="right" class="texto">*Senha:</td>
+              			<td><input type="password" name="senha" size="30" value="{$dados[0].usu_senha}" /></td>
+            		</tr>
+            		<tr>
+              			<td align="right" class="texto">*Repetir Senha:</td>
+              			<td><input type="password" name="senha2" size="30" value="{$dados[0].usu_senha}" /></td>
+            		</tr>
+                    <!--
+            		<tr>
+              			<td align="right" class="texto">*Perfil:</td>
+              			<td><select name="perfil">
+                  			<option>Selecione</option>
+                  			<option value="M" {if $dados[0].usu_perfil == "M"}selected="selected"{/if}>Master</option>
+                  			<option value="C" {if $dados[0].usu_perfil === "C"}selected="selected"{/if}>Comum</option>
+                			</select>
+						</td>
+            		</tr>
+            		<tr>
+              			<td align="right" class="texto">*Status:</td>
+              			<td><select name="status">
+                  			<option>Selecione</option>
+                  			<option value="1" {if $dados[0].usu_status == '1'}selected="selected"{/if}>Ativo</option>
+                  			<option value="0" {if $dados[0].usu_status == '0'}selected="selected"{/if}>Inativo</option>
+                			</select>
+						</td>
+            		</tr>
+                    -->
+            		<tr>
+              			<td></td>
+              			<td class="texto">
+                        	<input name="submit" type="submit" class="botao" value="{$botao}" /><br>
+                            * Campos obrigatórios.
+                        </td>
+            		</tr>
+          			</form>
+        		</table>
+			</td>
+     	 </tr>
+    </table>
 	
+	</td>
+    <td width="5%">&nbsp;</td>
+  </tr>
+</table>
+<!-- FIM Conteúdo -->
 
 {include file="admin/rodape.html"}
-{literal}	
-		<script>
-
-			function checa()
-			{
-				frm = document.frm_cadastro;
-				msg = "Preencha o campo ";
-				
-				if(trim(frm.nome.value)=="")
-				{
-					alert(msg + "Nome!");
-					frm.nome.focus();
-					return false;
-				}
-				
-				if(trim(frm.email.value) == "")
-				{
-					alert(msg + "E-mail!");
-					frm.email.focus();
-					return false;
-				}
-				
-				if(!email(frm.email, 'E-mail inválido!'))
-					return false;
-
-				if(!frm.id.value){
-					if(trim(frm.senha.value) == "")
-					{
-						alert(msg + "Senha!");
-						frm.senha.focus();
-						return false;
-					}
-					
-					if(trim(frm.senha2.value) == "")
-					{
-						alert(msg + "Repetir Senha!");
-						frm.senha2.focus();
-						return false;
-					}
-					
-					if(trim(frm.senha.value) != trim(frm.senha2.value))
-					{
-						alert("As senhas estão diferentes!");
-						return false;
-					}
-				} 
-
-				frm.submit();
-			}
-		</script>
-	{/literal}

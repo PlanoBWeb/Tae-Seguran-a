@@ -1,122 +1,100 @@
-﻿<?php
+<?php
 
 include_once "adm_login.php";
 include_once "classes/Usuario.class.php";
-$class = new Usuario();
+$classUsuario = new Usuario();
 
-$smarty->assign("nome", $_SESSION['nome']);
 $smarty->assign("titulo", utf8_encode(TITULO));
-$pagina = "usuario";
+$smarty->assign("nome", $_SESSION['nome']);
+$smarty->assign("perfil", $_SESSION['perfil']);
+
+if( $_POST['acao'] == 'editar_senha' )
+{
+	$parametro['senha']	= $_POST['senha'];
+	$parametro['id']	= $_SESSION['id'];
+	$retorno = $classUsuario->AlteraSenha($parametro);
+	
+	$smarty->assign("mensagem", utf8_encode($retorno[1]));
+	$smarty->assign("redir", "adm_index.php");
+	$smarty->display("mensagem.html");
+	exit();
+}
+elseif( $_GET['acao'] == 'alterar_senha' )
+{
+	$smarty->display('admin/usuario/dados_senha.html');
+	exit;
+}
+
+//Perfil
+if( $_SESSION['perfil'] != 'M' )
+{
+	die();
+}
+
 
 if( $_POST['acao'] == "gravar" )
 {
-	if( $_POST['id'] ){
-		$retorno = $class->Altera($_POST);
-	}
-	else{
-		$retorno = $class->Grava($_POST);
-	}
-
-	if( $retorno[0] )
-	{
-		$smarty->assign("mensagem", $retorno[1]);
-
-		if($retorno[1] == "Senha atual incorreta!"){
-			$smarty->assign("redir", "adm_".$pagina.".php?acao=senha");
-		}
-		else{
-			$smarty->assign("redir", "adm_".$pagina.".php");
-		}
-
-		$smarty->display("mensagem.html");
-		exit();
-	}
-
+	if( $_POST['id'] )
+		$retorno = $classUsuario->Altera($_POST);
+	else
+		$retorno = $classUsuario->Grava($_POST);
+	
 	$smarty->assign("mensagem", utf8_encode($retorno[1]));
-	$smarty->assign("redir", "adm_".$pagina.".php?acao=pesquisar");
+	$smarty->assign("redir", "adm_usuario.php");
 	$smarty->display("mensagem.html");
 	exit();
 }
 elseif( $_GET['acao'] == "pesquisar" )
 {
-	//  Paginação
-	$retornoPag = $class->Pesquisar($_POST, null, null);
-
-	$totalPorPagina = 4;
-	$totalDeRegistros = count($retornoPag[1]);
-	$conta = $totalDeRegistros / $totalPorPagina;
-	$totalPaginas = ceil($conta);
-	//  Fim Paginação
-
-	$_GET['p'] = (!$_GET['p'] ? 1 : $_GET['p']);
-
-	$retorno = $class->Pesquisar($_POST, $totalPorPagina, $_GET['p']);
+	$retorno = $classUsuario->Pesquisar($_POST);
 	
 	if( $retorno[0] )
 	{
 		$smarty->assign("mensagem", $retorno[1]);
-		$smarty->assign("redir", "adm_".$pagina.".php");
+		$smarty->assign("redir", "adm_usuario.php");
 		$smarty->display("mensagem.html");
 		exit();
 	}
-
-	$Numpaginas = array();
-	for($j=0; $j <= $totalPaginas; $j++) { 
-		$Numpaginas[$j] = $j;
-	}
-
-	$smarty->assign("Numpaginas", $Numpaginas);
-	$smarty->assign("totalPaginas", $totalPaginas);
+	
+	$smarty->assign("idLogado", $_SESSION['id']);
 	$smarty->assign("dados", $retorno[1]);
-	$smarty->display('admin/'.$pagina.'/relacao.html');
+	$smarty->display('admin/usuario/relacao.html');
 	exit;
 }
-elseif( $_GET['acao'] == "editar" || $_GET['acao'] == "visualizar" || $_GET['acao'] == "senha")
+elseif( $_GET['acao'] == "editar" )
 {
-	if($_GET['acao'] == "senha"){
-		$parametro['id'] = $_SESSION['id'];
-	}
-	elseif ($_GET['acao'] == "editar") {
-		$parametro['id'] = $_SESSION['id'];
-	}
-	else{
-		$parametro['id'] = $_GET['id'];
-	}
-		
-		
-
-	$retorno = $class->Pesquisar($parametro, null, null);
+	$parametro['id'] = $_GET['id'];
+	$retorno = $classUsuario->Pesquisar($parametro);
 	
 	if( $retorno[0] )
 	{
 		$smarty->assign("mensagem", $retorno[1]);
-		$smarty->assign("redir", "adm_".$pagina.".php");
+		$smarty->assign("redir", "adm_usuario.php");
 		$smarty->display("mensagem.html");
 		exit();
 	}
 	
 	$smarty->assign("dados", $retorno[1]);
 	$smarty->assign("botao", "Alterar");
-
-	if($_GET['acao'] == "visualizar")
-		$smarty->display('admin/'.$pagina.'/ver.html');
-	elseif($_GET['acao'] == "senha")
-		$smarty->display('admin/'.$pagina.'/senha.html');
-	else
-		$smarty->display('admin/'.$pagina.'/dados.html');
+	$smarty->display('admin/usuario/dados.html');
 	exit;
 }
 elseif( $_GET['acao'] == "exclui" )
 {
-	$retorno = $class->Exclui($_GET['id']);
+	$retorno = $classUsuario->Exclui($_GET['id']);
 	
 	$smarty->assign("mensagem", utf8_encode($retorno[1]));
-	$smarty->assign("redir", "adm_".$pagina.".php?acao=pesquisar");
+	$smarty->assign("redir", "adm_usuario.php");
 	$smarty->display("mensagem.html");
 	exit();
 }
+elseif( $_GET['acao'] == "consultar" )
+{
+	$smarty->display('admin/usuario/busca.html');
+	exit;
+}
 
 $smarty->assign("botao", "Gravar");
-$smarty->display('admin/'.$pagina.'/dados.html');
+$smarty->display('admin/usuario/dados.html');
 
 ?>

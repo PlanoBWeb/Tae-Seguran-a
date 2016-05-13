@@ -1,0 +1,974 @@
+﻿{include file="admin/topo.html"}
+
+{literal}
+<script>
+
+function imprimir()
+{
+	idTrabalhe = document.getElementById("id").value;
+	url = "adm_cv.php?acao=editar&id=" + idTrabalhe + "&imprimir=1";
+	
+	window.open(url , "imprimirCV" , "status , scrollbars=yes ,width=650, height=450 , top=0 , left=0"); 
+}
+
+
+function checa(obj)
+{
+	frase = "Preencha o campo ";
+	fraseSelect = "Selecione o campo ";
+	
+	if(trim(obj.pesNome.value)=="")
+	{
+		alert( frase + "Nome!" );
+		obj.pesNome.focus();
+		return false;
+	}
+	
+	if( document.getElementById("pesSexoM").checked == false && document.getElementById("pesSexoF").checked == false )
+	{
+		alert( frase + "Sexo!" );
+		return false;
+	}
+	
+	if(trim(obj.pesNascimentoDia.value)=="" || trim(obj.pesNascimentoMes.value)=="" || trim(obj.pesNascimentoAno.value)=="")
+	{
+		alert( frase + "Data de Nasc.!" );
+		obj.pesNascimentoDia.focus();
+		return false;
+	}
+	
+	if(trim(obj.pesNacionalidade.value)=="")
+	{
+		alert( frase + "Nacionalidade!" );
+		obj.pesNacionalidade.focus();
+		return false;
+	}
+	
+	if(trim(obj.pesNatural.value)=="")
+	{
+		alert( frase + "Natural de!" );
+		obj.pesNatural.focus();
+		return false;
+	}
+	
+	if( obj.pesEstado.selectedIndex == 0 )
+	{
+		alert( fraseSelect + "Estado!" );
+		obj.pesEstado.focus();
+		return false;
+	}
+	
+	if(trim(obj.pesEstadoCivil.value)=="")
+	{
+		alert( frase + "Estado Civil!" );
+		obj.pesEstadoCivil.focus();
+		return false;
+	}
+	
+	if( document.getElementById("pesFilhosS").checked == false && document.getElementById("pesFilhosN").checked == false )
+	{
+		alert( frase + "Possui filhos / dependentes!" );
+		return false;
+	}
+	
+	if( document.getElementById("pesFilhosS").checked == true && trim(obj.pesQuantos.value)=="" )
+	{
+		alert( frase + "Quantos!" );
+		obj.pesQuantos.focus();
+		return false;
+	}
+	
+	if(trim(obj.filPai.value)=="")
+	{
+		alert( frase + "Nome do pai!" );
+		obj.filPai.focus();
+		return false;
+	}
+	
+	if(trim(obj.filMae.value)=="")
+	{
+		alert( frase + "Nome da mãe!" );
+		obj.filMae.focus();
+		return false;
+	}
+	
+	if(trim(obj.fisPeso.value)=="")
+	{
+		alert( frase + "Peso!" );
+		obj.fisPeso.focus();
+		return false;
+	}
+	
+	if(trim(obj.fisAltura.value)=="")
+	{
+		alert( frase + "Altura!" );
+		obj.fisAltura.focus();
+		return false;
+	}
+	
+	if(trim(obj.fisSapatos.value)=="")
+	{
+		alert( frase + "Sapatos!" );
+		obj.fisSapatos.focus();
+		return false;
+	}
+	
+	if(trim(obj.fisCamisa.value)=="")
+	{
+		alert( frase + "Camisa!" );
+		obj.fisCamisa.focus();
+		return false;
+	}
+	
+	if(trim(obj.fisCalca.value)=="")
+	{
+		alert( frase + "Calça!" );
+		obj.fisCalca.focus();
+		return false;
+	}
+	
+	if( obj.escEnsino.selectedIndex == 0 )
+	{
+		alert( fraseSelect + "Ensino!" );
+		obj.escEnsino.focus();
+		return false;
+	}
+	
+	if(trim(obj.docRg.value)=="")
+	{
+		alert( frase + "RG!" );
+		obj.docRg.focus();
+		return false;
+	}
+	
+	if(trim(obj.docExpedicaoDia.value)=="" || trim(obj.docExpedicaoMes.value)=="" || trim(obj.docExpedicaoAno.value)=="")
+	{
+		alert( frase + "Dt. Expedição!" );
+		obj.docExpedicaoDia.focus();
+		return false;
+	}
+	
+	if(trim(obj.docCpf.value)=="")
+	{
+		alert( frase + "CPF!" );
+		obj.docCpf.focus();
+		return false;
+	}
+	
+	if( !validaCPF(obj.docCpf.value) )
+	{
+		obj.docCpf.focus();
+		return false;
+	}
+	
+	if(trim(obj.docTitulo.value)=="")
+	{
+		alert( frase + "Tit. Eleitor!" );
+		obj.docTitulo.focus();
+		return false;
+	}
+	
+	if(trim(obj.docPis.value)=="")
+	{
+		alert( frase + "PIS!" );
+		obj.docPis.focus();
+		return false;
+	}
+	
+	if(trim(obj.docTipoSanguineo.value)=="")
+	{
+		alert( frase + "Tipo Sanguineo!" );
+		obj.docTipoSanguineo.focus();
+		return false;
+	}
+	
+	if(trim(obj.docCtps.value)=="")
+	{
+		alert( frase + "CTPS!" );
+		obj.docCtps.focus();
+		return false;
+	}
+	
+	if(trim(obj.docSerie.value)=="")
+	{
+		alert( frase + "Série!" );
+		obj.docSerie.focus();
+		return false;
+	}
+	
+	if( document.getElementById("docCnhS").checked == false && document.getElementById("docCnhN").checked == false )
+	{
+		alert( frase + "Carteira de Motorista!" );
+		return false;
+	}
+	
+	if( document.getElementById("docCnhS").checked == true && obj.docCategoria.selectedIndex == 0 )
+	{
+		alert( frase + "Categoria!" );
+		obj.docCategoria.focus();
+		return false;
+	}
+	
+	if(trim(obj.locEndereco.value)=="")
+	{
+		alert( frase + "Endereço!" );
+		obj.locEndereco.focus();
+		return false;
+	}
+	
+	if(trim(obj.locNumero.value)=="")
+	{
+		alert( frase + "Número!" );
+		obj.locNumero.focus();
+		return false;
+	}
+	
+	if(trim(obj.locBairro.value)=="")
+	{
+		alert( frase + "Bairro!" );
+		obj.locBairro.focus();
+		return false;
+	}
+	
+	if(trim(obj.locCep1.value)=="" || trim(obj.locCep2.value)=="")
+	{
+		alert( frase + "CEP!" );
+		obj.locCep1.focus();
+		return false;
+	}
+	
+	if( obj.locEstado.selectedIndex == 0 )
+	{
+		alert( fraseSelect + "Estado!" );
+		obj.locEstado.focus();
+		return false;
+	}
+	
+	if(trim(obj.locCidade.value)=="")
+	{
+		alert( frase + "Cidade!" );
+		obj.locCidade.focus();
+		return false;
+	}
+	
+	if(trim(obj.conFoneDdd.value)=="" || trim(obj.conFone.value)=="")
+	{
+		alert( frase + "Telefone Fixo!" );
+		obj.conFoneDdd.focus();
+		return false;
+	}
+	
+	if(trim(obj.conEmail.value)=="")
+	{
+		alert( frase + "E-mail!" );
+		obj.conEmail.focus();
+		return false;
+	}
+	
+	if(!email(obj.conEmail, '[descricao_campo]'))
+	{ 
+		return false;
+	}
+	
+	if( document.getElementById("cursoS").checked == false && document.getElementById("cursoN").checked == false )
+	{
+		alert( frase + "Curso!" );
+		return false;
+	}
+	
+	if(trim(obj.experiencia.value)=="")
+	{
+		alert( frase + "Experiência Profissional!" );
+		obj.experiencia.focus();
+		return false;
+	}
+	
+	if( obj.declaro.checked == false )
+	{
+		alert("É necessário assinalar a declaração!");
+		obj.declaro.focus();
+		return false;
+	}
+	
+	return true;
+}
+
+</script>
+{/literal}
+
+<!-- Conteúdo -->
+<table width="100%" height="350" border="0" cellpadding="10" cellspacing="0">
+  <tr>
+    <td width="5%">&nbsp;</td>
+    <td width="90%" style="background-color:#FFFFFF" valign="top">
+		<table width="100%" border="0">
+      		<tr>
+        	<td valign="top" width="10%">{include file="admin/cv/menu.html"}</td>
+        	<td>
+            
+				<table cellspacing="3" cellpadding="3" border="0" width="515" align="center">
+                	<tr>
+                    	<td colspan="2" class="texto">
+                            
+                            <table cellpadding="0" cellspacing="0" width="100%">
+                             <tr>
+                                <td class="texto"><strong>CADASTRO DE CURRÍCULO</strong></td>
+                                <td align="right"><input type="button" value="Imprimir" onclick="imprimir()" class="botao" /></td>
+                             </tr>
+                            </table>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                    	<td><br/></td>
+                    </tr>
+                    
+            		<tr>
+              			<td align="right" width="10%">&nbsp;</td>
+              			<td class="texto"><strong>Dados Pessoais</strong></td>
+            		</tr>
+          			<form name="frmTrabalhe" method="post"><!-- onsubmit="return checa(this)" -->
+            		<input type="hidden" name="acao" value="gravar" />
+            		<input type="hidden" name="id" id="id" value="{$dados[0].id}" />
+            		<tr>
+              			<td align="right" nowrap="nowrap" class="texto">*Cargo ou Função:</td>
+              			<td>
+                        	<select name="cargo[]" class="formu" multiple="multiple">
+                                {section name=i loop=$dadosCargo}
+                                    <option value="{$dadosCargo[i].id}" {if $dadosCargo[i].exerce == 1} selected="selected" {/if}>{$dadosCargo[i].cargo}</option>
+                                {/section}
+                            </select>
+                        </td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto">*Nome completo:</td>
+              			<td><input type="text" name="pesNome" size="60" class="formu" value="{$dados[0].pessoaisNome}" /></td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto">*Sexo:</td>
+              			<td class="texto">
+                        	<input type="radio" name="pesSexo" value="m" id="pesSexoM" {if $dados[0].pessoaisSexo == "m"} checked {/if} /> masculino &nbsp;&nbsp;&nbsp; 
+                       		<input type="radio" name="pesSexo" value="f" id="pesSexoF" {if $dados[0].pessoaisSexo == "f"} checked {/if} /> feminino
+                        </td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto">*Data de Nasc.:</td>
+              			<td>
+                            <select name="pesNascimentoDia" class="formu">
+                                <option value="">-</option>
+                                {section name=i loop=$arDia}
+                                    <option value="{$arDia[i].dia}" {if $arDia[i].dia == $dados[0].pesNascimentoDia} selected="selected" {/if}>{$arDia[i].dia}</option>
+                                {/section}
+                            </select>
+                            / 
+                            <select name="pesNascimentoMes" class="formu">
+                                <option value="">-</option>
+                                {section name=i loop=$arMes}
+                                    <option value="{$arMes[i].mes}" {if $arMes[i].mes == $dados[0].pesNascimentoMes} selected="selected" {/if}>{$arMes[i].mes}</option>
+                                {/section}
+                            </select>
+                            /
+                            <select name="pesNascimentoAno" class="formu">
+                                <option value="">-</option>
+                                {section name=i loop=$arAno}
+                                    <option value="{$arAno[i].ano}" {if $arAno[i].ano == $dados[0].pesNascimentoAno} selected="selected" {/if}>{$arAno[i].ano}</option>
+                                {/section}
+                            </select>
+                        </td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto">*Nacionalidade:</td>
+              			<td>
+                        	<input name="pesNacionalidade" type="text" class="formu" size="25" value="{$dados[0].pessoaisNacionalidade}" />
+                        </td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto">*Natural de:</td>
+              			<td>
+                        
+                        <table width="100%">
+                         <tr>
+                         	<td class="texto">
+                            	<input name="pesNatural" type="text" class="formu" size="25" value="{$dados[0].pessoaisNatural}" />
+                            </td>
+                            
+                            <td align="right" class="texto">
+								*Estado:
+                                <select name="pesEstado" class="formu">
+                                  	<option>Escolha seu estado</option>
+                                    <option label="AC" value="AC" {if $dados[0].pessoaisEstado == "AC"} selected="selected" {/if} >AC</option>
+                                    <option label="AL" value="AL" {if $dados[0].pessoaisEstado == "AL"} selected="selected" {/if} >AL</option>
+                                    <option label="AM" value="AM" {if $dados[0].pessoaisEstado == "AM"} selected="selected" {/if} >AM</option>
+                                    <option label="AP" value="AP" {if $dados[0].pessoaisEstado == "AP"} selected="selected" {/if} >AP</option>
+                                    <option label="BA" value="BA" {if $dados[0].pessoaisEstado == "BA"} selected="selected" {/if} >BA</option>
+                                    <option label="CE" value="CE" {if $dados[0].pessoaisEstado == "CE"} selected="selected" {/if} >CE</option>
+                                    <option label="DF" value="DF" {if $dados[0].pessoaisEstado == "DF"} selected="selected" {/if} >DF</option>
+                                    <option label="ES" value="ES" {if $dados[0].pessoaisEstado == "ES"} selected="selected" {/if} >ES</option>
+                                    <option label="GO" value="GO" {if $dados[0].pessoaisEstado == "GO"} selected="selected" {/if} >GO</option>
+                                    <option label="MA" value="MA" {if $dados[0].pessoaisEstado == "MA"} selected="selected" {/if} >MA</option>
+                                    <option label="MG" value="MG" {if $dados[0].pessoaisEstado == "MG"} selected="selected" {/if} >MG</option>
+                                    <option label="MS" value="MS" {if $dados[0].pessoaisEstado == "MS"} selected="selected" {/if} >MS</option>
+                                    <option label="MT" value="MT" {if $dados[0].pessoaisEstado == "MT"} selected="selected" {/if} >MT</option>
+                                    <option label="PA" value="PA" {if $dados[0].pessoaisEstado == "PA"} selected="selected" {/if} >PA</option>
+                                    <option label="PB" value="PB" {if $dados[0].pessoaisEstado == "PB"} selected="selected" {/if} >PB</option>
+                                    <option label="PE" value="PE" {if $dados[0].pessoaisEstado == "PE"} selected="selected" {/if} >PE</option>
+                                    <option label="PI" value="PI" {if $dados[0].pessoaisEstado == "PI"} selected="selected" {/if} >PI</option>
+                                    <option label="PR" value="PR" {if $dados[0].pessoaisEstado == "PR"} selected="selected" {/if} >PR</option>
+                                    <option label="RJ" value="RJ" {if $dados[0].pessoaisEstado == "RJ"} selected="selected" {/if} >RJ</option>
+                                    <option label="RN" value="RN" {if $dados[0].pessoaisEstado == "RN"} selected="selected" {/if} >RN</option>
+                                    <option label="RO" value="RO" {if $dados[0].pessoaisEstado == "RO"} selected="selected" {/if} >RO</option>
+                                    <option label="RR" value="RR" {if $dados[0].pessoaisEstado == "RR"} selected="selected" {/if} >RR</option>
+                                    <option label="RS" value="RS" {if $dados[0].pessoaisEstado == "RS"} selected="selected" {/if} >RS</option>
+                                    <option label="SC" value="SC" {if $dados[0].pessoaisEstado == "SC"} selected="selected" {/if} >SC</option>
+                                    <option label="SE" value="SE" {if $dados[0].pessoaisEstado == "SE"} selected="selected" {/if} >SE</option>
+                                    <option label="SP" value="SP" {if $dados[0].pessoaisEstado == "SP"} selected="selected" {/if} >SP</option>
+                                    <option label="TO" value="TO" {if $dados[0].pessoaisEstado == "TO"} selected="selected" {/if} >TO</option>
+                                </select>
+                            </td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto">*Estado Civil:</td>
+              			<td>
+                            <select name="pesEstadoCivil" class="formu">
+                                <option value="">Selecione</option>
+                                <option value="Solteiro(a)" {if $dados[0].pessoaisEstadoCivil == "Solteiro(a)"} selected="selected" {/if}>Solteiro(a)</option>
+                                <option value="Casado(a)" {if $dados[0].pessoaisEstadoCivil == "Casado(a)"} selected="selected" {/if}>Casado(a)</option>
+                                <option value="Divorciado(a)" {if $dados[0].pessoaisEstadoCivil == "Divorciado(a)"} selected="selected" {/if}>Divorciado(a)</option>
+                                <option value="Viúvo(a)" {if $dados[0].pessoaisEstadoCivil == "Viúvo(a)"} selected="selected" {/if}>Viúvo(a)</option>
+                                <option value="Desquitado(a)" {if $dados[0].pessoaisEstadoCivil == "Desquitado(a)"} selected="selected" {/if}>Desquitado(a)</option>
+                                <option value="Separado(a)" {if $dados[0].pessoaisEstadoCivil == "Separado(a)"} selected="selected" {/if}>Separado(a)</option>
+                            </select>
+                        </td>
+            		</tr>
+                    <tr>
+              			<td colspan="2">
+                        
+                        <table width="100%">
+                         <tr>
+                         	<td align="right" class="texto">
+								*Possui filhos/ dependentes:
+                            	<input type="radio" name="pesFilhos" value="s" id="pesFilhosS" {if $dados[0].pesFilhos == "s"} checked {/if} />
+                                sim 
+                                <input type="radio" name="pesFilhos" value="n" id="pesFilhosN" {if $dados[0].pesFilhos == "n"} checked {/if} />
+                                n&atilde;o
+                            </td>
+                            
+                            <td align="right" class="texto">
+								Quantos:
+                                <select name="pesQuantos" class="formu">
+                                    <option value="">-</option>
+                                    <option value="1" {if $dados[0].pessoaisFilhos == 1} selected="selected" {/if}>1</option>
+                                    <option value="2" {if $dados[0].pessoaisFilhos == 2} selected="selected" {/if}>2</option>
+                                    <option value="3" {if $dados[0].pessoaisFilhos == 3} selected="selected" {/if}>3</option>
+                                    <option value="4" {if $dados[0].pessoaisFilhos == 4} selected="selected" {/if}>4</option>
+                                    <option value="5" {if $dados[0].pessoaisFilhos == 5} selected="selected" {/if}>5</option>
+                                    <option value="6" {if $dados[0].pessoaisFilhos == 6} selected="selected" {/if}>6</option>
+                                    <option value="7" {if $dados[0].pessoaisFilhos == 7} selected="selected" {/if}>7</option>
+                                    <option value="8" {if $dados[0].pessoaisFilhos == 8} selected="selected" {/if}>8</option>
+                                    <option value="9" {if $dados[0].pessoaisFilhos == 9} selected="selected" {/if}>9</option>
+                                    <option value="10" {if $dados[0].pessoaisFilhos == 10} selected="selected" {/if}>10</option>
+                                </select>
+                            </td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+            		</tr>
+                    
+                    
+                    
+                    <tr>
+                    	<td><br/></td>
+                    </tr>
+            		<tr>
+              			<td align="right" width="10%">&nbsp;</td>
+              			<td class="texto"><strong>Filia&ccedil;&atilde;o</strong></td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto">*Nome do pai:</td>
+              			<td class="texto">
+                        	<input name="filPai" type="text" class="formu" size="60" value="{$dados[0].filiacaoPai}" />
+                        </td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto">*Nome da m&atilde;e:</td>
+              			<td class="texto">
+                        	<input name="filMae" type="text" class="formu" size="60" value="{$dados[0].filiacaoMae}" />
+                        </td>
+            		</tr>
+                    
+                    
+                    
+                    
+                    <tr>
+                    	<td><br/></td>
+                    </tr>
+            		<tr>
+              			<td align="right" width="10%">&nbsp;</td>
+              			<td class="texto"><strong>Dados F&iacute;sicos</strong></td>
+            		</tr>
+                    <tr>
+                    	<td></td>
+              			<td>
+                        
+                        <table width="100%">
+                         <tr>
+                         	<td class="texto">
+								*Peso:
+                                <input name="fisPeso" type="text" class="formu" size="3" maxlength="3" value="{$dados[0].fisicosPeso}" />
+                            </td>
+                            
+                            <td class="texto">
+								*Altura:
+                                <input name="fisAltura" type="text" class="formu" size="3" maxlength="4" value="{$dados[0].fisicosAltura}"/>
+                            </td>
+                            
+                            <td class="texto">
+                            	*Sapatos:
+                                <select name="fisSapatos" class="formu">
+                                    <option value="">-</option>
+                                    {section name=i loop=$arSapato}
+                                        <option value="{$arSapato[i].numero}" {if $arSapato[i].numero == $dados[0].fisicosSapatos} selected="selected" {/if}>{$arSapato[i].numero}</option>
+                                    {/section}
+                                </select>
+                            </td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+            		</tr>
+                    <tr>
+                    	<td></td>
+              			<td>
+                        
+                        <table width="100%">
+                         <tr>
+                            <td class="texto">
+                            	*Camisa:
+                                <select name="fisCamisa" class="formu">
+                                    <option value="-">-</option>
+                                    <option value="PP" {if $dados[0].fisicosCamisa == "PP"} selected="selected" {/if}>PP</option>
+                                    <option value="P" {if $dados[0].fisicosCamisa == "P"} selected="selected" {/if}>P</option>
+                                    <option value="M" {if $dados[0].fisicosCamisa == "M"} selected="selected" {/if}>M</option>
+                                    <option value="G" {if $dados[0].fisicosCamisa == "G"} selected="selected" {/if}>G</option>
+                                    <option value="GG" {if $dados[0].fisicosCamisa == "GG"} selected="selected" {/if}>GG</option>
+                                </select>
+                            </td>
+                            
+                            <td class="texto">
+                            	*Calça:
+                                <select name="fisCalca" class="formu">
+                                    <option value="-">-</option>
+                                    <option value="PP" {if $dados[0].fisicosCalca == "PP"} selected="selected" {/if}>PP</option>
+                                    <option value="P" {if $dados[0].fisicosCalca == "P"} selected="selected" {/if}>P</option>
+                                    <option value="M" {if $dados[0].fisicosCalca == "M"} selected="selected" {/if}>M</option>
+                                    <option value="G" {if $dados[0].fisicosCalca == "G"} selected="selected" {/if}>G</option>
+                                    <option value="GG" {if $dados[0].fisicosCalca == "GG"} selected="selected" {/if}>GG</option>
+                                </select>
+                            </td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+            		</tr>
+                    
+                    
+                    
+                    <tr>
+                    	<td><br/></td>
+                    </tr>
+            		<tr>
+              			<td align="right" width="10%">&nbsp;</td>
+              			<td class="texto"><strong>Escolaridade</strong></td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto">*Escolaridade:</td>
+              			<td>
+                        
+                        <table width="100%">
+                         <tr>
+                         	<td class="texto">
+                            	<select name="escEnsino" class="formu">
+                                  <option>Escolha o grau</option>
+                                  <option value="Superior completo" {if $dados[0].escolaridadeEnsino  == "Superior completo"} selected="selected" {/if} >Superior completo</option>
+                                  <option value="Superior incompleto" {if $dados[0].escolaridadeEnsino  == "Superior incompleto"} selected="selected" {/if} >Superior incompleto</option>
+                                  <option value="Ensino médio técnico (2º grau) completo" {if $dados[0].escolaridadeEnsino  == "Ensino médio técnico (2º grau) completo"} selected="selected" {/if} >Ensino médio técnico (2º grau) completo</option>
+                                  <option value="Ensino médio técnico (2º grau) incompleto" {if $dados[0].escolaridadeEnsino  == "Ensino médio técnico (2º grau) incompleto"} selected="selected" {/if} >Ensino médio técnico (2º grau) incompleto</option>
+                                  <option value="Ensino médio (2º grau) completo" {if $dados[0].escolaridadeEnsino  == "Ensino médio (2º grau) completo"} selected="selected" {/if} >Ensino médio (2º grau) completo</option>
+                                  <option value="Ensino médio (2º grau) incompleto" {if $dados[0].escolaridadeEnsino  == "Ensino médio (2º grau) incompleto"} selected="selected" {/if} >Ensino médio (2º grau) incompleto</option>
+                                  <option value="Ensino fundamental (1º grau) completo" {if $dados[0].escolaridadeEnsino  == "Ensino fundamental (1º grau) completo"} selected="selected" {/if} >Ensino fundamental (1º grau) completo</option>
+                                  <option value="Ensino fundamental (1º grau) incompleto" {if $dados[0].escolaridadeEnsino  == "Ensino fundamental (1º grau) incompleto"} selected="selected" {/if} >Ensino fundamental (1º grau) incompleto</option>
+                                  <option value="Não-alfabetizado" {if $dados[0].escolaridadeEnsino  == "Não-alfabetizado"} selected="selected" {/if} >Não-alfabetizado</option>
+                                </select>
+                            </td>
+                            
+                            <td align="right" class="texto"></td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+            		</tr>
+                    
+                    
+                    <tr>
+                    	<td><br/></td>
+                    </tr>
+            		<tr>
+              			<td align="right" width="10%">&nbsp;</td>
+              			<td class="texto"><strong>Documentos</strong></td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto">*RG:</td>
+              			<td>
+                        
+                        <table width="100%">
+                         <tr>
+                         	<td class="texto">
+                            	<input name="docRg" type="text" class="formu" size="15" value="{$dados[0].documentosRg}" />
+                            </td>
+                            
+                            <td align="right" class="texto">
+								*Dt. Expedi&ccedil;&atilde;o:
+								<input name="docExpedicaoDia" type="text" class="formu" size="3" maxlength="2" value="{$dados[0].docExpedicaoDia}" /> /
+                                <input name="docExpedicaoMes" type="text" class="formu" size="3" maxlength="2" value="{$dados[0].docExpedicaoMes}" /> /
+                                <input name="docExpedicaoAno" type="text" class="formu" size="4" maxlength="4" value="{$dados[0].docExpedicaoAno}" />
+                            </td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto">*CPF:</td>
+              			<td>
+                        
+                        <table width="100%">
+                         <tr>
+                         	<td class="texto">
+                            	<input name="docCpf" type="text" class="formu" size="15" maxlength="14" onKeyPress="Mascara('CPF',this,event);" value="{$dados[0].documentosCpf}" />
+                            </td>
+                            
+                            <td align="right" class="texto">
+								*Tit. Eleitor:
+                                <input name="docTitulo" type="text" class="formu" size="25" value="{$dados[0].documentosTitulo}" />
+                            </td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto">*PIS:</td>
+              			<td>
+                        
+                        <table width="100%">
+                         <tr>
+                         	<td class="texto">
+                            	<input name="docPis" type="text" class="formu" size="25" value="{$dados[0].documentosPis}" />
+                            </td>
+                            
+                            <td align="right" class="texto">
+								*Tipo Sanguineo:
+                                <select name="docTipoSanguineo" class="formu">
+                                    <option value="-">-</option>
+                                    <option value="A+" {if $dados[0].documentosTipoSanguineo == "A+"} selected="selected" {/if}>A+</option>
+                                    <option value="A-" {if $dados[0].documentosTipoSanguineo == "A-"} selected="selected" {/if}>A-</option>
+                                    <option value="B+" {if $dados[0].documentosTipoSanguineo == "B+"} selected="selected" {/if}>B+</option>
+                                    <option value="B-" {if $dados[0].documentosTipoSanguineo == "B-"} selected="selected" {/if}>B-</option>
+                                    <option value="AB+" {if $dados[0].documentosTipoSanguineo == "AB+"} selected="selected" {/if}>AB+</option>
+                                    <option value="AB-" {if $dados[0].documentosTipoSanguineo == "AB-"} selected="selected" {/if}>AB-</option>
+                                    <option value="O+" {if $dados[0].documentosTipoSanguineo == "O+"} selected="selected" {/if}>O+</option>
+                                    <option value="O-" {if $dados[0].documentosTipoSanguineo == "O-"} selected="selected" {/if}>O-</option>
+                                </select>
+                            </td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto">*CTPS:</td>
+              			<td>
+                        
+                        <table width="100%">
+                         <tr>
+                         	<td class="texto">
+                            	<input name="docCtps" type="text" class="formu" size="25" value="{$dados[0].documentosCtps}" />
+                            </td>
+                            
+                            <td align="right" class="texto">
+								*S&eacute;rie:
+                                <input name="docSerie" type="text" class="formu" size="10" value="{$dados[0].documentosSerie}" />
+                            </td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+            		</tr>
+                    <tr>
+              			<td colspan="2">
+                        
+                        <table width="100%">
+                         <tr>
+                         	<td class="texto">
+                            	*Carteira de Motorista:
+                                <input type="radio" name="docCnh" value="s" id="docCnhS" {if $dados[0].docCnh == "s"} checked {/if} />
+                                sim &nbsp;&nbsp;
+                                <input type="radio" name="docCnh" value="n" id="docCnhN" {if $dados[0].docCnh == "n"} checked {/if} />
+                                n&atilde;o
+                            </td>
+                            
+                            <td align="right" class="texto">
+								*Categoria:
+                                <select name="docCategoria" class="formu">
+                                    <option value="">-</option>
+                                    <option value="A" {if $dados[0].documentosChn == "A"} selected="selected" {/if}>A</option>
+                                    <option value="B" {if $dados[0].documentosChn == "B"} selected="selected" {/if}>B</option>
+                                    <option value="C" {if $dados[0].documentosChn == "C"} selected="selected" {/if}>C</option>
+                                    <option value="D" {if $dados[0].documentosChn == "D"} selected="selected" {/if}>D</option>
+                                    <option value="E" {if $dados[0].documentosChn == "E"} selected="selected" {/if}>E</option>
+                                </select>
+                            </td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+            		</tr>
+                    
+                    
+                    
+                    <tr>
+                    	<td><br/></td>
+                    </tr>
+            		<tr>
+              			<td align="right" width="10%">&nbsp;</td>
+              			<td class="texto"><strong>Localiza&ccedil;&atilde;o</strong></td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto">*Endere&ccedil;o:</td>
+              			<td>
+                        
+                        <table width="100%">
+                         <tr>
+                         	<td class="texto">
+                            	<input name="locEndereco" type="text" class="formu" size="40" value="{$dados[0].localizacaoEndereco}" />
+                            </td>
+                            
+                            <td align="right" class="texto">
+								*N&uacute;mero:
+								<input name="locNumero" type="text" class="formu" size="5" value="{$dados[0].localizacaoNumero}" />
+                            </td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto">*Bairro:</td>
+              			<td>
+                        
+                        <table width="100%">
+                         <tr>
+                         	<td class="texto">
+                            	<input name="locBairro" type="text" class="formu" size="30" value="{$dados[0].localizacaoBairro}" />
+                            </td>
+                            
+                            <td align="right" class="texto">
+								*Complemento:
+								<input name="locComplemento" type="text" class="formu" size="5" value="{$dados[0].localizacaoComplemento}" />
+                            </td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto">*CEP:</td>
+              			<td>
+                        
+                        <table width="100%">
+                         <tr>
+                         	<td class="texto">
+                            	<input name="locCep1" type="text" class="formu" size="4" maxlength="5" value="{$dados[0].locCep1}" /> -
+								<input name="locCep2" type="text" class="formu" id="textfield32" size="2" maxlength="3" value="{$dados[0].locCep2}" />
+                            </td>
+                            
+                            <td align="right" class="texto">
+                            	*Cidade:
+                                <input name="locCidade" type="text" class="formu" size="15" value="{$dados[0].localizacaoCidade}" />
+                                
+								*Estado:
+								<select name="locEstado" class="formu">
+                                  	<option>UF</option>
+                                    <option label="AC" value="AC" {if $dados[0].localizacaoEstado == "AC"} selected="selected" {/if} >AC</option>
+                                    <option label="AL" value="AL" {if $dados[0].localizacaoEstado == "AL"} selected="selected" {/if} >AL</option>
+                                    <option label="AM" value="AM" {if $dados[0].localizacaoEstado == "AM"} selected="selected" {/if} >AM</option>
+                                    <option label="AP" value="AP" {if $dados[0].localizacaoEstado == "AP"} selected="selected" {/if} >AP</option>
+                                    <option label="BA" value="BA" {if $dados[0].localizacaoEstado == "BA"} selected="selected" {/if} >BA</option>
+                                    <option label="CE" value="CE" {if $dados[0].localizacaoEstado == "CE"} selected="selected" {/if} >CE</option>
+                                    <option label="DF" value="DF" {if $dados[0].localizacaoEstado == "DF"} selected="selected" {/if} >DF</option>
+                                    <option label="ES" value="ES" {if $dados[0].localizacaoEstado == "ES"} selected="selected" {/if} >ES</option>
+                                    <option label="GO" value="GO" {if $dados[0].localizacaoEstado == "GO"} selected="selected" {/if} >GO</option>
+                                    <option label="MA" value="MA" {if $dados[0].localizacaoEstado == "MA"} selected="selected" {/if} >MA</option>
+                                    <option label="MG" value="MG" {if $dados[0].localizacaoEstado == "MG"} selected="selected" {/if} >MG</option>
+                                    <option label="MS" value="MS" {if $dados[0].localizacaoEstado == "MS"} selected="selected" {/if} >MS</option>
+                                    <option label="MT" value="MT" {if $dados[0].localizacaoEstado == "MT"} selected="selected" {/if} >MT</option>
+                                    <option label="PA" value="PA" {if $dados[0].localizacaoEstado == "PA"} selected="selected" {/if} >PA</option>
+                                    <option label="PB" value="PB" {if $dados[0].localizacaoEstado == "PB"} selected="selected" {/if} >PB</option>
+                                    <option label="PE" value="PE" {if $dados[0].localizacaoEstado == "PE"} selected="selected" {/if} >PE</option>
+                                    <option label="PI" value="PI" {if $dados[0].localizacaoEstado == "PI"} selected="selected" {/if} >PI</option>
+                                    <option label="PR" value="PR" {if $dados[0].localizacaoEstado == "PR"} selected="selected" {/if} >PR</option>
+                                    <option label="RJ" value="RJ" {if $dados[0].localizacaoEstado == "RJ"} selected="selected" {/if} >RJ</option>
+                                    <option label="RN" value="RN" {if $dados[0].localizacaoEstado == "RN"} selected="selected" {/if} >RN</option>
+                                    <option label="RO" value="RO" {if $dados[0].localizacaoEstado == "RO"} selected="selected" {/if} >RO</option>
+                                    <option label="RR" value="RR" {if $dados[0].localizacaoEstado == "RR"} selected="selected" {/if} >RR</option>
+                                    <option label="RS" value="RS" {if $dados[0].localizacaoEstado == "RS"} selected="selected" {/if} >RS</option>
+                                    <option label="SC" value="SC" {if $dados[0].localizacaoEstado == "SC"} selected="selected" {/if} >SC</option>
+                                    <option label="SE" value="SE" {if $dados[0].localizacaoEstado == "SE"} selected="selected" {/if} >SE</option>
+                                    <option label="SP" value="SP" {if $dados[0].localizacaoEstado == "SP"} selected="selected" {/if} >SP</option>
+                                    <option label="TO" value="TO" {if $dados[0].localizacaoEstado == "TO"} selected="selected" {/if} >TO</option>
+                                </select>
+                            </td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+            		</tr>
+                    
+                    
+                    
+                    <tr>
+                    	<td><br/></td>
+                    </tr>
+            		<tr>
+              			<td align="right" width="10%">&nbsp;</td>
+              			<td class="texto"><strong>Contatos</strong></td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto">*Telefone Fixo:</td>
+              			<td>
+                        
+                        <table width="100%">
+                         <tr>
+                         	<td class="texto">
+                            	<input name="conFoneDdd" type="text" class="formu" size="2" maxlength="3" value="{$dados[0].contatosTelefoneDdd}" /> -
+								<input name="conFone" type="text" class="formu" size="14" maxlength="8" value="{$dados[0].contatosTelefone}" />
+                            </td>
+                            
+                            <td align="right" class="texto">
+								Celular:
+								<input name="conCelDdd" type="text" class="formu" size="2" maxlength="3" value="{$dados[0].contatosCelularDdd}" /> -
+								<input name="conCel" type="text" class="formu" size="14" maxlength="8" value="{$dados[0].contatosCelular}" />
+                            </td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto">*E-mail:</td>
+              			<td><input name="conEmail" type="text" class="formu" size="40" value="{$dados[0].contatosEmail}" /></td>
+            		</tr>
+                    
+                    
+                    
+                    <tr>
+                    	<td><br/></td>
+                    </tr>
+            		<tr>
+              			<td align="right" width="10%">&nbsp;</td>
+              			<td class="texto"><strong>Curso</strong></td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto"></td>
+              			<td class="texto">* Possui algum curso na &aacute;rea de seguran&ccedil;a armada ou desarmada?</td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto"></td>
+              			<td class="texto">
+                        	<input type="radio" name="curso" value="s" id="cursoS" {if $dados[0].curso == "s"} checked {/if} />
+                            sim &nbsp;&nbsp;
+                            <input type="radio" name="curso" value="n" id="cursoN" {if $dados[0].curso == "n"} checked {/if} />
+                            n&atilde;o
+                        </td>
+            		</tr>
+                    
+                    
+                    <tr>
+                    	<td><br/></td>
+                    </tr>
+            		<tr>
+              			<td align="right" width="10%">&nbsp;</td>
+              			<td class="texto"><strong>Experi&ecirc;ncia Profissional</strong></td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto"></td>
+              			<td class="texto">* Descreva de forma resumida a sua experi&ecirc;ncia profissional:</td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto"></td>
+              			<td class="texto"><textarea name="experiencia" cols="55" rows="7" class="formu">{$dados[0].experiencia}</textarea></td>
+            		</tr>
+                    
+                    
+                    
+                    <tr>
+                    	<td><br/></td>
+                    </tr>
+            		<tr>
+              			<td align="right" width="10%">&nbsp;</td>
+              			<td class="texto"><strong>Administração</strong></td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto">*Status:</td>
+              			<td>
+                        
+                        <table width="100%">
+                         <tr>
+                         	<td class="texto">
+                                <select name="status" class="formu">
+                                  <option value="0" {if $dados[0].status == "0"} selected="selected" {/if} >Não apto</option>
+                                  <option value="1" {if $dados[0].status == "1"} selected="selected" {/if} >Apto</option>
+								</select>
+                            </td>
+                         </tr>
+                        </table>
+                        
+                        </td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto"></td>
+              			<td class="texto">* Anotações:</td>
+            		</tr>
+                    <tr>
+              			<td align="right" nowrap="nowrap" class="texto"></td>
+              			<td class="texto"><textarea name="anotacoes" cols="55" rows="7" class="formu">{$dados[0].anotacoes}</textarea></td>
+            		</tr>
+                    
+                    
+            		<tr>
+              			<td></td>
+              			<td class="texto">
+                        	<input name="submit" type="submit" class="botao" value="{$botao}" /><br>
+                            * Campos obrigat&oacute;rios.
+                        </td>
+            		</tr>
+
+          			</form>
+        		</table>
+			</td>
+     	 </tr>
+    </table>
+	
+	</td>
+    <td width="5%">&nbsp;</td>
+  </tr>
+</table>
+<!-- FIM Conteúdo -->
+
+{include file="admin/rodape.html"}

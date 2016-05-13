@@ -5,11 +5,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="index, follow">
-        <meta name="description" content="" />
+        <meta name="description" content="{$urlFriendly.description}" />
         <link href="{$URL}commom/img/icon-tab.png" rel="icon">
         {include file="../inc/cssUrlAmigavel.html"}
         <link rel="stylesheet" type="text/css" href="{$URL}commom/css/estilo.css">
-        <title>Tae Segurança</title>
+        <title>{$urlFriendly.title}</title>
         <!-- Bootstrap -->
         <link href="{$URL}commom/css/bootstrap.min.css" rel="stylesheet">
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -63,9 +63,9 @@
                         {/if}                        
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6">
-                        <div class="atend-on bloco-atributos mg-none pull-right">
+                        <div class="atend-on bloco-atributos mg-none pull-right" style="margin-top: -10px !Important;">
                             <img class="pull-left" src="{$URL}commom/img/solicite-orcamento.png" alt="solicite orçamento">    
-                            <p class="txt-atend-on pull-left">Solicite um Orçamento Agora!</p>
+                            <p class="txt-atend-on txt-atend-on-open pull-left">Solicite um Orçamento Agora!</p>
                         </div>
                         <div class="content-form-fixed content-form-fixed-tae">
                             <img class="img-bg-orcamento" src="{$URL}commom/img/background-orcamento.png" alt="orçamento">

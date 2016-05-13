@@ -1,0 +1,75 @@
+﻿{include file="admin/topo.html"}
+
+{literal}
+<script>
+
+	function checa()
+	{
+		frm = document.frm_cadastro;
+		msg = "Preencha o campo ";
+		
+		if(trim(frm.senha.value) == "")
+		{
+			alert(msg + " Nova senha!");
+			frm.senha.focus();
+			return false;
+		}
+		
+		if(trim(frm.senha2.value) == "")
+		{
+			alert(msg + " Repetir nova senha!");
+			frm.senha2.focus();
+			return false;
+		}
+		
+		if(trim(frm.senha.value) != trim(frm.senha2.value))
+		{
+			alert("As senhas estão diferentes!");
+			return false;
+		}
+		
+		return true;
+	}
+
+</script>
+{/literal}
+
+<!-- Conteúdo -->
+<table width="100%" height="350" border="0" cellpadding="10" cellspacing="0">
+  <tr>
+    <td width="5%">&nbsp;</td>
+    <td width="90%" style="background-color:#FFFFFF" valign="top">
+		<table width="100%" border="0">
+      		<tr>
+        	<!-- <td valign="top">{include file="admin/usuario/menu.html"}</td> -->
+        	<td>
+				<table cellspacing="2" cellpadding="2" border="0" width="100%">
+            		<tr height="30">
+              			<td align="right" width="20%">&nbsp;</td>
+              			<td class="texto"><strong>MEU CADASTRO - ALTERAR SENHA</strong></td>
+            		</tr>
+     				<form name="frm_cadastro" onSubmit="return checa()" method="POST">
+     				<input type="hidden" name="acao" value="editar_senha">
+     				<tr>
+     					<td align="right" class="texto">Nova senha:</td>
+        				<td><input type="password" name="senha" size="30"></td>
+     				</tr>
+     				<tr>
+     					<td align="right" class="texto">Repetir Nova senha:</td>
+        				<td><input type="password" name="senha2" size="30"></td>
+     				</tr>
+     				<tr>
+     					<td></td>
+        				<td><input type="submit" value="Alterar" class="botao"></td>
+     				</tr>
+     				</form>
+    			</table>
+			</td>
+    		</tr>	
+		</table>	
+		<td width="5%">&nbsp;</td>
+	</tr>
+</table>
+<!-- FIM Conteúdo -->
+
+{include file="admin/rodape.html"}
